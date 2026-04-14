@@ -3,7 +3,7 @@
   <Project Path="NaughtyAttributes.Core.csproj" />
   <Project Path="AstarPathfindingProject.csproj" />
   <Project Path="NaughtyAttributes.Editor.csproj" />
-  <Project Path="PackageToolsEditor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="PackageToolsEditor.csproj" />
   <Project Path="AstarPathfindingProjectEditor.csproj" />
 </Solution>

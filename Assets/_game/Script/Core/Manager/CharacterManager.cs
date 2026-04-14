@@ -6,6 +6,7 @@ public class CharacterManager: MonoBehaviour
     // như là HandleDamage, HandleDeath, v.v.
 
     // vì ko có playerHealthManager nên sẽ làm thêm CharacterHealthManager, sau đó playerHealthManager sẽ kế thừa từ CharacterHealthManager, và enemyHealthManager cx vậy
+    public LayerMask _layerMask;
     [Header("Character")]
     [SerializeField] CharacterHealthManager characterHealthManager;
 

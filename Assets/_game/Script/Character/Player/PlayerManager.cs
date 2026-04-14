@@ -11,6 +11,8 @@ public class PlayerManager: CharacterManager
     [SerializeField] PlayerAnimationManager _playerAnimationManager;
 
 
+
+
     public override void Awake()
     {
         base.Awake();
