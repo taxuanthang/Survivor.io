@@ -59,6 +59,11 @@ public class PlayerInputManager : MonoBehaviour
         else if (movingInput.y < 0) movingInput.y = -1;
         else movingInput.y = 0;
 
+        if(movingInput.magnitude >1)
+        {
+            movingInput = movingInput.normalized;
+        }
+
         _playerManager.HandleMoveInput((int)movingInput.x, (int)movingInput.y);
 
     }

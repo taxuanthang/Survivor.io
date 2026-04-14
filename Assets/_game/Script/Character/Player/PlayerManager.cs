@@ -23,8 +23,7 @@ public class PlayerManager: CharacterManager
     public void HandleMoveInput(int x, int y)
     {
         // update moveInput
-        _playerLocomotionManager.horizontalInput = x;
-        _playerLocomotionManager.verticalInput = y;
+        _playerLocomotionManager.UpdateMovingInput(x, y);
 
         //
         _playerAnimationManager.UpdateMovingParameter(x, y);

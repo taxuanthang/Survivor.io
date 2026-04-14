@@ -2042,6 +2042,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   verticalInput: 0
   horizontalInput: 0
+  moveAmount: 0
   allowToMove: 1
   speed: 10
   allowToDodge: 1

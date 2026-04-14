@@ -18,6 +18,7 @@ public class PlayerLocomotionManager: MonoBehaviour
     [Header("Moving Properties")]
     public int verticalInput;
     public int horizontalInput;
+    public float moveAmount;
     public bool allowToMove = true;
     public float speed;
     public void HandleMovement()
@@ -25,10 +26,17 @@ public class PlayerLocomotionManager: MonoBehaviour
         if(!allowToMove)
         {
             return;
-        }    
+        }
+
         playerTransform.localPosition += new Vector3(horizontalInput, verticalInput, 0) * speed * Time.fixedDeltaTime;
     }
 
+    public void UpdateMovingInput(int x, int y)
+    {
+        horizontalInput = x;
+        verticalInput = y;
+        moveAmount = new Vector2(horizontalInput, verticalInput).magnitude;
+    }    
 
     [Header("Dodge Properties")]
     public bool allowToDodge = true;
