@@ -16,8 +16,8 @@ public class PlayerLocomotionManager: MonoBehaviour
     }
 
     [Header("Moving Properties")]
-    public int verticalInput;
-    public int horizontalInput;
+    public float verticalInput;
+    public float horizontalInput;
     public float moveAmount;
     public bool allowToMove = true;
     public float speed;
@@ -31,7 +31,7 @@ public class PlayerLocomotionManager: MonoBehaviour
         playerTransform.localPosition += new Vector3(horizontalInput, verticalInput, 0) * speed * Time.fixedDeltaTime;
     }
 
-    public void UpdateMovingInput(int x, int y)
+    public void UpdateMovingInput(float x, float y)
     {
         horizontalInput = x;
         verticalInput = y;

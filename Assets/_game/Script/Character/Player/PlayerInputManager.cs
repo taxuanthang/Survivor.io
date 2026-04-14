@@ -64,7 +64,7 @@ public class PlayerInputManager : MonoBehaviour
             movingInput = movingInput.normalized;
         }
 
-        _playerManager.HandleMoveInput((int)movingInput.x, (int)movingInput.y);
+        _playerManager.HandleMoveInput(movingInput.x,movingInput.y);
 
     }
 

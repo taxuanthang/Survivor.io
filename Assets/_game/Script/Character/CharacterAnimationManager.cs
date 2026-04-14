@@ -7,7 +7,7 @@ public class CharacterAnimationManager : MonoBehaviour
     [SerializeField] Animator _animator;
 
 
-    public void UpdateMovingParameter(int x, int y)
+    public void UpdateMovingParameter(float x, float y)
     {
         _animator.SetFloat("InputX", x);
         _animator.SetFloat("InputY", y);

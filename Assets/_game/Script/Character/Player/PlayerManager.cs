@@ -20,7 +20,7 @@ public class PlayerManager: CharacterManager
         if (_playerAnimationManager == null) _playerAnimationManager = GetComponent<PlayerAnimationManager>();
     }
 
-    public void HandleMoveInput(int x, int y)
+    public void HandleMoveInput(float x, float y)
     {
         // update moveInput
         _playerLocomotionManager.UpdateMovingInput(x, y);
