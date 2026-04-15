@@ -24,7 +24,6 @@ public class EnemyManager : CharacterManager
     public void Update()
     {
         movingInput = (_enemyAIManager.destinationSetter.target.position - _enemyAIManager.aiPath.position).normalized;
-        print(movingInput);
 
         if (movingInput.x > 0.6) movingInput.x = 1;
         else if (movingInput.x < -0.6) movingInput.x = -1;
@@ -33,7 +32,6 @@ public class EnemyManager : CharacterManager
         if (movingInput.y > 0.6) movingInput.y = 1;
         else if (movingInput.y < -0.6) movingInput.y = -1;
         else movingInput.y = 0;
-        print(movingInput);
         _enemyAnimationManager.UpdateMovingParameter((int)movingInput.x, (int)movingInput.y);
     }
 

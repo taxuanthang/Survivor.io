@@ -2039,10 +2039,10 @@ GameObject:
   - component: {fileID: 735644527}
   - component: {fileID: 735644529}
   - component: {fileID: 735644532}
-  - component: {fileID: 735644530}
-  - component: {fileID: 735644531}
   - component: {fileID: 735644533}
   - component: {fileID: 735644534}
+  - component: {fileID: 735644530}
+  - component: {fileID: 735644531}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -2241,6 +2241,7 @@ MonoBehaviour:
   detectRadius: 3.37
   colorDetectArea: {r: 1, g: 0, b: 0, a: 1}
   showDetectArea: 0
+  shootCooldown: 2
 --- !u!1 &769610040
 GameObject:
   m_ObjectHideFlags: 0

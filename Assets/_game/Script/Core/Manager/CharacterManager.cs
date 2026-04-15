@@ -21,5 +21,9 @@ public class CharacterManager: MonoBehaviour
         characterHealthManager.TakeDamage(damage);
     }
 
+    public bool IsDead()
+    {
+        return characterHealthManager.isDead;
+    }
 }
 

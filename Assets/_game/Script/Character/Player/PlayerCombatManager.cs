@@ -1,13 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAutoDetectManager : MonoBehaviour
+public class PlayerCombatManager : MonoBehaviour
 {
     [SerializeField] CharacterManager currentEnemy;
     [SerializeField] PlayerManager player;
     [SerializeField] float detectRadius;
     [SerializeField] Color colorDetectArea;
     [SerializeField] bool showDetectArea;
+    [SerializeField] float shootCooldown;
+    float currentShootCooldown = 0f;
 
     public void Awake()
     {
@@ -17,7 +19,45 @@ public class PlayerAutoDetectManager : MonoBehaviour
     public void Update()
     {
         // spawn physic để check overlap
-        currentEnemy = GetNearestOverlapEnemy();
+
+        // check khi mà mục tiêu hiện tại chết thì sẽ tìm target mới
+        if(currentEnemy == null)
+        {
+            currentEnemy = GetNearestOverlapEnemy();
+        }
+        else if (currentEnemy != null && currentEnemy.IsDead())
+        {
+            currentEnemy = GetNearestOverlapEnemy();
+        }
+
+        if (currentShootCooldown > 0)
+        {
+            currentShootCooldown -= Time.deltaTime;
+            return;
+        }
+        else
+        {
+            currentShootCooldown = shootCooldown;
+        }
+
+        if (currentEnemy != null && !currentEnemy.IsDead())
+        {
+            // Bắn mục tiêu hiện tại
+            Vector2 lookDir = currentEnemy.transform.position - this.transform.position;
+            lookDir = lookDir.normalized;
+            player.HandleShootInput(lookDir);
+        }
+
+
+
+        
+
+
+    }
+
+    public void ShootCurent()
+    {
+
     }
 
     public CharacterManager GetNearestOverlapEnemy()

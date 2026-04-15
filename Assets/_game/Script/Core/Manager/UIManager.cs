@@ -16,17 +16,11 @@ public class UIManager : MonoBehaviour
         AmmoSlider.value = ammo;
     }
 
-    public void Awake()
+    public void Start()
     {
         EventManager.instance.OnHealthChanged += UpdateHealth;
         EventManager.instance.OnPlayerAmmoChanged += UpdateAmmo;
 
         UpdateHealth(1);
-    }
-     private void OnDestroy()
-    {
-        EventManager.instance.OnHealthChanged -= UpdateHealth;
-        EventManager.instance.OnPlayerAmmoChanged -= UpdateAmmo;
-
     }
 }
