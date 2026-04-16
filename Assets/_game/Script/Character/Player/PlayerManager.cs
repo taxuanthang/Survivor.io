@@ -37,14 +37,14 @@ public class PlayerManager: CharacterManager
         StartCoroutine(_playerLocomotionManager.HandleDodge());
     }
 
-    internal void HandleShootInput(Vector2 lookDir)
+    internal void HandleShootInput(Vector3 currentTargetPos)
     {
-        _playerEquipmentManager.HandleShoot(lookDir);
+        _playerEquipmentManager.HandleShoot(currentTargetPos);
     }
 
-    public void HandleMousePos(Quaternion lookAngle)
+    public void HandleMousePos(Vector3 currentTargetPos)
     {
-        _playerEquipmentManager.RotateGun(lookAngle);
+        _playerEquipmentManager.RotateGun(currentTargetPos);
     }
 
     // bây giờ sẽ làm kế thừa để cho cả enemies cx dùng đc hàm Handle Damage

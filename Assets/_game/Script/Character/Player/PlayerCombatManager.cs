@@ -29,24 +29,27 @@ public class PlayerCombatManager : MonoBehaviour
         {
             currentEnemy = GetNearestOverlapEnemy();
         }
-
-        if (currentShootCooldown > 0)
+        else if (currentEnemy != null && !currentEnemy.IsDead())
         {
-            currentShootCooldown -= Time.deltaTime;
-            return;
-        }
-        else
-        {
-            currentShootCooldown = shootCooldown;
-        }
-
-        if (currentEnemy != null && !currentEnemy.IsDead())
-        {
+            // xoay đên mục tiêu hiện tại
+            player.HandleMousePos(currentEnemy.transform.position);
             // Bắn mục tiêu hiện tại
-            Vector2 lookDir = currentEnemy.transform.position - this.transform.position;
-            lookDir = lookDir.normalized;
-            player.HandleShootInput(lookDir);
+            if (currentShootCooldown > 0)
+            {
+                currentShootCooldown -= Time.deltaTime;
+                return;
+            }
+            else
+            {
+                currentShootCooldown = shootCooldown;
+            }
+
+            if (currentEnemy != null && !currentEnemy.IsDead())
+            {
+                player.HandleShootInput(currentEnemy.transform.position);
+            }
         }
+
 
 
 

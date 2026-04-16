@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
 
         inputSystem.Player.Dodge.performed += ctx => dodgeInput = true;
 
-        inputSystem.Player.Look.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
+        //inputSystem.Player.Look.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
         inputSystem.Player.Shoot.performed += ctx => shootInput = true;
     }
 
@@ -45,7 +45,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleMoveInput();
         HandleDodgeInput();
         HandleShootInput();
-        HandleMouse();
+        //HandleMouse();
     }
 
     private void HandleMoveInput()
@@ -100,11 +100,8 @@ public class PlayerInputManager : MonoBehaviour
         // 2 cách 
         // cách 1: Có vị trí của mouse trên screen thì cast qua world rồi tính vecto ra góc xoay
         // cách 2: tính luôn góc xoay dựa trên vị trí của mouse trên screen, sau đó chuyển góc xoay sang world
-        Vector2 lookDir = mousePos - centerScreen;
-        
-        Quaternion lookAngle = Quaternion.FromToRotation(Vector3.right, lookDir);
 
-        _playerManager.HandleMousePos(lookAngle);
+        _playerManager.HandleMousePos(mousePos);
     }
 }
 
