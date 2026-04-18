@@ -14,6 +14,7 @@ public class Room : MonoBehaviour
 
     // convert sang world
     public Bounds worldBounds ;
+    public List<Vector3> spawnsPoints;
 
     public bool IsSpawnable(Vector3 pos)
     {
@@ -39,7 +40,6 @@ public class Room : MonoBehaviour
 
     public List<Vector3> GetSpawnPoints()
     {
-        List<Vector3> spawnsPoints = new List<Vector3>();
         return spawnsPoints;
     }
 }

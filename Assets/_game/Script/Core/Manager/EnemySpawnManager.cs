@@ -12,7 +12,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public GameObject enemyPrefab;
 
-    public void SpawnEnemíe(PlayerManager player ,int numberToSpawn)
+    public void SpawnEnemíe(PlayerManager player ,int numberToSpawn, EnemySpawnType spawnType)
     {
         //Vector3 spawnPos = currentRoom.transform.position + new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         //if (currentRoom.IsSpawnable(pos))
@@ -21,7 +21,19 @@ public class EnemySpawnManager : MonoBehaviour
         //}
 
         for(int i = 0; i < numberToSpawn; i++) {
-            Vector3 spawnPos = GetPointRandomInPlayerRadius();
+            Vector3 spawnPos = new Vector3();
+            switch (spawnType)
+            {
+                case EnemySpawnType.RandomInPlayerRadius:
+                    spawnPos = GetPointRandomInPlayerRadius();
+                    break;
+                case EnemySpawnType.RandomBetweenDeclaredSpawnPos:
+                    spawnPos = GetPointRandomBetweenDeclaredSpawnPos();
+                    break;
+                case EnemySpawnType.RandomInRoomSize:
+                    spawnPos = GetPointRandomInRoomSize();
+                    break;
+            }
 
             EnemyManager enemy= Instantiate(enemyPrefab, spawnPos, Quaternion.identity).GetComponent<EnemyManager>();
             enemy.SetUp(player);
@@ -67,4 +79,11 @@ public class EnemySpawnManager : MonoBehaviour
 
         return spawnPos;
     }
+}
+
+public enum EnemySpawnType
+{
+    RandomInPlayerRadius,
+    RandomBetweenDeclaredSpawnPos,
+    RandomInRoomSize
 }
