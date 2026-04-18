@@ -33,6 +33,12 @@ public class EnemyAIManager : MonoBehaviour
         // set current state ban đầu là idle
         ChangeState(_idleState);
     }
+
+
+    public void SetUp(PlayerManager player)
+    {
+        destinationSetter.target = player.transform;
+    }
     // phương thức để chuyển đổi trạng thái
     public void ChangeState(State newState)
     {

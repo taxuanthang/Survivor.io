@@ -43,5 +43,11 @@ public class EnemyManager : CharacterManager
             player.HandleDamage(10);
         }
     }
+
+    public void SetUp(PlayerManager player)
+    {
+        base.SetUp();
+        _enemyAIManager.SetUp(player);
+    }
 }
 

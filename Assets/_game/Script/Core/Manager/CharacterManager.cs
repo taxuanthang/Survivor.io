@@ -25,5 +25,10 @@ public class CharacterManager: MonoBehaviour
     {
         return characterHealthManager.isDead;
     }
+
+    public virtual void SetUp()
+    {
+
+    }
 }
 
