@@ -23,6 +23,11 @@ public class EnemyManager : CharacterManager
 
     public void Update()
     {
+        if (Time.timeScale ==0)
+        {
+            return;
+        }
+
         movingInput = (_enemyAIManager.destinationSetter.target.position - _enemyAIManager.aiPath.position).normalized;
 
         if (movingInput.x > 0.6) movingInput.x = 1;
@@ -33,6 +38,11 @@ public class EnemyManager : CharacterManager
         else if (movingInput.y < -0.6) movingInput.y = -1;
         else movingInput.y = 0;
         _enemyAnimationManager.UpdateMovingParameter((int)movingInput.x, (int)movingInput.y);
+
+        //update component
+        _enemyAIManager.Tick();
+
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

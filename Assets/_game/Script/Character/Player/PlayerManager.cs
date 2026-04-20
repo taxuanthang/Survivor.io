@@ -22,6 +22,17 @@ public class PlayerManager: CharacterManager
         if (_playerAnimationManager == null) _playerAnimationManager = GetComponent<PlayerAnimationManager>();
     }
 
+    public void OnEnable()
+    {
+        EventManager.instance.RestartGame.AddListener(Resurrect);
+
+    }
+
+    public void OnDisable()
+    {
+        EventManager.instance.RestartGame.RemoveListener(Resurrect);
+    }
+
     public void HandleMoveInput(float x, float y)
     {
         // update moveInput
@@ -47,7 +58,12 @@ public class PlayerManager: CharacterManager
         _playerEquipmentManager.RotateGun(currentTargetPos);
     }
 
-    // bây giờ sẽ làm kế thừa để cho cả enemies cx dùng đc hàm Handle Damage
+    public void Resurrect()
+    {
+        Debug.Log("Player Resurrected");
+        _playerHealthManager.HealAll();
+        _playerHealthManager.isDead = false;
+    }
 
 }
 

@@ -53,7 +53,7 @@ public class EnemyAIManager : MonoBehaviour
         }
     }
     // phương thức để chạy trạng thái sẽ để trong update
-    public void Update()
+    public void Tick()
     {
         if (_currentState != null)
         {

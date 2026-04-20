@@ -17,7 +17,7 @@ public class CharacterManager: MonoBehaviour
 
     public void HandleDamage(int damage)
     {
-        Debug.Log($"{gameObject.name} takes {damage} damage.");
+        //Debug.Log($"{gameObject.name} takes {damage} damage.");
         characterHealthManager.TakeDamage(damage);
     }
 

@@ -1,3 +1,5 @@
+using System;
+
 public class PlayerHealthManager : CharacterHealthManager
 {
     public override void TakeDamage(int damage)
@@ -11,5 +13,21 @@ public class PlayerHealthManager : CharacterHealthManager
     {
         base.Die();
         EventManager.instance.OnPlayerDied?.Invoke();
+    }
+
+    public void Heal(int amount)
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += amount;
+            if (currentHealth > maxHealth) currentHealth = maxHealth;
+            float percentageHealth = (float)currentHealth / (float)maxHealth;
+            EventManager.instance.OnHealthChanged?.Invoke(percentageHealth);
+        }
+    }
+
+    internal void HealAll()
+    {
+        Heal(maxHealth);
     }
 }

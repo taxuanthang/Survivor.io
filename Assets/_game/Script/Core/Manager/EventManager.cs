@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
-     private void Awake()
+    private void Awake()
     {
         if (instance == null)
         {
@@ -16,6 +17,8 @@ public class EventManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SceneManager.LoadSceneAsync(1);
     }
 
 

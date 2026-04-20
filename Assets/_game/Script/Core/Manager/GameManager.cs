@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] PlayerInputManager playerInputManager;
+
+
     [SerializeField] PlayerManager player;
     [SerializeField] EnemySpawnManager enemySpawnManager;
     [SerializeField] EnemySpawnType enemySpawnType;
@@ -19,9 +22,6 @@ public class GameManager : MonoBehaviour
         {
             player = FindObjectOfType<PlayerManager>();
         }
-
-
-
     }
 
     public void Start()
@@ -45,19 +45,21 @@ public class GameManager : MonoBehaviour
     [Button("Start Game")]
     private void StartGame()
     {
-        enemySpawnManager.SpawnEnemíe(player, 5, enemySpawnType);
+        enemySpawnManager.SpawnEnemies(player, 1, enemySpawnType);
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
         gameState = GameState.Paused;
+        playerInputManager.enabled = false;
     }
 
     public void UnPauseGame()
     {
         Time.timeScale = 1f;
         gameState = GameState.Playing;
+        playerInputManager.enabled = true;
     }
 
     public void RestartGame()

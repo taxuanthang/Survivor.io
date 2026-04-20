@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public GameObject enemyPrefab;
 
-    public void SpawnEnemíe(PlayerManager player ,int numberToSpawn, EnemySpawnType spawnType)
+    public void SpawnEnemies(PlayerManager player ,int numberToSpawn, EnemySpawnType spawnType)
     {
         //Vector3 spawnPos = currentRoom.transform.position + new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         //if (currentRoom.IsSpawnable(pos))
@@ -78,6 +79,12 @@ public class EnemySpawnManager : MonoBehaviour
         while (!currentRoom.IsSpawnable(spawnPos));
 
         return spawnPos;
+    }
+
+    [Button("Test Spawn Enemy")]
+    public void SpawnEnemies1()
+    {
+        SpawnEnemies(player, 1, EnemySpawnType.RandomInPlayerRadius);
     }
 }
 

@@ -27,7 +27,6 @@ public class PlayerEquipmentManager : MonoBehaviour
     public void RotateGun(Vector3 currentPointerPos)
     {
         float lookAngle = Vector3.SignedAngle(Vector3.right, currentPointerPos - this.transform.position, Vector3.forward);
-        print(lookAngle);
         if (lookAngle <= 90 && lookAngle >= -90)
         {
             currentGun.transform.localScale = new Vector3(1, 1, 1);
