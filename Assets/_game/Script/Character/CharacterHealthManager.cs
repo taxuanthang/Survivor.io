@@ -25,5 +25,10 @@ public class CharacterHealthManager : MonoBehaviour
     {
         isDead = true;
         // run death animation, disable player controls, etc.
+
+
     }
+
+
 }
+

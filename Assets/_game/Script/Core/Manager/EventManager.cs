@@ -24,5 +24,12 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent<float> onHealth;
 
+    public UnityEvent OnPlayerDied;
+
+    public UnityEvent<float> OnGamePause;
+    public UnityEvent<float> OnGameUnPause;
+
+    public UnityEvent RestartGame;
+
 
 }
