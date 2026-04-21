@@ -14,8 +14,11 @@ public class EnemyAICombatManager : MonoBehaviour
         // logic để thực hiện melee attack, có thể gọi animation, kiểm tra
         // giờ sẽ tạo ra một ô vuông gây dame và sẽ xóa nó đi sau 1 khoảng thời gian
         Vector3 createPos = (target.transform.position - this.transform.position).normalized * 0.5f + this.transform.position; // tạo hitbox ở vị trí gần enemy
-        HitBoxDame hitBox = Instantiate(hitBoxDame, createPos, Quaternion.identity);
+        HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
+        hitBox.transform.position = createPos;
+        hitBox.transform.rotation = Quaternion.identity;
         DestroyTimer destroyTimer = hitBox.gameObject.GetComponent<DestroyTimer>();
+        destroyTimer.poolType = PoolType.HitBox;
         destroyTimer.timeToDestroy = hitBoxDuration;
 
         await Task.Delay((int)(attackCooldown * 1000)); // chờ cho hitbox tồn tại xong rồi mới có thể thực hiện các hành động tiếp theo

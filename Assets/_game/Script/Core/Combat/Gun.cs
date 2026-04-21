@@ -18,7 +18,10 @@ public class Gun : MonoBehaviour
             // Logic to shoot the gun
             currentAmmo--;
             // spawn bullet and set its properties based on the gun's properties
-            Bullet newBullet = Instantiate(bullet,transform.position,Quaternion.identity);
+            Bullet newBullet = PoolManager.instance.Get(PoolType.Bullet).GetComponent<Bullet>(); // Get a bullet from the pool
+            newBullet.destroyTimer.poolType = PoolType.Bullet;
+            newBullet.transform.position = transform.position;
+            newBullet.transform.rotation = Quaternion.identity;
             newBullet.dir = lookDir.normalized; 
             newBullet.damage = damage;
             newBullet.bulletSprite = gunSprite; // Set the bullet's sprite to the gun's sprite

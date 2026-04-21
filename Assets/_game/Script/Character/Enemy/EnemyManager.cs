@@ -54,9 +54,10 @@ public class EnemyManager : CharacterManager
         }
     }
 
-    public void SetUp(PlayerManager player)
+    public void SetUp(PlayerManager player, Vector3 spawnPos)
     {
         base.SetUp();
+        this.transform.position = spawnPos;
         _enemyAIManager.SetUp(player);
     }
 }

@@ -36,8 +36,8 @@ public class EnemySpawnManager : MonoBehaviour
                     break;
             }
 
-            EnemyManager enemy= Instantiate(enemyPrefab, spawnPos, Quaternion.identity).GetComponent<EnemyManager>();
-            enemy.SetUp(player);
+            EnemyManager enemy= PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+            enemy.SetUp(player, spawnPos);
 
         }
     }
