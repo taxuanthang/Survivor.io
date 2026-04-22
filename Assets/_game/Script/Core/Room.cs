@@ -14,7 +14,7 @@ public class Room : MonoBehaviour
 
     // convert sang world
     public Bounds worldBounds ;
-    public List<Vector3> spawnsPoints;
+    public List<Transform> spawnsPoints;
 
     public bool IsSpawnable(Vector3 pos)
     {
@@ -38,7 +38,7 @@ public class Room : MonoBehaviour
         worldBounds.SetMinMax(min, max);
     }
 
-    public List<Vector3> GetSpawnPoints()
+    public List<Transform> GetSpawnPoints()
     {
         return spawnsPoints;
     }

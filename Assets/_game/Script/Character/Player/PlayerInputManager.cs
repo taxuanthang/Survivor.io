@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInputManager : MonoBehaviour
 {
     [SerializeField] InputSystem inputSystem;
-    [SerializeField] PlayerManager _playerManager;
+    public PlayerManager player;
 
     [Header("Input Properties")]
     public Vector2 movingInput;
@@ -17,6 +17,13 @@ public class PlayerInputManager : MonoBehaviour
     {
         inputSystem = new InputSystem();
         BindingInput();
+
+        this.enabled = false;
+    }
+
+    public void SetUp()
+    {
+        EventManager.instance.OnEnterNewLevel.AddListener(Enable);
     }
 
     private void BindingInput()
@@ -27,7 +34,7 @@ public class PlayerInputManager : MonoBehaviour
         inputSystem.Player.Dodge.performed += ctx => dodgeInput = true;
 
         //inputSystem.Player.Look.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
-        inputSystem.Player.Shoot.performed += ctx => shootInput = true;
+        //inputSystem.Player.Shoot.performed += ctx => shootInput = true;
     }
 
     private void OnEnable()
@@ -48,6 +55,16 @@ public class PlayerInputManager : MonoBehaviour
         //HandleMouse();
     }
 
+    public void Enable()
+    {
+        this.enabled=true;
+    }
+
+    public void Disable()
+    {
+        this.enabled = false;
+    }
+
     private void HandleMoveInput()
     {
         // clamping vì input chỉ có thể trả về 1 hoặc -1 nên nếu là 0.7 thì phải floor lên 1
@@ -64,7 +81,7 @@ public class PlayerInputManager : MonoBehaviour
             movingInput = movingInput.normalized;
         }
 
-        _playerManager.HandleMoveInput(movingInput.x,movingInput.y);
+        player.HandleMoveInput(movingInput.x,movingInput.y);
 
     }
 
@@ -75,7 +92,7 @@ public class PlayerInputManager : MonoBehaviour
             return;
         }
         dodgeInput = false;
-        _playerManager.HandleDodgeInput();
+        player.HandleDodgeInput();
     }
 
     private void HandleShootInput()
@@ -88,7 +105,7 @@ public class PlayerInputManager : MonoBehaviour
 
         Vector2 lookDir = mousePos - centerScreen;
         lookDir = lookDir.normalized;
-        _playerManager.HandleShootInput(lookDir);
+        player.HandleShootInput(lookDir);
     }
 
     int width = Screen.width;
@@ -101,7 +118,7 @@ public class PlayerInputManager : MonoBehaviour
         // cách 1: Có vị trí của mouse trên screen thì cast qua world rồi tính vecto ra góc xoay
         // cách 2: tính luôn góc xoay dựa trên vị trí của mouse trên screen, sau đó chuyển góc xoay sang world
 
-        _playerManager.HandleMousePos(mousePos);
+        player.HandleMousePos(mousePos);
     }
 }
 

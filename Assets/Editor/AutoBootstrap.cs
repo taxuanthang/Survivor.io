@@ -10,9 +10,9 @@ public static class AutoBootstrap
     public static int currentSceneIndex;
     static AutoBootstrap()
     {
-        Debug.Log("AutoBootstrap INIT");
+        //Debug.Log("AutoBootstrap INIT");
 
-        EditorApplication.playModeStateChanged += OnPlayModeChanged;
+        //EditorApplication.playModeStateChanged += OnPlayModeChanged;
     }
 
     static void OnPlayModeChanged(PlayModeStateChange state)

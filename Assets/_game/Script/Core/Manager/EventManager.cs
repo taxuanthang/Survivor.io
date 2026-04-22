@@ -6,19 +6,16 @@ using UnityEngine.SceneManagement;
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
-    private void Awake()
+    public void SetUp()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
-        SceneManager.LoadSceneAsync(1);
     }
 
 
@@ -29,10 +26,15 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent OnPlayerDied;
 
+
+    [Header("Game State")]
     public UnityEvent<float> OnGamePause;
     public UnityEvent<float> OnGameUnPause;
 
     public UnityEvent RestartGame;
+    public UnityEvent StartGame;
+
+    public UnityEvent OnEnterNewLevel;
 
 
 }

@@ -1,14 +1,21 @@
 using NaughtyAttributes;
 using System;
 using UnityEngine;
+using static UnityEngine.Audio.GeneratorInstance;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] PlayerInputManager playerInputManager;
 
 
-    [SerializeField] PlayerManager player;
-    [SerializeField] EnemySpawnManager enemySpawnManager;
+    [SerializeField] PlayerManager _player;
+    [SerializeField] PlayerInputManager _playerInputManager;
+    [SerializeField] EnemySpawnManager _enemySpawnManager;
+    [SerializeField] EventManager _eventManager;
+    [SerializeField] UIManager _uiManager;
+    [SerializeField] LevelManager _levelManager;
+    [SerializeField] CameraManager _cameraManager;
+
+
     [SerializeField] EnemySpawnType enemySpawnType;
 
 
@@ -18,16 +25,28 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        if (player == null)
+        _eventManager.SetUp();
+        _uiManager.SetUp();
+        _levelManager.SetUp();
+        _playerInputManager.SetUp();
+
+        if (_player != null)
         {
-            player = FindObjectOfType<PlayerManager>();
+            _player = Instantiate(_player);
         }
+
+        DontDestroyOnLoad(gameObject);
+
+        _playerInputManager.player = _player;
+        _enemySpawnManager.player = _player;
+        _levelManager.player = _player;
+        _cameraManager.player = _player;
+
+        EventManager.instance.StartGame.AddListener(StartGame);
     }
 
     public void Start()
     {
-        StartGame();
-
     }
 
     public void OnEnable()
@@ -45,21 +64,21 @@ public class GameManager : MonoBehaviour
     [Button("Start Game")]
     private void StartGame()
     {
-        enemySpawnManager.SpawnEnemies(player, 1, enemySpawnType);
+        //_enemySpawnManager.SpawnEnemies(_player, 1, enemySpawnType);
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
         gameState = GameState.Paused;
-        playerInputManager.enabled = false;
+        _playerInputManager.enabled = false;
     }
 
     public void UnPauseGame()
     {
         Time.timeScale = 1f;
         gameState = GameState.Playing;
-        playerInputManager.enabled = true;
+        _playerInputManager.enabled = true;
     }
 
     public void RestartGame()
@@ -70,6 +89,7 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
+    Menu,
     Playing,
     Paused,
     GameOver

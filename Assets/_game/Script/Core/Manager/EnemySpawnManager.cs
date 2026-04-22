@@ -13,6 +13,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+
     public void SpawnEnemies(PlayerManager player ,int numberToSpawn, EnemySpawnType spawnType)
     {
         //Vector3 spawnPos = currentRoom.transform.position + new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
@@ -54,15 +55,15 @@ public class EnemySpawnManager : MonoBehaviour
 
     public Vector3 GetPointRandomBetweenDeclaredSpawnPos()
     {
-        List<Vector3> spawnPointsList = currentRoom.GetSpawnPoints();
+        List<Transform> spawnPointsList = currentRoom.GetSpawnPoints();
         if(spawnPointsList.Count == 0)
         {
             return GetPointRandomInPlayerRadius();
         }
 
-        Vector3 spawnPoints = spawnPointsList[Random.Range(0, spawnPointsList.Count)];
+        Vector3 spawnPosition = spawnPointsList[Random.Range(0, spawnPointsList.Count)].position;
 
-        return spawnPoints;
+        return spawnPosition;
     }
 
     public Vector3 GetPointRandomInRoomSize()

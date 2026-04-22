@@ -20,6 +20,8 @@ public class PlayerManager: CharacterManager
         if (_playerEquipmentManager == null) _playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
         if(_playerHealthManager == null) _playerHealthManager = GetComponent<PlayerHealthManager>();
         if (_playerAnimationManager == null) _playerAnimationManager = GetComponent<PlayerAnimationManager>();
+
+        DontDestroyOnLoad(this);
     }
 
     public void OnEnable()
