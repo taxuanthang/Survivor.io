@@ -2219,12 +2219,16 @@ MonoBehaviour:
   cellBounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
-  roomType: 0
-  door: {fileID: 633749631}
-  triggered: 1
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  waves: []
+  waveCount: 0
+  currentEnemiesExisting: 0
+  roomType: 0
+  door: {fileID: 633749631}
+  triggered: 1
+  isThisRoomFinished: 1
   spawnsPoints:
   - {fileID: 1430676284}
 --- !u!1 &546438391
@@ -16853,12 +16857,28 @@ MonoBehaviour:
   cellBounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
-  roomType: 1
-  door: {fileID: 166813434}
-  triggered: 0
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  waves:
+  - waveNumber: 1
+    enemies:
+    - numberOfEnemies: 2
+      typeOfEnemies: 0
+      spawnType: 0
+    finishes: 0
+  - waveNumber: 2
+    enemies:
+    - numberOfEnemies: 3
+      typeOfEnemies: 0
+      spawnType: 0
+    finishes: 0
+  waveCount: 0
+  currentEnemiesExisting: 0
+  roomType: 1
+  door: {fileID: 166813434}
+  triggered: 0
+  isThisRoomFinished: 0
   spawnsPoints:
   - {fileID: 452515451}
   - {fileID: 546438392}

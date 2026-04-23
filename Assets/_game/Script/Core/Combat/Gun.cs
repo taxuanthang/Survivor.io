@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
             // spawn bullet and set its properties based on the gun's properties
             Bullet newBullet = PoolManager.instance.Get(PoolType.Bullet).GetComponent<Bullet>(); // Get a bullet from the pool
             newBullet.destroyTimer.poolType = PoolType.Bullet;
+            newBullet.destroyTimer.timeToDestroy = newBullet.existTime;
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = Quaternion.identity;
             newBullet.dir = lookDir.normalized; 

@@ -11,6 +11,8 @@ public class EnemyManager : CharacterManager
     [SerializeField] EnemyAICombatManager _enemyAICombatManager;
     [SerializeField] EnemyAnimationManager _enemyAnimationManager;
 
+    [SerializeField] EnemyType type;
+
     Vector3 movingInput;
      public override void Awake()
     {

@@ -5,5 +5,6 @@ public class EnemyHealthManager : CharacterHealthManager
         base.Die();
         // run enemy death animation, disable enemy AI, etc.
         PoolManager.instance.Return(PoolType.Enemy, this.gameObject);
+        EventManager.instance.OnEnemyDie?.Invoke();
     }
 }

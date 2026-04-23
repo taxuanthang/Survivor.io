@@ -97,9 +97,3 @@ public class EnemySpawnManager : MonoBehaviour
     }
 }
 
-public enum EnemySpawnType
-{
-    RandomInPlayerRadius,
-    RandomBetweenDeclaredSpawnPos,
-    RandomInRoomSize
-}

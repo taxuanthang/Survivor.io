@@ -29,6 +29,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent<Room> OnEnterEnemyRoom;
     public UnityEvent<Room> OnEnterNewRoom;
     public UnityEvent OnFinishEnemyRoom;
+    public UnityEvent OnEnemyDie;
 
     public UnityEvent<int,EnemySpawnType> SpawnEnemies;
 

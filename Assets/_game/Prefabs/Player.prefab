@@ -142,7 +142,7 @@ MonoBehaviour:
   detectRadius: 3.37
   colorDetectArea: {r: 1, g: 0, b: 0, a: 1}
   showDetectArea: 0
-  shootCooldown: 2
+  shootCooldown: 0.5
 --- !u!50 &6160571519250078638
 Rigidbody2D:
   serializedVersion: 5

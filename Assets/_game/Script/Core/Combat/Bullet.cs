@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
         if(transform == null) bulletTransform = GetComponent<Transform>();
         if (destroyTimer == null) destroyTimer = GetComponent<DestroyTimer>();
 
-        destroyTimer.timeToDestroy = existTime;
     }
 
     public void Update()
@@ -36,7 +35,7 @@ public class Bullet : MonoBehaviour
         // Logic to handle when the bullet hits a target
         // This could include playing a hit effect, sound, etc.
 
-        Destroy(gameObject);
+        destroyTimer.timeToDestroy = 0;
     }
 
 
@@ -68,6 +67,12 @@ public class Bullet : MonoBehaviour
                     }
                 }
                 break;
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+
+            destroyTimer.timeToDestroy = 0;
         }
     }
 }

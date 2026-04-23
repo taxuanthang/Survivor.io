@@ -34,20 +34,10 @@ public class Level : MonoBehaviour
 
     public void OnEnterEnemyRoom(Room room)
     {
-        if(room.triggered == false)
-        {
-            room.triggered = true;
-            print("1");
-            room.CloseAllDoor();
-            print("chuanbiinvoke");
-            EventManager.instance.SpawnEnemies?.Invoke(5, EnemySpawnType.RandomInRoomSize);
-            print("dainvoke");
-        }
 
     }
 
     public void OnFinishEnemyRoom(Room room)
     { 
-        room.OpenAllDoor();
     }
 }
