@@ -14,13 +14,9 @@ public class EnemySpawnManager : MonoBehaviour
     public GameObject enemyPrefab;
 
 
-    public void SpawnEnemies(PlayerManager player ,int numberToSpawn, EnemySpawnType spawnType)
+    public void SpawnEnemies(int numberToSpawn, EnemySpawnType spawnType)
     {
-        //Vector3 spawnPos = currentRoom.transform.position + new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
-        //if (currentRoom.IsSpawnable(pos))
-        //{
-        //    SpawnEnemy();
-        //}
+        print("a");
 
         for(int i = 0; i < numberToSpawn; i++) {
             Vector3 spawnPos = new Vector3();
@@ -85,7 +81,19 @@ public class EnemySpawnManager : MonoBehaviour
     [Button("Test Spawn Enemy")]
     public void SpawnEnemies1()
     {
-        SpawnEnemies(player, 1, EnemySpawnType.RandomInPlayerRadius);
+        SpawnEnemies(1, EnemySpawnType.RandomInPlayerRadius);
+    }
+
+    public void Start()
+    {
+        EventManager.instance.SpawnEnemies.AddListener(SpawnEnemies);
+        print("dagan");
+        EventManager.instance.OnEnterNewRoom.AddListener(OnEnterNewRoom);
+    }
+
+    public void OnEnterNewRoom(Room room)
+    {
+        currentRoom = room;
     }
 }
 

@@ -11,9 +11,16 @@ public class Room : MonoBehaviour
     public Tilemap noSpawnTilemap;
 
     public BoundsInt cellBounds;
-
     // convert sang world
-    public Bounds worldBounds ;
+    public Bounds worldBounds;
+
+
+    public RoomType roomType;
+
+    public Door door;
+
+    public bool triggered;
+
     public List<Transform> spawnsPoints;
 
     public bool IsSpawnable(Vector3 pos)
@@ -36,10 +43,44 @@ public class Room : MonoBehaviour
 
         worldBounds = new Bounds();
         worldBounds.SetMinMax(min, max);
+
+
+        door.room = this;
     }
 
     public List<Transform> GetSpawnPoints()
     {
         return spawnsPoints;
     }
+
+    internal void CloseAllDoor()
+    {
+        door.Close();
+
+    }
+
+    internal void OpenAllDoor()
+    {
+        door.Open();
+    }
+
+    public void OnPlayerEnter()
+    {
+        EventManager.instance.OnEnterNewRoom?.Invoke(this);
+        switch (this.roomType)
+        {
+            case RoomType.EnemyRoom:
+                EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
+                break;
+            case RoomType.StartingRoom:
+                EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
+                break;
+        }
+    }
+}
+
+public enum RoomType
+{
+    StartingRoom,
+    EnemyRoom,
 }
