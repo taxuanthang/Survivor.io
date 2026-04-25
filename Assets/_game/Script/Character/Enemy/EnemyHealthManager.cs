@@ -17,5 +17,10 @@ public class EnemyHealthManager : CharacterHealthManager
         PoolManager.instance.Return(PoolType.Enemy, this.gameObject);
     }
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        EventManager.instance.OnEnemyHit?.Invoke();
+    }
 
 }

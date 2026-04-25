@@ -1,3 +1,4 @@
+using Game;
 using NaughtyAttributes;
 using System;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UIManager _uiManager;
     [SerializeField] LevelManager _levelManager;
     [SerializeField] CameraManager _cameraManager;
+    [SerializeField] SoundManager _soundManager;
 
 
     [SerializeField] EnemySpawnType enemySpawnType;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         _uiManager.SetUp();
         _levelManager.SetUp();
         _playerInputManager.SetUp();
+        _soundManager.SetUp();
 
         if (_player != null)
         {
@@ -51,13 +54,13 @@ public class GameManager : MonoBehaviour
 
     public void OnEnable()
     {
-        EventManager.instance.OnPlayerDied.AddListener(PauseGame);
+        EventManager.instance.OnPlayerDie.AddListener(PauseGame);
         EventManager.instance.RestartGame.AddListener(RestartGame);
     }
 
     public void OnDisable()
     {
-        EventManager.instance.OnPlayerDied.RemoveListener(PauseGame);
+        EventManager.instance.OnPlayerDie.RemoveListener(PauseGame);
         EventManager.instance.RestartGame.RemoveListener(RestartGame);
     }
 

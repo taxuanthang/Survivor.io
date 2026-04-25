@@ -7,12 +7,13 @@ public class PlayerHealthManager : CharacterHealthManager
         base.TakeDamage(damage);
         float percentageHealth = (float)currentHealth / (float)maxHealth;
         EventManager.instance.OnHealthChanged?.Invoke(percentageHealth);
+        EventManager.instance.OnPlayerHit?.Invoke(percentageHealth);
     }
 
     public override void Die()
     {
         base.Die();
-        EventManager.instance.OnPlayerDied?.Invoke();
+        EventManager.instance.OnPlayerDie?.Invoke();
     }
 
     public void Heal(int amount)

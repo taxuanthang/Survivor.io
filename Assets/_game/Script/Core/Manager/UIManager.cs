@@ -23,8 +23,8 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
-        EventManager.instance.OnHealthChanged += UpdateHealth;
-        EventManager.instance.OnPlayerAmmoChanged += UpdateAmmo;
+        EventManager.instance.OnHealthChanged.AddListener(UpdateHealth);
+        EventManager.instance.OnPlayerAmmoChanged.AddListener(UpdateAmmo);
 
         UpdateHealth(1);
     }

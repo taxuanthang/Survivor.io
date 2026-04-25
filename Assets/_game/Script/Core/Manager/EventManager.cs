@@ -19,16 +19,17 @@ public class EventManager : MonoBehaviour
     }
 
 
-    public Action<float> OnHealthChanged;
-    public Action<float> OnPlayerAmmoChanged;
+    public UnityEvent<float> OnHealthChanged;
+    public UnityEvent<float> OnPlayerHit;
+    public UnityEvent<float> OnPlayerAmmoChanged;
 
-    public UnityEvent<float> onHealth;
 
-    public UnityEvent OnPlayerDied;
+    public UnityEvent OnPlayerDie;
 
     public UnityEvent<Room> OnEnterEnemyRoom;
     public UnityEvent<Room> OnEnterNewRoom;
     public UnityEvent OnFinishEnemyRoom;
+    public UnityEvent OnEnemyHit;
     public UnityEvent OnEnemyDie;
 
     public UnityEvent<int,EnemySpawnType> SpawnEnemies;

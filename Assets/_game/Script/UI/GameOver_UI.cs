@@ -12,7 +12,7 @@ public class GameOver_UI : UI
     }
     private void OnEnable()
     {
-        EventManager.instance.OnPlayerDied.AddListener(ShowScreen);
+        EventManager.instance.OnPlayerDie.AddListener(ShowScreen);
         EventManager.instance.RestartGame.AddListener(OffScreen);
         restartButton.onClick.AddListener(RestartGame);
     }
@@ -22,7 +22,7 @@ public class GameOver_UI : UI
         {
             return;
         }
-        EventManager.instance.OnPlayerDied.RemoveListener(ShowScreen);
+        EventManager.instance.OnPlayerDie.RemoveListener(ShowScreen);
         EventManager.instance.RestartGame.RemoveListener(OffScreen);
         restartButton.onClick.RemoveListener(RestartGame);
     }

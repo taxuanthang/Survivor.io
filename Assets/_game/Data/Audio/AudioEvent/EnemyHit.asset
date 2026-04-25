@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ddc5218321a6c4da1b7594c3707c2c, type: 3}
+  m_Name: EnemyHit
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SimpleAudioEvent
+  clips:
+  - {fileID: 8300000, guid: 91a82945a034a504db6eb602010d035e, type: 3}
+  - {fileID: 8300000, guid: b1e6e17a190f9f747bad80b8ec4e5bbc, type: 3}
+  - {fileID: 8300000, guid: 10054d252ee41f447a5147ad87308a79, type: 3}
+  volume: 1
+  pitch: 1
