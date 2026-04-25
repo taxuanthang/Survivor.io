@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public DestroyTimer destroyTimer;
 
     public BulletType bulletType;
+
     public void Awake()
     {
         if(transform == null) bulletTransform = GetComponent<Transform>();
@@ -31,7 +32,7 @@ public class Bullet : MonoBehaviour
     }
     public void OnHit(CharacterManager character)
     {
-        character.HandleDamage(damage);
+        character.OnHit?.Invoke(10);
         // Logic to handle when the bullet hits a target
         // This could include playing a hit effect, sound, etc.
 
@@ -52,7 +53,6 @@ public class Bullet : MonoBehaviour
 
                     if (collision.TryGetComponent(out character))
                     {
-                        Debug.Log("Bullet hit: Enemy");
                         OnHit(character);
                     }
                 }
@@ -60,7 +60,6 @@ public class Bullet : MonoBehaviour
             case BulletType.EnemyBullet:
                 if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
                 {
-                    Debug.Log("Bullet hit: Player");
                     if (collision.TryGetComponent(out character))
                     {
                         OnHit(character);

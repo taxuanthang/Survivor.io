@@ -20,3 +20,10 @@ public enum EnemySpawnType
     RandomBetweenDeclaredSpawnPos,
     RandomInRoomSize
 }
+public enum PoolType
+{
+    Enemy,
+    Bullet,
+    HitBox,
+    BloodVFX,
+}

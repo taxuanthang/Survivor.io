@@ -7,9 +7,12 @@ public class CharacterHealthManager : MonoBehaviour
     public int currentHealth;
     public bool isDead = false;
 
+    CharacterManager character;
+
     public void Awake()
     {
         currentHealth = maxHealth;
+        character = GetComponent<CharacterManager>();
     }
 
     public virtual void TakeDamage(int damage)
@@ -18,6 +21,7 @@ public class CharacterHealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            character.OnDie?.Invoke();
         }
     }
 

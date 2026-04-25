@@ -39,6 +39,8 @@ public class PoolManager : MonoBehaviour
                 return pools[PoolType.Bullet].Get();
             case PoolType.HitBox:
                 return pools[PoolType.HitBox].Get();
+            case PoolType.BloodVFX:
+                return pools[PoolType.BloodVFX].Get();
             default:
                 return null;
         }
@@ -56,9 +58,3 @@ public class PoolManager : MonoBehaviour
 
 }
 
-public enum PoolType
-{
-    Enemy,
-    Bullet,
-    HitBox
-}

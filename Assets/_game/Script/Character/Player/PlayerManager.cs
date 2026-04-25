@@ -63,7 +63,7 @@ public class PlayerManager: CharacterManager
     public void Resurrect()
     {
         Debug.Log("Player Resurrected");
-        _playerHealthManager.HealAll();
+        _playerHealthManager.HealFull();
         _playerHealthManager.isDead = false;
     }
 

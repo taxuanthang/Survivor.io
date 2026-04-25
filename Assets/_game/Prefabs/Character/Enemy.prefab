@@ -9,16 +9,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5804698183621525862}
-  - component: {fileID: 5103876179463628851}
-  - component: {fileID: 6763727434122164847}
   - component: {fileID: 8025500319435158338}
   - component: {fileID: 6796275134191077534}
+  - component: {fileID: 5103876179463628851}
+  - component: {fileID: 6763727434122164847}
   - component: {fileID: 2065019006981909412}
   - component: {fileID: 6544111649905650275}
   - component: {fileID: 5239487314941557834}
   - component: {fileID: 2636303150045494652}
   - component: {fileID: 3555046706016704936}
   - component: {fileID: 6643676869306998158}
+  - component: {fileID: -1027653131078186096}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -42,41 +43,6 @@ Transform:
   - {fileID: 6550531166428653085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5103876179463628851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84eafa31fee21824686918ea53b3e8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  characterHealthManager: {fileID: 0}
-  _enemyHealthManager: {fileID: 0}
-  _enemyAIManager: {fileID: 0}
-  _enemyAICombatManager: {fileID: 0}
-  _enemyAnimationManager: {fileID: 0}
---- !u!114 &6763727434122164847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9dd88288c646c448f82b8434f68b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 100
-  currentHealth: 0
-  isDead: 0
 --- !u!58 &8025500319435158338
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,6 +106,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5103876179463628851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84eafa31fee21824686918ea53b3e8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  characterHealthManager: {fileID: 0}
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _enemyHealthManager: {fileID: 0}
+  _enemyAIManager: {fileID: 0}
+  _enemyAICombatManager: {fileID: 0}
+  _enemyAnimationManager: {fileID: 0}
+  type: 0
+--- !u!114 &6763727434122164847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9dd88288c646c448f82b8434f68b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
+  maxHealth: 100
+  currentHealth: 0
+  isDead: 0
+  DieDuration: 0.3
 --- !u!114 &2065019006981909412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +281,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _animator: {fileID: 3372206488376334885}
+--- !u!114 &-1027653131078186096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22db765c35dc2a4e9f0589a2ca897dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  bloodDuration: 0.3
 --- !u!1 &3806434671621370369
 GameObject:
   m_ObjectHideFlags: 0

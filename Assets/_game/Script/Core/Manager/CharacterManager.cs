@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterManager: MonoBehaviour
 {
@@ -10,9 +11,17 @@ public class CharacterManager: MonoBehaviour
     [Header("Character")]
     [SerializeField] CharacterHealthManager characterHealthManager;
 
+    public UnityEvent<int> OnHit;
+    public UnityEvent OnDie;
+
     public virtual void Awake()
     {
         if (characterHealthManager == null) characterHealthManager = GetComponent<CharacterHealthManager>();
+    }
+
+    public void Start()
+    {
+        OnHit.AddListener(HandleDamage);
     }
 
     public void HandleDamage(int damage)

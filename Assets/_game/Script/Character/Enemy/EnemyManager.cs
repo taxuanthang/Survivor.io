@@ -52,7 +52,7 @@ public class EnemyManager : CharacterManager
         if (collision.gameObject.TryGetComponent(out PlayerManager player))
         {
             // khi va chạm với player thi
-            player.HandleDamage(10);
+            player.OnHit?.Invoke(10);
         }
     }
 

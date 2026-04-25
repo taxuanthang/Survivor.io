@@ -26,7 +26,7 @@ public class PlayerHealthManager : CharacterHealthManager
         }
     }
 
-    internal void HealAll()
+    internal void HealFull()
     {
         Heal(maxHealth);
     }

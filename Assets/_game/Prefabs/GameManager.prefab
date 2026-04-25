@@ -1312,7 +1312,7 @@ MonoBehaviour:
   _eventManager: {fileID: 2245705992597703118}
   _uiManager: {fileID: 2962264632481223166}
   _levelManager: {fileID: 4804927925414558160}
-  _cameraManager: {fileID: 0}
+  _cameraManager: {fileID: 8538691657890933863}
   enemySpawnType: 2
   gameState: 0
 --- !u!1 &4340845146980612426
@@ -1488,6 +1488,21 @@ MonoBehaviour:
   OnPlayerDied:
     m_PersistentCalls:
       m_Calls: []
+  OnEnterEnemyRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnterNewRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishEnemyRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+  SpawnEnemies:
+    m_PersistentCalls:
+      m_Calls: []
   OnGamePause:
     m_PersistentCalls:
       m_Calls: []
@@ -1503,6 +1518,53 @@ MonoBehaviour:
   OnEnterNewLevel:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &4907639168609307767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4243922537461762503}
+  - component: {fileID: 2041348477438859158}
+  m_Layer: 0
+  m_Name: BloodVFX_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4243922537461762503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907639168609307767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5003086487633910262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2041348477438859158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907639168609307767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 1611414747150673046, guid: 68cec0c7a3d7c724b8e91c6ce7c71a20, type: 3}
+  poolType: 2
+  poolSize: 10
 --- !u!1 &5232642565995654715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1767,7 @@ Transform:
   - {fileID: 5336351121149978480}
   - {fileID: 5532805041928726612}
   - {fileID: 7205144242774656319}
+  - {fileID: 4243922537461762503}
   m_Father: {fileID: 312033970722312316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &847197918251427748
