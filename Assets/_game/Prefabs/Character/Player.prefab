@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 454820681122854396}
   - component: {fileID: 3749758070831321670}
   - component: {fileID: -5983576131641231808}
+  - component: {fileID: -3511906635569298586}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -124,6 +125,9 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   _playerLocomotionManager: {fileID: 0}
   _playerEquipmentManager: {fileID: 0}
   _playerHealthManager: {fileID: 0}
@@ -223,7 +227,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEffectManager
   bloodDuration: 0.3
-  character: {fileID: 0}
+--- !u!114 &-3511906635569298586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684245777524939206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2e70ae5a524c5499f1536f0bf0909e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0

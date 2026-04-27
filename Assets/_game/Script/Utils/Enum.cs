@@ -27,3 +27,38 @@ public enum PoolType
     HitBox,
     BloodVFX,
 }
+
+public enum UpgradeType
+{
+    Damage,
+    AttackSpeed,
+    BulletSize,
+    BulletPierce,
+    BulletBounce,
+    BulletSplit,
+    BulletHoming,
+    BulletExplosive,
+    CritRate,
+    CritDamage,
+
+    Health,
+    DamageReduces,
+    HealthRegene,
+    LowHealthShield,
+
+    Speed,
+    EXPRange,
+    SkillCooldown,
+    ItemDroprate,
+
+    BurningAmmo,
+    EnemySlowingAmmo,
+    PoisonArea,
+    ChainLightningAmmo,
+
+    FlyingKnife,
+    DamageAura,
+    TimeWarp,
+    SecondLife,
+
+}
