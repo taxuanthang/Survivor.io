@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour
     }
     public void OnHit(CharacterManager character)
     {
-        character.OnHit?.Invoke(10);
+
+        character.OnHit?.Invoke(damage);
         // Logic to handle when the bullet hits a target
         // This could include playing a hit effect, sound, etc.
 

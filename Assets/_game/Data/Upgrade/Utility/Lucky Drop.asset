@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Lucky Drop
   description: 
-  type: 17
+  type: 16
   value: 15

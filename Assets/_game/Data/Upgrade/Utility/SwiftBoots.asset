@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: SwiftBoots
   description: 
-  type: 14
+  type: 13
   value: 20

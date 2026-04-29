@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3749758070831321670}
   - component: {fileID: -5983576131641231808}
   - component: {fileID: -3511906635569298586}
+  - component: {fileID: -7458591366558573291}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -183,6 +184,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   isDead: 0
+  damageReduction: 0
+  healthRegen: 0
 --- !u!114 &454820681122854396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +242,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2e70ae5a524c5499f1536f0bf0909e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  currentUpgrades: []
+  allRecipes: []
+  testUpgrade: {fileID: 0}
+--- !u!114 &-7458591366558573291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684245777524939206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3048794a729f7942906d821055d3925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damage: 10
+  attackSpeed: 1
+  critRate: 0.1
+  critDamage: 2
+  health: 100
+  damageReduction: 0.1
+  healthRegen: 1
+  lowHealthShield: 0.2
+  speed: 10
+  expRange: 10
+  skillCooldownReduction: 0.1
+  itemDropRate: 0.1
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0

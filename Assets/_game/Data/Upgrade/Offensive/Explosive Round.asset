@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Explosive Round
   description: 
-  type: 7
+  type: 6
   value: 0

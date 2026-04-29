@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
@@ -6,11 +7,37 @@ public class PlayerEquipmentManager : MonoBehaviour
     [SerializeField] Gun currentGun;
     [SerializeField] Gun secondaryGun;
 
+    PlayerStatsManager playerStatsManager;
+
     public void SwapGun()
     {
         Gun temp = currentGun;
         currentGun = secondaryGun;
         secondaryGun = temp;
+    }
+    public void Awake()
+    {
+        playerStatsManager = GetComponent<PlayerStatsManager>();
+    }
+    public void Start()
+    {
+    }
+
+    public int GetDamageForCurrentBullet()
+    {
+        
+        bool isCriticalHit = UnityEngine.Random.value < playerStatsManager.critRate;
+
+        float finalDamage;
+        if (isCriticalHit)
+        {
+            finalDamage = playerStatsManager.damage * playerStatsManager.critDamage;
+        }
+        else
+        {
+            finalDamage = playerStatsManager.damage;
+        }
+        return (int)finalDamage;
     }
 
     public void HandleShoot(Vector3 currentPointerPos)

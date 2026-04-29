@@ -7,7 +7,7 @@ public class CharacterHealthManager : MonoBehaviour
     public int currentHealth;
     public bool isDead = false;
 
-    CharacterManager character;
+    protected CharacterManager character;
 
     public void Awake()
     {

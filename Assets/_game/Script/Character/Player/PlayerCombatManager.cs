@@ -8,7 +8,7 @@ public class PlayerCombatManager : MonoBehaviour
     [SerializeField] float detectRadius;
     [SerializeField] Color colorDetectArea;
     [SerializeField] bool showDetectArea;
-    [SerializeField] float shootCooldown;
+    public float shootCooldown;
     float currentShootCooldown = 0f;
 
     public void Awake()

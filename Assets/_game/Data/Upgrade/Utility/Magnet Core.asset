@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Magnet Core
   description: 
-  type: 15
+  type: 14
   value: 0

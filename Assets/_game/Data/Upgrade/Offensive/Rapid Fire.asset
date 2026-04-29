@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Rapid Fire
   description: 
-  type: 3
+  type: 1
   value: 25

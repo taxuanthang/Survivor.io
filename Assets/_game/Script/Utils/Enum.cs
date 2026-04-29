@@ -32,33 +32,32 @@ public enum UpgradeType
 {
     Damage,
     AttackSpeed,
-    BulletSize,
-    BulletPierce,
-    BulletBounce,
-    BulletSplit,
-    BulletHoming,
-    BulletExplosive,
+    BulletPierce,               // mechanic upgrade
+    BulletBounce,               // mechanic upgrade
+    BulletSplit,                // mechanic upgrade
+    BulletHoming,               // mechanic upgrade
+    BulletExplosive,            // mechanic upgrade
     CritRate,
     CritDamage,
 
     Health,
     DamageReduces,
-    HealthRegene,
+    HealthRegen,
     LowHealthShield,
 
     Speed,
     EXPRange,
     SkillCooldown,
-    ItemDroprate,
+    ItemDroprate,               
 
-    BurningAmmo,
-    EnemySlowingAmmo,
-    PoisonArea,
-    ChainLightningAmmo,
+    BurningAmmo,                // mechanic upgrade
+    EnemySlowingAmmo,           // mechanic upgrade
+    PoisonArea,                 // mechanic upgrade
+    ChainLightningAmmo,         // mechanic upgrade
 
-    FlyingKnife,
-    DamageAura,
-    TimeWarp,
-    SecondLife,
+    FlyingKnife,                // mechanic upgrade
+    DamageAura,                 // mechanic upgrade
+    TimeWarp,                   // mechanic upgrade
+    SecondLife,                 // mechanic upgrade
 
 }

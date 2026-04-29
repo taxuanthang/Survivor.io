@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Cooldown Drive
   description: 
-  type: 16
+  type: 15
   value: -20

@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
     public Sprite gunSprite;
     public Bullet bullet;
 
+    public PlayerEquipmentManager playerEquipmentManager;
+
 
     public void Shoot(Vector2 lookDir, BulletType bulletType)
     {
@@ -24,7 +26,7 @@ public class Gun : MonoBehaviour
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = Quaternion.identity;
             newBullet.dir = lookDir.normalized; 
-            newBullet.damage = damage;
+            newBullet.damage = playerEquipmentManager.GetDamageForCurrentBullet();
             newBullet.bulletSprite = gunSprite; // Set the bullet's sprite to the gun's sprite
             newBullet.bulletType = bulletType; // Set the bullet type (player or enemy)
             // nhớ làm object pooling sau để tối ưu hiệu suất thay vì instantiate và destroy bullet liên tục

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Iron Skin
   description: 
-  type: 11
-  value: -20
+  type: 9
+  value: 20
