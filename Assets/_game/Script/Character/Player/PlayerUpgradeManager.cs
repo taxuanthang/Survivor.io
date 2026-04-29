@@ -41,10 +41,11 @@ public class PlayerUpgradeManager : MonoBehaviour
     {
         if (!currentUpgrades.Contains(upgrade))
         {
-            currentUpgrades.Add(upgrade);
-            CheckSynergy();
-            ApplyUpgrade(upgrade);
+            // tránh trùng lặp
         }
+        currentUpgrades.Add(upgrade);
+        CheckSynergy();
+        ApplyUpgrade(upgrade);
     }
 
     public void RemoveUpgrade(Upgrade upgrade)
