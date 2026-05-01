@@ -31,19 +31,7 @@ public class PoolManager : MonoBehaviour
         {
             return null;
         }
-        switch (poolType)
-        {
-            case PoolType.Enemy:
-                return pools[PoolType.Enemy].Get();
-            case PoolType.Bullet:
-                return pools[PoolType.Bullet].Get();
-            case PoolType.HitBox:
-                return pools[PoolType.HitBox].Get();
-            case PoolType.BloodVFX:
-                return pools[PoolType.BloodVFX].Get();
-            default:
-                return null;
-        }
+        return pools[poolType].Get();
     }
 
     public void Return(PoolType poolType, GameObject obj)

@@ -7,8 +7,8 @@ public class EnemyHealthManager : CharacterHealthManager
     {
         base.Die();
         // run enemy death animation, disable enemy AI, etc.
-        WaitDieAnim();
         EventManager.instance.OnEnemyDie?.Invoke();
+        WaitDieAnim();
     }
 
     public async void WaitDieAnim()

@@ -18,7 +18,7 @@ TagManager:
   - PLayer
   - Environment
   - Obstacle
-  - 
+  - EXPOrb
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Environment
     uniqueID: 2950005069
+    locked: 0
+  - name: Item
+    uniqueID: 103629529
     locked: 0
   - name: Player
     uniqueID: 4294744061

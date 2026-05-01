@@ -1751,6 +1751,53 @@ MonoBehaviour:
   prefab: {fileID: 1611414747150673046, guid: 68cec0c7a3d7c724b8e91c6ce7c71a20, type: 3}
   poolType: 3
   poolSize: 10
+--- !u!1 &5136765013272617265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4954371550576418683}
+  - component: {fileID: 687228519229760475}
+  m_Layer: 0
+  m_Name: EXPOrb_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4954371550576418683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136765013272617265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5003086487633910262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &687228519229760475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136765013272617265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 1817872861384055157, guid: 7d4a40432c1ed32459290f60003759ab, type: 3}
+  poolType: 4
+  poolSize: 10
 --- !u!1 &5232642565995654715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +2055,7 @@ Transform:
   - {fileID: 5532805041928726612}
   - {fileID: 7205144242774656319}
   - {fileID: 4243922537461762503}
+  - {fileID: 4954371550576418683}
   m_Father: {fileID: 312033970722312316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &847197918251427748
@@ -2572,6 +2620,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  expPointLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8617374631685029648
 GameObject:
   m_ObjectHideFlags: 0

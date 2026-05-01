@@ -6,6 +6,7 @@ public class UtilitiesManager : MonoBehaviour
 
     public LayerMask enemyLayer;
     public LayerMask playerLayer;
+    public LayerMask expPointLayer;
 
 
     public void Awake()

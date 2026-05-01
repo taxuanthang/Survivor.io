@@ -23,7 +23,6 @@ public class CharacterEffectManager : MonoBehaviour
 
     public void SplitBlood(int dmg)
     {
-        print("a");
         GameObject newBlood = PoolManager.instance.Get(PoolType.BloodVFX); // Get a blood from the pool
         newBlood.transform.position = character.transform.position;
         DestroyTimer timer = newBlood.gameObject.GetComponent<DestroyTimer>();

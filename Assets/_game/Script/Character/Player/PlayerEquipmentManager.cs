@@ -14,6 +14,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         Gun temp = currentGun;
         currentGun = secondaryGun;
         secondaryGun = temp;
+        currentGun.playerEquipmentManager = this;
     }
     public void Awake()
     {
@@ -21,23 +22,18 @@ public class PlayerEquipmentManager : MonoBehaviour
     }
     public void Start()
     {
+        currentGun.playerEquipmentManager = this;
     }
 
-    public int GetDamageForCurrentBullet()
-    {
-        
-        bool isCriticalHit = UnityEngine.Random.value < playerStatsManager.critRate;
 
-        float finalDamage;
-        if (isCriticalHit)
+    public void UpdateCurrentGunProperties()
+    {
+        if (currentGun != null)
         {
-            finalDamage = playerStatsManager.damage * playerStatsManager.critDamage;
+            currentGun.critRate = playerStatsManager.critRate;
+            currentGun.critDamage = playerStatsManager.critDamage;
+            currentGun.damage = playerStatsManager.damage;
         }
-        else
-        {
-            finalDamage = playerStatsManager.damage;
-        }
-        return (int)finalDamage;
     }
 
     public void HandleShoot(Vector3 currentPointerPos)

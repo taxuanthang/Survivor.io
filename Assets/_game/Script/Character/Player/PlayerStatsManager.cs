@@ -38,6 +38,7 @@ public class PlayerStatsManager : MonoBehaviour
     PlayerCombatManager playerCombatManager;
     PlayerHealthManager playerHealthManager;
     PlayerLocomotionManager playerLocomotionManager;
+    PlayerEquipmentManager playerEquipmentManager;
 
     public void Awake()
     {
@@ -60,6 +61,7 @@ public class PlayerStatsManager : MonoBehaviour
         playerCombatManager = GetComponent<PlayerCombatManager>();
         playerHealthManager = GetComponent<PlayerHealthManager>();
         playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
     }
 
     public void ApplyModifier(UpgradeType upgradeType, float value)
@@ -68,6 +70,7 @@ public class PlayerStatsManager : MonoBehaviour
         {
             case UpgradeType.Damage:
                 damage += value;
+                playerEquipmentManager.UpdateCurrentGunProperties();
                 break;
             case UpgradeType.AttackSpeed:
                 attackSpeed += baseAttackSpeed * value/100;           // percent
@@ -75,9 +78,11 @@ public class PlayerStatsManager : MonoBehaviour
                 break;
             case UpgradeType.CritRate:
                 critRate += value;
+                playerEquipmentManager.UpdateCurrentGunProperties();
                 break;
             case UpgradeType.CritDamage:
                 critDamage += value;
+                playerEquipmentManager.UpdateCurrentGunProperties();
                 break;
             case UpgradeType.Health:
                 health += value;

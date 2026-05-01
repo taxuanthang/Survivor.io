@@ -13,6 +13,9 @@ public class EnemyManager : CharacterManager
 
     [SerializeField] EnemyType type;
 
+    [Header("EXP")]
+    public int expDropOfThisEnemy = 10;
+
     Vector3 movingInput;
      public override void Awake()
     {
@@ -21,6 +24,8 @@ public class EnemyManager : CharacterManager
         _enemyAIManager = GetComponent<EnemyAIManager>();
         _enemyAICombatManager = GetComponent<EnemyAICombatManager>();
         _enemyAnimationManager = GetComponent<EnemyAnimationManager>();
+
+        OnDie.AddListener(DropEXPOrb);
     }
 
     public void Update()
@@ -61,6 +66,15 @@ public class EnemyManager : CharacterManager
         base.SetUp();
         this.transform.position = spawnPos;
         _enemyAIManager.SetUp(player);
+    }
+
+    public void DropEXPOrb()
+    {
+        print("Drop orb");
+
+        ExpPoint expOrb = PoolManager.instance.Get(PoolType.EXPOrb).GetComponent<ExpPoint>();
+        expOrb.transform.position = this.transform.position;
+        expOrb.expValue = expDropOfThisEnemy;
     }
 }
 

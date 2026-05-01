@@ -133,6 +133,7 @@ MonoBehaviour:
   _enemyAICombatManager: {fileID: 0}
   _enemyAnimationManager: {fileID: 0}
   type: 0
+  expDropOfThisEnemy: 50
 --- !u!114 &6763727434122164847
 MonoBehaviour:
   m_ObjectHideFlags: 0

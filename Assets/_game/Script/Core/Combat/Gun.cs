@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     public float fireRate;
     public int ammoCapacity;
     public int currentAmmo;
@@ -11,7 +11,8 @@ public class Gun : MonoBehaviour
     public Bullet bullet;
 
     public PlayerEquipmentManager playerEquipmentManager;
-
+    public float critRate;
+    public float critDamage;
 
     public void Shoot(Vector2 lookDir, BulletType bulletType)
     {
@@ -26,7 +27,7 @@ public class Gun : MonoBehaviour
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = Quaternion.identity;
             newBullet.dir = lookDir.normalized; 
-            newBullet.damage = playerEquipmentManager.GetDamageForCurrentBullet();
+            newBullet.damage = GetDamageForCurrentBullet();
             newBullet.bulletSprite = gunSprite; // Set the bullet's sprite to the gun's sprite
             newBullet.bulletType = bulletType; // Set the bullet type (player or enemy)
             // nhớ làm object pooling sau để tối ưu hiệu suất thay vì instantiate và destroy bullet liên tục
@@ -44,6 +45,23 @@ public class Gun : MonoBehaviour
     {
         // Logic to reload the gun
         currentAmmo = ammoCapacity;
+    }
+
+    public int GetDamageForCurrentBullet()
+    {
+
+        bool isCriticalHit = UnityEngine.Random.value < critRate;
+
+        float finalDamage;
+        if (isCriticalHit)
+        {
+            finalDamage = damage * critDamage;
+        }
+        else
+        {
+            finalDamage = damage;
+        }
+        return (int)finalDamage;
     }
 }
 

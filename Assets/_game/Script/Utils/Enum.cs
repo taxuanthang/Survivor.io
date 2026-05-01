@@ -26,6 +26,7 @@ public enum PoolType
     Bullet,
     HitBox,
     BloodVFX,
+    EXPOrb,
 }
 
 public enum UpgradeType

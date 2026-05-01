@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -5983576131641231808}
   - component: {fileID: -3511906635569298586}
   - component: {fileID: -7458591366558573291}
+  - component: {fileID: -1779424743933402103}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentEnemy: {fileID: 0}
   player: {fileID: 0}
-  detectRadius: 3.37
+  detectRadius: 10
   colorDetectArea: {r: 1, g: 0, b: 0, a: 1}
   showDetectArea: 0
   shootCooldown: 0.5
@@ -269,6 +270,47 @@ MonoBehaviour:
   expRange: 10
   skillCooldownReduction: 0.1
   itemDropRate: 0.1
+--- !u!114 &-1779424743933402103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684245777524939206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c209aec196a940c458cb1e8b6be2a809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  nextLevelExp: 100
+  currentExp: 0
+  currentLevel: 0
+  catchingExpOrbRadius: 1
+  isDebugRadius: 1
+  playerLevels:
+  - level: 0
+    EXPToReachThisLevel: 0
+  - level: 1
+    EXPToReachThisLevel: 100
+  - level: 2
+    EXPToReachThisLevel: 100
+  - level: 3
+    EXPToReachThisLevel: 100
+  - level: 4
+    EXPToReachThisLevel: 100
+  - level: 5
+    EXPToReachThisLevel: 100
+  - level: 6
+    EXPToReachThisLevel: 100
+  - level: 7
+    EXPToReachThisLevel: 100
+  - level: 8
+    EXPToReachThisLevel: 100
+  - level: 9
+    EXPToReachThisLevel: 100
+  - level: 10
+    EXPToReachThisLevel: 100
+  player: {fileID: 0}
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0
