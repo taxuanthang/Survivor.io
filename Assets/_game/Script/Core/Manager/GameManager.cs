@@ -56,12 +56,18 @@ public class GameManager : MonoBehaviour
     {
         EventManager.instance.OnPlayerDie.AddListener(PauseGame);
         EventManager.instance.RestartGame.AddListener(RestartGame);
+
+        EventManager.instance.PauseGame.AddListener(PauseGame);
+        EventManager.instance.UnPauseGame.AddListener(UnPauseGame);
     }
 
     public void OnDisable()
     {
         EventManager.instance.OnPlayerDie.RemoveListener(PauseGame);
         EventManager.instance.RestartGame.RemoveListener(RestartGame);
+
+        EventManager.instance.PauseGame.RemoveListener(PauseGame);
+        EventManager.instance.UnPauseGame.RemoveListener(UnPauseGame);
     }
 
     [Button("Start Game")]

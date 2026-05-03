@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Regeneration
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Regeneration
-  description: 
+  description: Defendsive
   type: 11
   value: 10
+  upgradeSprite: {fileID: -662553496, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

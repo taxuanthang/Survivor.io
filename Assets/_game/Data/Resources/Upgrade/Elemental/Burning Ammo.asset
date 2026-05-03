@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Burning Ammo
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Burning Ammo
-  description: 
+  description: Elemental
   type: 18
   value: 0
+  upgradeSprite: {fileID: 538996649, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

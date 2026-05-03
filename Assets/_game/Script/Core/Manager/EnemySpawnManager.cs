@@ -16,7 +16,6 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void SpawnEnemies(int numberToSpawn, EnemySpawnType spawnType)
     {
-        print("a");
 
         for(int i = 0; i < numberToSpawn; i++) {
             Vector3 spawnPos = new Vector3();

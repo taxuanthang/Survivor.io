@@ -70,11 +70,11 @@ public class EnemyManager : CharacterManager
 
     public void DropEXPOrb()
     {
-        print("Drop orb");
 
         ExpPoint expOrb = PoolManager.instance.Get(PoolType.EXPOrb).GetComponent<ExpPoint>();
         expOrb.transform.position = this.transform.position;
         expOrb.expValue = expDropOfThisEnemy;
+        expOrb.col.enabled = true;
     }
 }
 

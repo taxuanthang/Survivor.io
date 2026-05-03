@@ -9,4 +9,5 @@ public class Upgrade : ScriptableObject
     public string description;
     public UpgradeType type;
     public float value;
+    public Sprite upgradeSprite;
 }

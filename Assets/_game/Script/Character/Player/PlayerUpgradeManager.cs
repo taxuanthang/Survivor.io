@@ -22,7 +22,7 @@ public class PlayerUpgradeManager : MonoBehaviour
 
     public void Start()
     {
-        
+        EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(AddUpgrade);
     }
 
 
@@ -99,7 +99,6 @@ public class PlayerUpgradeManager : MonoBehaviour
         playerStatsManager.ApplyModifier(upgrade.type, -upgrade.value);
 
     }
-
 
 
 

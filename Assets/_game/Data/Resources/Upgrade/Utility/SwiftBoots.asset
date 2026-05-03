@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SwiftBoots
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: SwiftBoots
-  description: 
+  description: Ultility
   type: 13
   value: 20
+  upgradeSprite: {fileID: -1374819332, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

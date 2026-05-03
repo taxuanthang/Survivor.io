@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Iron Skin
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Iron Skin
-  description: 
+  description: Defendsive
   type: 9
   value: 20
+  upgradeSprite: {fileID: 1852177114, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

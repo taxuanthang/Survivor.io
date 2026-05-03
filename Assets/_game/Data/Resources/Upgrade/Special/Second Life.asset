@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Second Life
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Second Life
-  description: 
+  description: Special
   type: 25
   value: 0
+  upgradeSprite: {fileID: 1177945489, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

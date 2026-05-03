@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lucky Drop
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Lucky Drop
-  description: 
+  description: Ultility
   type: 16
   value: 15
+  upgradeSprite: {fileID: 1035436297, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

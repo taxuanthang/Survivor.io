@@ -10,6 +10,7 @@ public class ExpPoint : MonoBehaviour
 
     public UnityEvent<int> OnExpPointCollected;
     public float flySpeed = 1f;
+    public float currentFlyTimeRemain = 0f;
 
     public void Awake()
     {
@@ -19,24 +20,32 @@ public class ExpPoint : MonoBehaviour
     public void Update()
     {
         FlyToPlayer();
-
     }
 
     public void FlyToPlayer()
     {
-        if (player != null)
+        if (currentFlyTimeRemain < 0f)
         {
-            transform.DOMove(player.transform.position, flySpeed).OnComplete(() =>
-            { 
-                OnExpPointCollected.Invoke(expValue);
-                PoolManager.instance.Return(PoolType.EXPOrb, gameObject);
-            });
+            currentFlyTimeRemain = 0f;
+            OnExpPointCollected.Invoke(expValue);
+            PoolManager.instance.Return(PoolType.EXPOrb, gameObject);
+            return;
+        }
+        else if (currentFlyTimeRemain > 0f)
+        {
+            currentFlyTimeRemain -= Time.deltaTime;
+            if (player != null)
+            {
+                transform.DOMove(player.transform.position, flySpeed);
+            }
         }
     }
 
-    public void SetTarget(PlayerManager player)
+    public void SetTarget(PlayerManager player, float flyTime)
     {
         col.enabled = false;
         this.player = player;
+        currentFlyTimeRemain = flyTime;
+
     }
 }

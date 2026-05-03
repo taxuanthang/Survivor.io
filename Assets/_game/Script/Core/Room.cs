@@ -151,6 +151,7 @@ public class Room : MonoBehaviour
         isThisRoomFinished = true;
         OpenAllDoor();
         EventManager.instance.OnEnemyDie.RemoveListener(OnEnemyDie);
+        EventManager.instance.OnFinishEnemyRoom?.Invoke();
     }
 
     public void OnEnemyDie()

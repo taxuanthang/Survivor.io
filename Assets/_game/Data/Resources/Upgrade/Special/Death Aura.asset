@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Death Aura
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Death Aura
-  description: 
+  description: Special
   type: 23
   value: 0
+  upgradeSprite: {fileID: -1386621937, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

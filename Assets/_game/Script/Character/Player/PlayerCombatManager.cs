@@ -46,7 +46,6 @@ public class PlayerCombatManager : MonoBehaviour
 
             if (currentEnemy != null && !currentEnemy.IsDead())
             {
-                print(currentEnemy.name+"" + currentEnemy.transform.position);
                 player.HandleShootInput(currentEnemy.transform.position);
             }
         }

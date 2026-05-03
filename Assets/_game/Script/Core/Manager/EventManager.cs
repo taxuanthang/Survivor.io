@@ -36,13 +36,13 @@ public class EventManager : MonoBehaviour
 
 
     [Header("Game State")]
-    public UnityEvent<float> OnGamePause;
-    public UnityEvent<float> OnGameUnPause;
+    public UnityEvent PauseGame;
+    public UnityEvent UnPauseGame;
 
     public UnityEvent RestartGame;
     public UnityEvent StartGame;
 
     public UnityEvent OnEnterNewLevel;
-
-
+    public UnityEvent OnPlayerReachNewLevel;
+    public UnityEvent<Upgrade> OnPlayerCompleteSelectingCard;
 }

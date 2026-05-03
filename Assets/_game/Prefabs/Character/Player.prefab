@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   characterHealthManager: {fileID: 0}
   OnHit:
     m_PersistentCalls:
@@ -285,6 +285,7 @@ MonoBehaviour:
   nextLevelExp: 100
   currentExp: 0
   currentLevel: 0
+  lastLevelChecked: 0
   catchingExpOrbRadius: 1
   isDebugRadius: 1
   playerLevels:
@@ -311,6 +312,9 @@ MonoBehaviour:
   - level: 10
     EXPToReachThisLevel: 100
   player: {fileID: 0}
+  OnNewLevelReach:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0

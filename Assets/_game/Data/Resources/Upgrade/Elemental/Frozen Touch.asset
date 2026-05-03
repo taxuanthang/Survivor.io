@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Frozen Touch
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Frozen Touch
-  description: 
+  description: Elemental
   type: 19
   value: 0
+  upgradeSprite: {fileID: 1420797193, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

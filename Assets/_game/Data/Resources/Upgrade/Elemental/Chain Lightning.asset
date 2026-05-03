@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Chain Lightning
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Chain Lightning
-  description: 
+  description: Elemental
   type: 21
   value: 0
+  upgradeSprite: {fileID: 2035608846, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

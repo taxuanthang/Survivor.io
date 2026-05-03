@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Orbit Blades
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Orbit Blades
-  description: 
+  description: Special
   type: 22
   value: 0
+  upgradeSprite: {fileID: -196139955, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

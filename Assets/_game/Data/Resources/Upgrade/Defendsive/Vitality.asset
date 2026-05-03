@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Vitality
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Vitality
-  description: 
+  description: Defendsive
   type: 10
   value: 30
+  upgradeSprite: {fileID: -1226115083, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}

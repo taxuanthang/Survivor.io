@@ -5,11 +5,22 @@ using UnityEngine;
 
 public class UpgradeDatabaseManager : MonoBehaviour
 {
+    public static UpgradeDatabaseManager instance;
+
+
     public List<Upgrade> allUpgrades = new List<Upgrade>();
 
     public void Awake()
     {
         allUpgrades = Resources.LoadAll<Upgrade>("Upgrade").ToList();
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public Upgrade GetUpgradeByName(string upgradeName)
@@ -31,7 +42,7 @@ public class UpgradeDatabaseManager : MonoBehaviour
         return upgradesOfType[randomIndex];
     }
 
-    public Upgrade GetRandomUpGrade()
+    public Upgrade GetRandomUpgrade()
     {
         int randomIndex = Random.Range(0, allUpgrades.Count);
         return allUpgrades[randomIndex];

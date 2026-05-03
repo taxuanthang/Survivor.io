@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rapid Fire
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   nameUpgrade: Rapid Fire
-  description: 
+  description: Offendsive
   type: 1
   value: 25
+  upgradeSprite: {fileID: 137875184, guid: 6ad17e4530db33a47bfeb4d58e980038, type: 3}
