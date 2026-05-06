@@ -126,22 +126,29 @@ public class Room : MonoBehaviour
         door.Open();
     }
 
+    public void OnPlayerCrossDoorCheck()
+    {
+        if(triggered == false)
+        {
+            triggered = true;
+            OnPlayerEnter();
+        }
+        else
+        {
+
+        }
+    }
     public void OnPlayerEnter()
     {
         EventManager.instance.OnEnterNewRoom?.Invoke(this);
         EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
+        EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
         switch (this.roomType)
         {
             case RoomType.EnemyRoom:
-                EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
-                if (triggered == false)
-                {
-                    triggered = true;
-                    CloseAllDoor();
-                }
+                CloseAllDoor();
                 break;
             case RoomType.StartingRoom:
-                EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
                 break;
         }
     }

@@ -6,10 +6,6 @@ public class GameOver_UI : UI
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Button restartButton;
 
-    public void Awake()
-    {
-        this.enabled = false;
-    }
     private void OnEnable()
     {
         EventManager.instance.OnPlayerDie.AddListener(ShowScreen);

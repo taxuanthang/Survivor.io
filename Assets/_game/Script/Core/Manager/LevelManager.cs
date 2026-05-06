@@ -19,13 +19,6 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        this.enabled = false;
-    }
-
-    public void SetUp()
-    {
-        this.enabled = true;
     }
 
     public void OnEnable()

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealthManager : CharacterHealthManager
@@ -7,6 +8,7 @@ public class EnemyHealthManager : CharacterHealthManager
     {
         base.Die();
         // run enemy death animation, disable enemy AI, etc.
+        print("Call Enemy Die");
         EventManager.instance.OnEnemyDie?.Invoke();
         WaitDieAnim();
     }

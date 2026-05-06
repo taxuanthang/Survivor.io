@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ExpPoint : MonoBehaviour
+public class ExpPoint : MonoBehaviour, IPoolable
 {
     public int expValue = 10;
     public Collider2D col;
@@ -22,6 +22,15 @@ public class ExpPoint : MonoBehaviour
         FlyToPlayer();
     }
 
+    public void OnSpawn()
+    {
+
+    }
+
+    public void OnDespawn()
+    {
+
+    }
     public void FlyToPlayer()
     {
         if (currentFlyTimeRemain < 0f)
@@ -29,6 +38,7 @@ public class ExpPoint : MonoBehaviour
             currentFlyTimeRemain = 0f;
             OnExpPointCollected.Invoke(expValue);
             PoolManager.instance.Return(PoolType.EXPOrb, gameObject);
+            OnExpPointCollected.RemoveAllListeners();
             return;
         }
         else if (currentFlyTimeRemain > 0f)

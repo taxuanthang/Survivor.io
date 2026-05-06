@@ -1,7 +1,16 @@
 using UnityEngine;
 
-public class HitBoxDame : MonoBehaviour
+public class HitBoxDame : MonoBehaviour , IPoolable
 {
+    public void OnSpawn()
+    {
+        // logic khi spawn hitbox
+    }
+
+    public void OnDespawn()
+    {
+
+    }
     // class này sẽ được attach vào hitbox prefab để xử lý va chạm va
     private void OnTriggerEnter2D(Collider2D collision)
     {

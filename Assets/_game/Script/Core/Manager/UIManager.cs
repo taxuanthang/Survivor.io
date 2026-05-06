@@ -8,10 +8,6 @@ public class UIManager : MonoBehaviour
     public Slider _ammoSlider;
     public UpgradeSelector_UI _upgradeSelector_UI;
 
-    public void SetUp()
-    {
-        _gameOver_UI.enabled = true;
-    }
     public void UpdateHealth(float health)
     {
         _healthSlider.value = health;
@@ -22,7 +18,7 @@ public class UIManager : MonoBehaviour
         _ammoSlider.value = ammo;
     }
 
-    public void Start()
+    public void OnEnable()
     {
         EventManager.instance.OnHealthChanged.AddListener(UpdateHealth);
         EventManager.instance.OnPlayerAmmoChanged.AddListener(UpdateAmmo);
@@ -30,7 +26,15 @@ public class UIManager : MonoBehaviour
         UpdateHealth(1);
 
         EventManager.instance.OnPlayerReachNewLevel.AddListener(OpenSelectCardUI);
-        EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(CloseSelectCardUI);
+        EventManager.instance.OnNoMoreUpgrade.AddListener(CloseSelectCardUI);
+    }
+
+    public void OnDisable()
+    {
+        EventManager.instance.OnHealthChanged.RemoveListener(UpdateHealth);
+        EventManager.instance.OnPlayerAmmoChanged.RemoveListener(UpdateAmmo);
+        EventManager.instance.OnPlayerReachNewLevel.RemoveListener(OpenSelectCardUI);
+        EventManager.instance.OnNoMoreUpgrade.RemoveListener(CloseSelectCardUI);
     }
 
     public void OpenSelectCardUI()
@@ -38,7 +42,7 @@ public class UIManager : MonoBehaviour
         _upgradeSelector_UI.gameObject.SetActive(true);
     }
 
-    public void CloseSelectCardUI(Upgrade selectedUpgrade)
+    public void CloseSelectCardUI()
     {
         _upgradeSelector_UI.gameObject.SetActive(false);
     }

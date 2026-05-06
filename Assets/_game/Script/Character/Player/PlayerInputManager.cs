@@ -18,12 +18,6 @@ public class PlayerInputManager : MonoBehaviour
         inputSystem = new InputSystem();
         BindingInput();
 
-        this.enabled = false;
-    }
-
-    public void SetUp()
-    {
-        EventManager.instance.OnEnterNewLevel.AddListener(Enable);
     }
 
     private void BindingInput()
@@ -39,11 +33,13 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.instance.OnEnterNewLevel.AddListener(Enable);
         inputSystem.Enable();
     }
 
     private void OnDisable()
     {
+        EventManager.instance.OnEnterNewLevel.RemoveListener(Enable);
         inputSystem.Disable();
     }
 

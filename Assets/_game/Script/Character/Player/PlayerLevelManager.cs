@@ -27,11 +27,18 @@ public class PlayerLevelManager : MonoBehaviour
         player = GetComponent<PlayerManager>();
     }
 
-    public void Start()
+    public void OnEnable()
     {
         EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(OnPlayerCompleteSelectCard);
         EventManager.instance.OnFinishEnemyRoom.AddListener(CatchAllEXPOrb);
     }
+
+    public void OnDisable()
+    {
+        EventManager.instance.OnPlayerCompleteSelectingCard.RemoveListener(OnPlayerCompleteSelectCard);
+        EventManager.instance.OnFinishEnemyRoom.RemoveListener(CatchAllEXPOrb);
+    }
+
     public void Update()
     {
         CatchEXPPoint();
@@ -42,7 +49,14 @@ public class PlayerLevelManager : MonoBehaviour
     {
         currentLevel++;
         currentExp = 0;
-        nextLevelExp = playerLevels[currentLevel+1].EXPToReachThisLevel;
+        if (currentLevel >= playerLevels.Count - 1)
+        {
+            nextLevelExp = int.MaxValue;
+        }
+        else
+        {
+            nextLevelExp = playerLevels[currentLevel + 1].EXPToReachThisLevel;
+        }
         //cho chọn thẻ?
     }
 
@@ -100,7 +114,9 @@ public class PlayerLevelManager : MonoBehaviour
         }
         else
         {
+            EventManager.instance.OnNoMoreUpgrade?.Invoke();
             EventManager.instance.UnPauseGame?.Invoke();
+
         }
 
     }
@@ -115,7 +131,7 @@ public class PlayerLevelManager : MonoBehaviour
     {
         float temp = catchingExpOrbRadius;
         catchingExpOrbRadius = float.MaxValue;
-        await Awaitable.WaitForSecondsAsync(expOrbFlyTime+1f);
+        await Awaitable.WaitForSecondsAsync(expOrbFlyTime+0.2f);
         catchingExpOrbRadius = temp;
         CheckCurrentPlayerLevelToCallUpgradeCard();
 

@@ -27,12 +27,6 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        _eventManager.SetUp();
-        _uiManager.SetUp();
-        _levelManager.SetUp();
-        _playerInputManager.SetUp();
-        _soundManager.SetUp();
-
         if (_player != null)
         {
             _player = Instantiate(_player);

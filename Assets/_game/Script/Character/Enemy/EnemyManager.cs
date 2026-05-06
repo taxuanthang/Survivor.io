@@ -2,7 +2,7 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class EnemyManager : CharacterManager
+public class EnemyManager : CharacterManager , IPoolable
 {
     [Header("Enemy")]
 
@@ -12,6 +12,7 @@ public class EnemyManager : CharacterManager
     [SerializeField] EnemyAnimationManager _enemyAnimationManager;
 
     [SerializeField] EnemyType type;
+    [SerializeField] Transform model;
 
     [Header("EXP")]
     public int expDropOfThisEnemy = 10;
@@ -70,11 +71,22 @@ public class EnemyManager : CharacterManager
 
     public void DropEXPOrb()
     {
-
+        print("drop exp orb");
         ExpPoint expOrb = PoolManager.instance.Get(PoolType.EXPOrb).GetComponent<ExpPoint>();
         expOrb.transform.position = this.transform.position;
         expOrb.expValue = expDropOfThisEnemy;
         expOrb.col.enabled = true;
+    }
+
+
+    public void OnSpawn()
+    {
+        _enemyHealthManager.isDead = false;
+    }
+
+    public void OnDespawn()
+    {
+        model.localScale = new Vector3(5.85f, 5.85f, 5.85f);
     }
 }
 

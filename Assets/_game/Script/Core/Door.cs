@@ -19,7 +19,7 @@ public class Door : MonoBehaviour
     {
         if ((UtilitiesManager.instance.playerLayer.value &(1 << collision.gameObject.layer )) !=0) 
         {
-            room.OnPlayerEnter();
+            room.OnPlayerCrossDoorCheck();
         }
     }
 

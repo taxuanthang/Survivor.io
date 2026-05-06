@@ -28,21 +28,25 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject Get()
     {
+        GameObject obj = null;
         if (pool.Count > 0)
         {
-            GameObject obj = pool.Dequeue();
+            obj = pool.Dequeue();
             obj.SetActive(true);
+            obj.GetComponent<IPoolable>()?.OnSpawn();
             return obj;
         }
 
         // hết pool thì tạo thêm (optional)
-        GameObject newObj = Instantiate(prefab);
-        return newObj;
+        obj = Instantiate(prefab);
+        obj.GetComponent<IPoolable>()?.OnSpawn();
+        return obj;
     }
 
     public void Return(GameObject obj)
     {
         obj.SetActive(false);
+        obj.GetComponent<IPoolable>()?.OnDespawn();
         pool.Enqueue(obj);
     }
 }

@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 10
-  attackSpeed: 1
+  attackSpeed: 2
   critRate: 0.1
   critDamage: 2
   health: 100
@@ -288,6 +288,7 @@ MonoBehaviour:
   lastLevelChecked: 0
   catchingExpOrbRadius: 1
   isDebugRadius: 1
+  expOrbFlyTime: 1
   playerLevels:
   - level: 0
     EXPToReachThisLevel: 0
@@ -310,6 +311,14 @@ MonoBehaviour:
   - level: 9
     EXPToReachThisLevel: 100
   - level: 10
+    EXPToReachThisLevel: 100
+  - level: 11
+    EXPToReachThisLevel: 200
+  - level: 12
+    EXPToReachThisLevel: 100
+  - level: 13
+    EXPToReachThisLevel: 100
+  - level: 14
     EXPToReachThisLevel: 100
   player: {fileID: 0}
   OnNewLevelReach:

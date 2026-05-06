@@ -6,7 +6,9 @@ public class Level : MonoBehaviour
 {
     [SerializeField] string _levelName;
     public Room _startingRoom;
-    [SerializeField] List<Room> _roomList = new List<Room>();
+    public Room _bossReadyRoom;
+    public Room _bossRoom;
+    [SerializeField] List<Room> _normalRoomList = new List<Room>();
 
     public void Awake()
     {

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
-    public void SetUp()
+    public void Awake()
     {
         if (instance == null)
         {
@@ -45,4 +45,5 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnEnterNewLevel;
     public UnityEvent OnPlayerReachNewLevel;
     public UnityEvent<Upgrade> OnPlayerCompleteSelectingCard;
+    public UnityEvent OnNoMoreUpgrade;
 }

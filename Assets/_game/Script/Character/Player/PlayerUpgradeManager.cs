@@ -20,11 +20,15 @@ public class PlayerUpgradeManager : MonoBehaviour
         playerStatsManager = GetComponent<PlayerStatsManager>();
     }
 
-    public void Start()
+    public void OnEnable()
     {
         EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(AddUpgrade);
     }
 
+    public void OnDisable()
+    {
+        EventManager.instance.OnPlayerCompleteSelectingCard.RemoveListener(AddUpgrade);
+    }
 
     [Button]
     public void TestUp()

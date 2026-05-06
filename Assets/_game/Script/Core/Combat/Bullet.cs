@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour , IPoolable
 {
     public int damage;
     public float speed;
@@ -40,6 +40,18 @@ public class Bullet : MonoBehaviour
         destroyTimer.timeToDestroy = 0;
     }
 
+    public void OnSpawn()
+    {
+        // Logic to handle when the bullet is spawned
+        // This could include resetting variables, playing a spawn effect, etc.
+        //destroyTimer.timeToDestroy = existTime;
+    }
+
+    public void OnDespawn()
+    {
+        // Logic to handle when the bullet is despawned
+        // This could include resetting variables, stopping effects, etc.
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

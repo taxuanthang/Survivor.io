@@ -32,12 +32,6 @@ namespace Game
                 musicSource = gameObject.AddComponent<AudioSource>();
             }
 
-            this.enabled = false;
-        }
-
-        public void SetUp()
-        {
-            this.enabled = true;
         }
 
         [Button]
