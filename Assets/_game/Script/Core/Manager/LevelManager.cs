@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     }
     public void OnEnterNewLevel()
     {
-        List<Transform> spawnPoints = currentLevel._startingRoom.GetSpawnPoints();
+        List<Transform> spawnPoints = currentLevel._startingRoom.GetPlayerSpawnPoints();
         player.transform.position = spawnPoints[0].position;
     }
 }

@@ -6,12 +6,14 @@ public enum RoomType
 {
     StartingRoom,
     EnemyRoom,
+    BossRoom,
 }
 
 public enum EnemyType
 {
     Normal,
     Range,
+    Boss1,
 }
 
 public enum EnemySpawnType
@@ -61,4 +63,10 @@ public enum UpgradeType
     TimeWarp,                   // mechanic upgrade
     SecondLife,                 // mechanic upgrade
 
+}
+
+public enum HitBoxType
+{
+    Normal,
+    Ring
 }

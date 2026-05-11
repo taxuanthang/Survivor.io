@@ -3081,9 +3081,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 64938314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
+  m_Script: {fileID: 11500000, guid: 6034adfce0bb89d488a15bd42a6ec959, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Room
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRoom
   groundTilemap: {fileID: 586766686}
   collisionTilemap: {fileID: 955104095}
   noSpawnTilemap: {fileID: 455474912}
@@ -3093,6 +3093,8 @@ MonoBehaviour:
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  roomType: 1
+  door: {fileID: 1683081944}
   waves:
   - waveNumber: 1
     enemies:
@@ -3108,8 +3110,6 @@ MonoBehaviour:
     created: 0
   waveCount: 0
   currentEnemiesExisting: 0
-  roomType: 1
-  door: {fileID: 1683081944}
   triggered: 0
   isThisRoomFinished: 0
   spawnsPoints:
@@ -3162,9 +3162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 73420555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
+  m_Script: {fileID: 11500000, guid: 6034adfce0bb89d488a15bd42a6ec959, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Room
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRoom
   groundTilemap: {fileID: 885937908}
   collisionTilemap: {fileID: 1527385817}
   noSpawnTilemap: {fileID: 2116954310}
@@ -3174,6 +3174,8 @@ MonoBehaviour:
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  roomType: 1
+  door: {fileID: 307425511}
   waves:
   - waveNumber: 1
     enemies:
@@ -3189,8 +3191,6 @@ MonoBehaviour:
     created: 0
   waveCount: 0
   currentEnemiesExisting: 0
-  roomType: 1
-  door: {fileID: 307425511}
   triggered: 0
   isThisRoomFinished: 0
   spawnsPoints:
@@ -4182,14 +4182,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _levelName: 1
-  _startingRoom: {fileID: 519440637}
-  _bossReadyRoom: {fileID: 1847357163}
-  _bossRoom: {fileID: 989012844}
+  _startingRoom: {fileID: 0}
+  _bossReadyRoom: {fileID: 0}
+  _bossRoom: {fileID: 0}
   _normalRoomList:
-  - {fileID: 1741641446}
-  - {fileID: 73420557}
-  - {fileID: 1817107094}
-  - {fileID: 64938316}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &237053701
 GameObject:
   m_ObjectHideFlags: 0
@@ -24439,24 +24439,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  groundTilemap: {fileID: 2018995342}
-  collisionTilemap: {fileID: 308617645}
-  noSpawnTilemap: {fileID: 1538974893}
+  groundTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  noSpawnTilemap: {fileID: 0}
   cellBounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  waves: []
-  waveCount: 0
-  currentEnemiesExisting: 0
   roomType: 0
-  door: {fileID: 633749631}
-  triggered: 1
-  isThisRoomFinished: 1
-  spawnsPoints:
-  - {fileID: 1430676284}
+  door: {fileID: 0}
 --- !u!1 &531599704
 GameObject:
   m_ObjectHideFlags: 0
@@ -36752,6 +36745,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &745750448
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5684245777524939206, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 159.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -29.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799169272281401271, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7861431127813f478ffbe7be4dedf2e, type: 3}
 --- !u!1 &747808228
 GameObject:
   m_ObjectHideFlags: 0
@@ -55760,40 +55810,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 989012842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
+  m_Script: {fileID: 11500000, guid: bbcf1abcf7519ab4f96b927eddaf8702, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Room
-  groundTilemap: {fileID: 1783966803}
-  collisionTilemap: {fileID: 1293517328}
-  noSpawnTilemap: {fileID: 356193265}
+  m_EditorClassIdentifier: Assembly-CSharp::BossRoom
+  groundTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  noSpawnTilemap: {fileID: 0}
   cellBounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  waves:
-  - waveNumber: 1
-    enemies:
-    - numberOfEnemies: 2
-      typeOfEnemies: 0
-      spawnType: 0
-    created: 0
-  - waveNumber: 2
-    enemies:
-    - numberOfEnemies: 3
-      typeOfEnemies: 0
-      spawnType: 0
-    created: 0
-  waveCount: 0
-  currentEnemiesExisting: 0
-  roomType: 1
-  door: {fileID: 1132779458}
-  triggered: 0
-  isThisRoomFinished: 0
-  spawnsPoints:
-  - {fileID: 508969762}
-  - {fileID: 2142245926}
+  roomType: 0
+  door: {fileID: 0}
 --- !u!1 &1016532220
 GameObject:
   m_ObjectHideFlags: 0
@@ -87870,9 +87900,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741641444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
+  m_Script: {fileID: 11500000, guid: 6034adfce0bb89d488a15bd42a6ec959, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Room
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRoom
   groundTilemap: {fileID: 1438966249}
   collisionTilemap: {fileID: 963952584}
   noSpawnTilemap: {fileID: 1451439384}
@@ -87882,6 +87912,8 @@ MonoBehaviour:
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  roomType: 1
+  door: {fileID: 166813434}
   waves:
   - waveNumber: 1
     enemies:
@@ -87897,8 +87929,6 @@ MonoBehaviour:
     created: 0
   waveCount: 0
   currentEnemiesExisting: 0
-  roomType: 1
-  door: {fileID: 166813434}
   triggered: 0
   isThisRoomFinished: 0
   spawnsPoints:
@@ -133395,9 +133425,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817107092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
+  m_Script: {fileID: 11500000, guid: 6034adfce0bb89d488a15bd42a6ec959, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Room
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRoom
   groundTilemap: {fileID: 1570315545}
   collisionTilemap: {fileID: 2053242821}
   noSpawnTilemap: {fileID: 674999291}
@@ -133407,6 +133437,8 @@ MonoBehaviour:
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  roomType: 1
+  door: {fileID: 437527117}
   waves:
   - waveNumber: 1
     enemies:
@@ -133422,8 +133454,6 @@ MonoBehaviour:
     created: 0
   waveCount: 0
   currentEnemiesExisting: 0
-  roomType: 1
-  door: {fileID: 437527117}
   triggered: 0
   isThisRoomFinished: 0
   spawnsPoints:
@@ -133480,24 +133510,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7f81d5f2d46d048944e3cd64065a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  groundTilemap: {fileID: 18381456}
-  collisionTilemap: {fileID: 747808232}
-  noSpawnTilemap: {fileID: 1503246384}
+  groundTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  noSpawnTilemap: {fileID: 0}
   cellBounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 0, y: 0, z: 0}
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  waves: []
-  waveCount: 0
-  currentEnemiesExisting: 0
   roomType: 0
-  door: {fileID: 945695252}
-  triggered: 1
-  isThisRoomFinished: 1
-  spawnsPoints:
-  - {fileID: 850581835}
+  door: {fileID: 0}
 --- !u!1 &1862614682
 GameObject:
   m_ObjectHideFlags: 0
@@ -146079,3 +146102,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 609458830}
   - {fileID: 237053704}
+  - {fileID: 745750448}

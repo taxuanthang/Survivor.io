@@ -7,14 +7,14 @@ using static UnityEditor.PlayerSettings;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public Room currentRoom;
+    public EnemyRoom currentRoom;
 
     public PlayerManager player;
 
     public GameObject enemyPrefab;
 
 
-    public void SpawnEnemies(int numberToSpawn, EnemySpawnType spawnType)
+    public void SpawnEnemies(EnemyType selectType,int numberToSpawn, EnemySpawnType spawnType)
     {
 
         for(int i = 0; i < numberToSpawn; i++) {
@@ -31,8 +31,19 @@ public class EnemySpawnManager : MonoBehaviour
                     spawnPos = GetPointRandomInRoomSize();
                     break;
             }
-
-            EnemyManager enemy= PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+            EnemyManager enemy = null;
+            switch (selectType)
+            {
+                case EnemyType.Normal:
+                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+                    break;
+                case EnemyType.Range:
+                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+                    break;
+                case EnemyType.Boss1:
+                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+                    break;
+            }
             enemy.SetUp(player, spawnPos);
 
         }
@@ -80,7 +91,7 @@ public class EnemySpawnManager : MonoBehaviour
     [Button("Test Spawn Enemy")]
     public void SpawnEnemies1()
     {
-        SpawnEnemies(1, EnemySpawnType.RandomInPlayerRadius);
+        SpawnEnemies(EnemyType.Normal,1, EnemySpawnType.RandomInPlayerRadius);
     }
 
     public void Start()
@@ -90,7 +101,7 @@ public class EnemySpawnManager : MonoBehaviour
         EventManager.instance.OnEnterNewRoom.AddListener(OnEnterNewRoom);
     }
 
-    public void OnEnterNewRoom(Room room)
+    public void OnEnterNewRoom(EnemyRoom room)
     {
         currentRoom = room;
     }

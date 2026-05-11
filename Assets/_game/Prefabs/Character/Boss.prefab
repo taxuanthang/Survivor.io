@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 5804698183621525862}
   - component: {fileID: 8025500319435158338}
   - component: {fileID: 6796275134191077534}
-  - component: {fileID: 5103876179463628851}
-  - component: {fileID: 6763727434122164847}
-  - component: {fileID: 2065019006981909412}
-  - component: {fileID: 6544111649905650275}
   - component: {fileID: 5239487314941557834}
   - component: {fileID: 2636303150045494652}
   - component: {fileID: 3555046706016704936}
-  - component: {fileID: 6643676869306998158}
-  - component: {fileID: -1027653131078186096}
+  - component: {fileID: -1241626693009331940}
+  - component: {fileID: -8380242612283910748}
+  - component: {fileID: 1264363027628503239}
+  - component: {fileID: 2147594666094140562}
+  - component: {fileID: 4672987482717496131}
+  - component: {fileID: -4425792576561479010}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Untagged
@@ -106,86 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5103876179463628851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84eafa31fee21824686918ea53b3e8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  characterHealthManager: {fileID: 0}
-  OnHit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
-  _enemyHealthManager: {fileID: 0}
-  _enemyAIManager: {fileID: 0}
-  _enemyAICombatManager: {fileID: 0}
-  _enemyAnimationManager: {fileID: 0}
-  type: 0
-  model: {fileID: 6550531166428653085}
-  expDropOfThisEnemy: 50
---- !u!114 &6763727434122164847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9dd88288c646c448f82b8434f68b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthManager
-  maxHealth: 100
-  currentHealth: 0
-  isDead: 0
-  DieDuration: 0.3
---- !u!114 &2065019006981909412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8cf0a85dd981c44b6abd0fca250f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _idleState: {fileID: 11400000, guid: db21be39d52465043896aae209739e87, type: 2}
-  _chaseState: {fileID: 11400000, guid: 6948f5e8a59f1d44c97379be43f3e51f, type: 2}
-  _meleeAttackState: {fileID: 11400000, guid: cb08d47b552170145893ae79fe05c75c, type: 2}
-  _currentState: {fileID: 0}
-  aiPath: {fileID: 2636303150045494652}
-  seeker: {fileID: 5239487314941557834}
-  destinationSetter: {fileID: 3555046706016704936}
-  _enemyAICombatManager: {fileID: 6544111649905650275}
---- !u!114 &6544111649905650275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98cdd3f9a82164418d80e5bf46a9eb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  hitBoxDame: {fileID: 1609438358126225436, guid: 39eeaf01f5df8e346a68dadc56d98501, type: 3}
-  hitBoxDuration: 0.5
-  attackCooldown: 2
 --- !u!114 &5239487314941557834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIDestinationSetter
   version: 1
   target: {fileID: 0}
---- !u!114 &6643676869306998158
+--- !u!114 &-1241626693009331940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,11 +199,91 @@ MonoBehaviour:
   m_GameObject: {fileID: 2081406601031641391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d295fa99f08b775489c98ad6981dc7ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 9071c5a01f7e2544e966799de648757f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _bossHealthManager: {fileID: 0}
+  _bossAIManager: {fileID: 0}
+  _bossAICombatManager: {fileID: 0}
+  _bossAnimationManager: {fileID: 0}
+  type: 2
+  model: {fileID: 6550531166428653085}
+  triggered: 0
+  expDropOfThisEnemy: 10
+--- !u!114 &-8380242612283910748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6bcbdeb0ceada34d8f59d2370cb90d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  maxHealth: 1000
+  currentHealth: 0
+  isDead: 0
+  DieDuration: 0
+--- !u!114 &1264363027628503239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfab6f4ff23465e48b7f9a4c372913ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAIManager
+  _idleState: {fileID: 11400000, guid: db21be39d52465043896aae209739e87, type: 2}
+  _chaseState: {fileID: 11400000, guid: 6948f5e8a59f1d44c97379be43f3e51f, type: 2}
+  _meleeAttackState: {fileID: 11400000, guid: cb08d47b552170145893ae79fe05c75c, type: 2}
+  _currentState: {fileID: 0}
+  aiPath: {fileID: 0}
+  seeker: {fileID: 0}
+  destinationSetter: {fileID: 0}
+  _enemyAICombatManager: {fileID: 0}
+--- !u!114 &2147594666094140562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309bd227e80ea4940bb0c25ff06e7ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAICombatManager
+  hitBoxDame: {fileID: 0}
+  hitBoxDuration: 0.5
+  attackCooldown: 2
+--- !u!114 &4672987482717496131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081406601031641391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ebc9326b8751143914545d78cf0c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   _animator: {fileID: 3372206488376334885}
---- !u!114 &-1027653131078186096
+--- !u!114 &-4425792576561479010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,10 +292,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2081406601031641391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22db765c35dc2a4e9f0589a2ca897dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 91f2ab390d4a6c34389aedaf4c98f7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bloodDuration: 0.3
 --- !u!1 &3806434671621370369
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +323,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.8499994, y: 5.8499994, z: 5.8499994}
+  m_LocalScale: {x: 12.999999, y: 12.999999, z: 12.999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5804698183621525862}

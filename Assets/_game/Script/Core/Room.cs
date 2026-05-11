@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
@@ -12,14 +10,10 @@ public class Room : MonoBehaviour
 
     [Header("Room Bound")]
     public BoundsInt cellBounds;
+
     // convert sang world
     public Bounds worldBounds;
-    [Header("Room Enemy Wave")]
-    
-    public List<RoomWave> waves;
 
-    [SerializeField] int waveCount =0;
-    [SerializeField] int currentEnemiesExisting = 0;
 
     [Header("Other")]
     public RoomType roomType;
@@ -29,11 +23,9 @@ public class Room : MonoBehaviour
     public bool triggered;
     public bool isThisRoomFinished = false;
 
-    public List<Transform> spawnsPoints;
-
-    public  void Update()
+    public virtual void Update()
     {
-        if(!triggered)
+        if (!triggered)
         {
             return;
         }
@@ -41,128 +33,17 @@ public class Room : MonoBehaviour
         {
             return;
         }
-
-        if (currentEnemiesExisting != 0)
-        {
-            return;
-        }
-        waveCount++;
-        if (waveCount > waves.Count)
-        {
-            OnFinishRoom();
-            waveCount = 0;
-            return;
-        }
-
-
-        int waveIndex = waveCount - 1;
-        for (int i = 0; i < waves[waveIndex].enemies.Count; i++)
-        {
-            EnemyType selectedType = waves[waveIndex].enemies[i].typeOfEnemies;
-            int currentEnemiesOfThisSelectedType = waves[waveIndex].enemies[i].numberOfEnemies;
-            EnemySpawnType selectedSpawnType = waves[waveIndex].enemies[i].spawnType;
-
-            currentEnemiesExisting += currentEnemiesOfThisSelectedType;
-            switch (selectedType)
-            {
-                case EnemyType.Normal:
-                    EventManager.instance.SpawnEnemies?.Invoke(currentEnemiesOfThisSelectedType, selectedSpawnType);
-                    break;
-                case EnemyType.Range:
-                    EventManager.instance.SpawnEnemies?.Invoke(currentEnemiesOfThisSelectedType, selectedSpawnType);
-                    break;
-            }
-        }
-        waves[waveIndex].created = true;
-
-
-
-
-
     }
 
-    public void IsThisWaveFinish()
+    public virtual void OnPlayerCrossDoor(PlayerManager player)
     {
-
-    }
-    public bool IsSpawnable(Vector3 pos)
-    {
-        Vector3Int cell = groundTilemap.WorldToCell(pos);
-
-        if (!groundTilemap.HasTile(cell)) return false;
-        if (collisionTilemap.HasTile(cell)) return false;
-        if (noSpawnTilemap && noSpawnTilemap.HasTile(cell)) return false;
-
-        return true;
-    }
-
-    public void Start()
-    {
-        cellBounds = groundTilemap.cellBounds;
-
-        Vector3 min = groundTilemap.CellToWorld(cellBounds.min);
-        Vector3 max = groundTilemap.CellToWorld(cellBounds.max) + groundTilemap.cellSize;
-
-        worldBounds = new Bounds();
-        worldBounds.SetMinMax(min, max);
-
-
-        door.room = this;
-    }
-
-    public List<Transform> GetSpawnPoints()
-    {
-        return spawnsPoints;
-    }
-
-    internal void CloseAllDoor()
-    {
-        door.Close();
-
-    }
-
-    internal void OpenAllDoor()
-    {
-        door.Open();
-    }
-
-    public void OnPlayerCrossDoorCheck()
-    {
-        if(triggered == false)
+        if (triggered == false)
         {
             triggered = true;
-            OnPlayerEnter();
         }
         else
         {
 
         }
-    }
-    public void OnPlayerEnter()
-    {
-        EventManager.instance.OnEnterNewRoom?.Invoke(this);
-        EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
-        EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
-        switch (this.roomType)
-        {
-            case RoomType.EnemyRoom:
-                CloseAllDoor();
-                break;
-            case RoomType.StartingRoom:
-                break;
-        }
-    }
-
-    public void OnFinishRoom()
-    {
-        isThisRoomFinished = true;
-        OpenAllDoor();
-        EventManager.instance.OnEnemyDie.RemoveListener(OnEnemyDie);
-        EventManager.instance.OnFinishEnemyRoom?.Invoke();
-    }
-
-    public void OnEnemyDie()
-    {
-        currentEnemiesExisting -= 1;
     }
 }

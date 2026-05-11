@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f399949847a2a6b49a2145448b3f9b74, type: 3}
+  m_Name: DirectionalAttack
+  m_EditorClassIdentifier: Assembly-CSharp::DirectionalAttack
+  damage: 0
+  range: 0
+  direction: {x: 0, y: 0}
+  angle: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hitBoxDuration: 6
+  attackCooldown: 2

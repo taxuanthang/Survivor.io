@@ -5,10 +5,10 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [SerializeField] string _levelName;
-    public Room _startingRoom;
+    public StartingRoom _startingRoom;
     public Room _bossReadyRoom;
     public Room _bossRoom;
-    [SerializeField] List<Room> _normalRoomList = new List<Room>();
+    [SerializeField] List<EnemyRoom> _enemyRoomList = new List<EnemyRoom>();
 
     public void Awake()
     {
@@ -24,7 +24,7 @@ public class Level : MonoBehaviour
 
     }
 
-    public void RegisterRoomTolist(Room room)
+    public void RegisterRoomTolist(EnemyRoom room)
     {
 
     }
@@ -34,12 +34,17 @@ public class Level : MonoBehaviour
         LevelManager.instance.currentLevel = null;
     }
 
-    public void OnEnterEnemyRoom(Room room)
+    public void OnEnterEnemyRoom(EnemyRoom room)
     {
 
     }
 
-    public void OnFinishEnemyRoom(Room room)
+    public void OnFinishEnemyRoom(EnemyRoom room)
     { 
+    }
+
+    public bool IsAllEnemyRoomClear()
+    {
+        return false;
     }
 }

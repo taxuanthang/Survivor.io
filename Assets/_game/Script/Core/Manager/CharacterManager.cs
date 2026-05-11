@@ -9,10 +9,10 @@ public class CharacterManager: MonoBehaviour
     // vì ko có playerHealthManager nên sẽ làm thêm CharacterHealthManager, sau đó playerHealthManager sẽ kế thừa từ CharacterHealthManager, và enemyHealthManager cx vậy
     public LayerMask _layerMask;
     [Header("Character")]
-    [SerializeField] CharacterHealthManager characterHealthManager;
+    CharacterHealthManager characterHealthManager;
 
-    public UnityEvent<int> OnHit;
-    public UnityEvent OnDie;
+    [HideInInspector] public UnityEvent<int> OnHit;
+    [HideInInspector] public UnityEvent OnDie;
 
     public virtual void Awake()
     {

@@ -292,12 +292,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335450180}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 625976021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &335450182
 MonoBehaviour:
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4583f8e6dac1c3f45b88a339ede167ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenesManager
-  firstSceneIndex: 1
+  firstSceneIndex: 2
 --- !u!1 &377264726
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,11 +526,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 312033970722312316, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 335450181}
     - targetCorrespondingSourceObject: {fileID: 5385866026629820874, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2037545507}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+--- !u!4 &625976021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 312033970722312316, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &767877223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,5 +1339,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1166244739}
   - {fileID: 1265579379}
-  - {fileID: 335450181}
   - {fileID: 625976020}

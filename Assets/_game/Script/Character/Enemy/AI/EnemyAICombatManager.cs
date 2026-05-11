@@ -1,8 +1,33 @@
+using NaughtyAttributes;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class EnemyAICombatManager : MonoBehaviour
 {
+
+    public List<Attack> rangeAttacks;
+
+    public Attack test;
+    public Transform target;
+
+
+    public EnemyAIManager enemyAIManager;
+
+    public void Awake()
+    {
+        enemyAIManager = GetComponent<EnemyAIManager>();
+
+    }
+
+    [Button]
+    public void Test()
+    {
+        print("attack");
+        test.PerformAttack(this.transform, target);
+    }
+
     // class này sẽ quản lý các hành động combat của enemy
     public HitBoxDame hitBoxDame;
     public float hitBoxDuration = 0.5f; // thời gian tồn tại của hitbox
@@ -15,11 +40,7 @@ public class EnemyAICombatManager : MonoBehaviour
         // giờ sẽ tạo ra một ô vuông gây dame và sẽ xóa nó đi sau 1 khoảng thời gian
         Vector3 createPos = (target.transform.position - this.transform.position).normalized * 0.5f + this.transform.position; // tạo hitbox ở vị trí gần enemy
         HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
-        hitBox.transform.position = createPos;
-        hitBox.transform.rotation = Quaternion.identity;
-        DestroyTimer destroyTimer = hitBox.gameObject.GetComponent<DestroyTimer>();
-        destroyTimer.poolType = PoolType.HitBox;
-        destroyTimer.timeToDestroy = hitBoxDuration;
+        hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, hitBoxDuration);
 
         await Task.Delay((int)(attackCooldown * 1000)); // chờ cho hitbox tồn tại xong rồi mới có thể thực hiện các hành động tiếp theo
     }
