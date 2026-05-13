@@ -5,10 +5,6 @@ using UnityEngine;
 public class DirectionalAttack : Attack
 {
     public float damage;
-    public float range;
-    public Vector2 direction;
-    public float angle;
-    public LayerMask targetLayer;
 
     // class này sẽ quản lý các hành động combat của enemy
     public float hitBoxDuration = 0.5f; // thời gian tồn tại của hitbox

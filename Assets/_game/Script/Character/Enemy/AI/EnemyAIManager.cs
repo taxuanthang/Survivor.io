@@ -12,6 +12,8 @@ public class EnemyAIManager : MonoBehaviour
 
     public State _meleeAttackState;
 
+    public State _rangeAttackState;
+
     // cta cần 1 biến để lưu trạng thái hiện tại của enemy
     [Expandable] [SerializeField] State _currentState;
 

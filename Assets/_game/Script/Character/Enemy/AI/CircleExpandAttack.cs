@@ -5,8 +5,6 @@ using UnityEngine;
 public class CircleExpandAttack : Attack
 {
     public float damage;
-    public float range;
-    public float angle;
 
     // class này sẽ quản lý các hành động combat của enemy
     public float hitBoxDuration = 0.5f; // thời gian tồn tại của hitbox
@@ -14,8 +12,6 @@ public class CircleExpandAttack : Attack
     public float currentCircleMaxScale = 0f; // số lượng hitbox được tạo ra
     public float increaseScaleSpeed = 0.01f; // tốc độ tăng scale của hitbox
     public float innerToOuterOfHitBox = 1f; // khoảng cách từ vòng trong đến vòng ngoài của hitbox
-
-    public HitBoxDame hitboxCircle;
 
 
 

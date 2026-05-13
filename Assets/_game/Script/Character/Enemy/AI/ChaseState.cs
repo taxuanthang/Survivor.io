@@ -18,6 +18,10 @@ public class ChaseState : State
         {
             enemy.ChangeState(enemy._meleeAttackState);
         }
+        //else if ()
+        //{
+
+        //}
 
     }
     public override void Exit(EnemyAIManager enemy)

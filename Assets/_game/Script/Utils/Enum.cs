@@ -29,6 +29,7 @@ public enum PoolType
     HitBox,
     BloodVFX,
     EXPOrb,
+    ShadowSlam,
 }
 
 public enum UpgradeType

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f399949847a2a6b49a2145448b3f9b74, type: 3}
-  m_Name: DirectionalAttack
-  m_EditorClassIdentifier: Assembly-CSharp::DirectionalAttack
+  m_Script: {fileID: 11500000, guid: 6c3d3531be47f7b4597a5ab4a4b42775, type: 3}
+  m_Name: PhantomDash
+  m_EditorClassIdentifier: Assembly-CSharp::PhantomDash
   damage: 20
-  hitBoxDuration: 6
-  hitboxDistanceBetweenEach: 2
-  hitboxCount: 20
-  timeBetweenEachTimeCreateHitbox: 0.5
+  hitBoxDuration: 0.5
+  dashTime: 0
+  dashSpeed: 0.5
+  timeOfSkillCharges: 1

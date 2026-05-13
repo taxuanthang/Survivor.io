@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcb4847005d0514fbca0c762ef527e0, type: 3}
   m_Name: CircleExpand
   m_EditorClassIdentifier: Assembly-CSharp::CircleExpandAttack
-  damage: 0
-  range: 0
-  angle: 0
+  damage: 20
   hitBoxDuration: 20
-  hitboxDistanceBetweenEach: 2
   circleMaxScale: 20
   currentCircleMaxScale: 0
   increaseScaleSpeed: 0.01
+  innerToOuterOfHitBox: 1

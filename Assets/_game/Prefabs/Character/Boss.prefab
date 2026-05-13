@@ -78,7 +78,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 1.34
 --- !u!50 &6796275134191077534
 Rigidbody2D:
   serializedVersion: 5
@@ -251,10 +251,10 @@ MonoBehaviour:
   _chaseState: {fileID: 11400000, guid: 6948f5e8a59f1d44c97379be43f3e51f, type: 2}
   _meleeAttackState: {fileID: 11400000, guid: cb08d47b552170145893ae79fe05c75c, type: 2}
   _currentState: {fileID: 0}
-  aiPath: {fileID: 0}
-  seeker: {fileID: 0}
-  destinationSetter: {fileID: 0}
-  _enemyAICombatManager: {fileID: 0}
+  aiPath: {fileID: 2636303150045494652}
+  seeker: {fileID: 5239487314941557834}
+  destinationSetter: {fileID: 3555046706016704936}
+  _enemyAICombatManager: {fileID: 2147594666094140562}
 --- !u!114 &2147594666094140562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309bd227e80ea4940bb0c25ff06e7ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAICombatManager
+  rangeAttacks: []
+  test: {fileID: 0}
+  target: {fileID: 0}
+  enemyAIManager: {fileID: 0}
   hitBoxDame: {fileID: 0}
   hitBoxDuration: 0.5
   attackCooldown: 2
