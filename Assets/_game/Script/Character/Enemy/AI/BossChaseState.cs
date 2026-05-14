@@ -20,7 +20,10 @@ public class BossChaseState : State
         }
 
         // nếu trong tầm thì roll trong pool
-
+        if(enemy.CanAttackRange())
+        {
+            enemy.ChangeState(enemy._rangeAttackState);
+        }
         //Physics2D.OverlapCircle(enemy.transform.position, enemy._enemyAICombatManager._enemyStatsSO.rollRange, enemy._enemyAICombatManager._enemyStatsSO.playerLayerMask);
 
     }

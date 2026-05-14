@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -1241626693009331940}
   - component: {fileID: -8380242612283910748}
   - component: {fileID: 1264363027628503239}
-  - component: {fileID: 2147594666094140562}
   - component: {fileID: 4672987482717496131}
   - component: {fileID: -4425792576561479010}
   m_Layer: 9
@@ -213,7 +212,6 @@ MonoBehaviour:
       m_Calls: []
   _bossHealthManager: {fileID: 0}
   _bossAIManager: {fileID: 0}
-  _bossAICombatManager: {fileID: 0}
   _bossAnimationManager: {fileID: 0}
   type: 2
   model: {fileID: 6550531166428653085}
@@ -248,32 +246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAIManager
   _idleState: {fileID: 11400000, guid: db21be39d52465043896aae209739e87, type: 2}
-  _chaseState: {fileID: 11400000, guid: 6948f5e8a59f1d44c97379be43f3e51f, type: 2}
+  _chaseState: {fileID: 11400000, guid: 73db2d06c4462af4681abe111b33cf86, type: 2}
   _meleeAttackState: {fileID: 11400000, guid: cb08d47b552170145893ae79fe05c75c, type: 2}
+  _rangeAttackState: {fileID: 11400000, guid: d7479fd0278d47d48be78aac64a507a5, type: 2}
   _currentState: {fileID: 0}
   aiPath: {fileID: 2636303150045494652}
   seeker: {fileID: 5239487314941557834}
   destinationSetter: {fileID: 3555046706016704936}
-  _enemyAICombatManager: {fileID: 2147594666094140562}
---- !u!114 &2147594666094140562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081406601031641391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 309bd227e80ea4940bb0c25ff06e7ce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossAICombatManager
-  rangeAttacks: []
-  test: {fileID: 0}
-  target: {fileID: 0}
-  enemyAIManager: {fileID: 0}
-  hitBoxDame: {fileID: 0}
-  hitBoxDuration: 0.5
-  attackCooldown: 2
 --- !u!114 &4672987482717496131
 MonoBehaviour:
   m_ObjectHideFlags: 0

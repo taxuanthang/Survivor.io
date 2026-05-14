@@ -8,7 +8,6 @@ public class EnemyManager : CharacterManager , IPoolable
 
     [SerializeField] EnemyHealthManager _enemyHealthManager;
     [SerializeField] EnemyAIManager _enemyAIManager;
-    [SerializeField] EnemyAICombatManager _enemyAICombatManager;
     [SerializeField] EnemyAnimationManager _enemyAnimationManager;
 
     [SerializeField] EnemyType type;
@@ -23,7 +22,6 @@ public class EnemyManager : CharacterManager , IPoolable
         base.Awake();
         _enemyHealthManager = GetComponent<EnemyHealthManager>();
         _enemyAIManager = GetComponent<EnemyAIManager>();
-        _enemyAICombatManager = GetComponent<EnemyAICombatManager>();
         _enemyAnimationManager = GetComponent<EnemyAnimationManager>();
 
         OnDie.AddListener(DropEXPOrb);

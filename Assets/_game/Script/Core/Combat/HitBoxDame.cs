@@ -47,7 +47,7 @@ public class HitBoxDame : MonoBehaviour , IPoolable
 
     public void OnDespawn()
     {
-
+        this.transform.localScale = new Vector3(2,2,1);
     }
     // class này sẽ được attach vào hitbox prefab để xử lý va chạm va
     private void OnTriggerEnter2D(Collider2D collision)
