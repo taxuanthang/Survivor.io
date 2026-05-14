@@ -45,9 +45,12 @@ public class PlayerManager: CharacterManager
 
     }
 
-    internal void HandleDodgeInput()
+    public async void HandleDodgeInput()
     {
-        StartCoroutine(_playerLocomotionManager.HandleDodge());
+        _playerHealthManager.isHittable = false;
+        await _playerLocomotionManager.HandleDodge();
+        _playerHealthManager.isHittable = true;
+        // Set để ko di chuyển được khi đang dodge
     }
 
     internal void HandleShootInput(Vector3 currentTargetPos)
@@ -65,6 +68,11 @@ public class PlayerManager: CharacterManager
         Debug.Log("Player Resurrected");
         _playerHealthManager.HealFull();
         _playerHealthManager.isDead = false;
+    }
+
+    public bool CanBeHitted()
+    {
+        return _playerHealthManager.isHittable;
     }
 
 }

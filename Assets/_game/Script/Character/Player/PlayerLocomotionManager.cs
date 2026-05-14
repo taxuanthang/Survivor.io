@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 public class PlayerLocomotionManager: MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class PlayerLocomotionManager: MonoBehaviour
     public float dodgeSpeed;
     public float dodgeDuration;
     public float dodgeCooldown;
-    public IEnumerator HandleDodge()
+    public async Task HandleDodge()
     {   
         // sửa lại idea thành trong fixed update sẽ chạy hàm này liên tục nếu bool dodgeInput bật lên true thì thực thi, đồng thời sửa lại logic while khả năng phải ngh
         // thêm đầu chặn để ko cho thực hiện dodge khi đang dodge
@@ -59,25 +60,24 @@ public class PlayerLocomotionManager: MonoBehaviour
             {
                 playerTransform.localPosition += new Vector3(dir.x, dir.y, 0) * dodgeSpeed*Time.fixedDeltaTime;
                 dodgeDuration -= Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
+                await Awaitable.FixedUpdateAsync();
             }
             allowToMove = true;
             dodgeDuration = tempDuration;
-
-            // thêm cool down để tránh spam dodge
-            float tempCooldown = dodgeCooldown;
-            while (dodgeCooldown > 0)
-            {
-                dodgeCooldown -= Time.fixedDeltaTime;
-                yield return new WaitForFixedUpdate();
-            }
-            dodgeCooldown = tempCooldown;
-            allowToDodge = true;
+            StartCooldown();
         }
-
-
-
-
+    }
+    async void StartCooldown()
+    {
+        // thêm cool down để tránh spam dodge
+        float tempCooldown = dodgeCooldown;
+        while (dodgeCooldown > 0)
+        {
+            dodgeCooldown -= Time.fixedDeltaTime;
+            await Awaitable.FixedUpdateAsync();
+        }
+        dodgeCooldown = tempCooldown;
+        allowToDodge = true;
     }
 
 

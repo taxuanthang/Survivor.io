@@ -8,6 +8,7 @@ public class PlayerHealthManager : CharacterHealthManager
     public float healthRegen = 0f;
 
     float currentHealCooldown = 0f;
+    public bool isHittable = true;
     public void Update()
     {
 
@@ -30,6 +31,8 @@ public class PlayerHealthManager : CharacterHealthManager
 
     public override void TakeDamage(int damage)
     {
+        if (!isHittable) { return; } 
+            
         currentHealth -= (int)(damage * (1- damageReduction));
         if (currentHealth <= 0)
         {

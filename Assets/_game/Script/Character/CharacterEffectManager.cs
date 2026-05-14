@@ -4,7 +4,7 @@ public class CharacterEffectManager : MonoBehaviour
 {
     [SerializeField] protected float bloodDuration =0.3f;
 
-    CharacterManager character;
+    protected CharacterManager character;
 
     public void Awake()
     {
@@ -21,7 +21,7 @@ public class CharacterEffectManager : MonoBehaviour
         character.OnHit.RemoveListener(SplitBlood);
     }
 
-    public void SplitBlood(int dmg)
+    public virtual void SplitBlood(int dmg)
     {
         GameObject newBlood = PoolManager.instance.Get(PoolType.BloodVFX); // Get a blood from the pool
         newBlood.transform.position = character.transform.position;
