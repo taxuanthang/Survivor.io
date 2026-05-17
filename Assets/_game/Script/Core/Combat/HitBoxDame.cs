@@ -26,7 +26,7 @@ public class HitBoxDame : MonoBehaviour , IPoolable
     {
         transform.position = createPos;
         transform.rotation = rotation;
-        this.hitBoxType = HitBoxType.Normal;
+        this.hitBoxType = HitBoxType.Circle;
         DestroyTimer destroyTimer = gameObject.GetComponent<DestroyTimer>();
         destroyTimer.poolType = poolType;
         destroyTimer.timeToDestroy = hitBoxDuration;
@@ -49,7 +49,10 @@ public class HitBoxDame : MonoBehaviour , IPoolable
     public void Update()
     {
         // logic khi khởi tạo poolable
-        radiusOuterOfHitBox = GetComponent<CircleCollider2D>().radius * transform.localScale.x;
+        if (hitBoxType == HitBoxType.Circle)
+        {
+            radiusOuterOfHitBox = GetComponent<CircleCollider2D>().radius * transform.localScale.x;
+        }
     }
 
     public void OnSpawn()
@@ -70,7 +73,12 @@ public class HitBoxDame : MonoBehaviour , IPoolable
         {
             switch(hitBoxType)
             {
-                case HitBoxType.Normal:
+                case HitBoxType.Circle:
+                    // logic khi va chạm với player thính thường
+                    // khi va chạm với player thi
+                    player.OnHit?.Invoke(10);
+                    break;
+                case HitBoxType.Rect:
                     // logic khi va chạm với player thính thường
                     // khi va chạm với player thi
                     player.OnHit?.Invoke(10);
@@ -85,7 +93,7 @@ public class HitBoxDame : MonoBehaviour , IPoolable
         {
             switch (hitBoxType)
             {
-                case HitBoxType.Normal:
+                case HitBoxType.Circle:
 
                     break;
                 case HitBoxType.Ring:

@@ -68,6 +68,7 @@ public enum UpgradeType
 
 public enum HitBoxType
 {
-    Normal,
-    Ring
+    Circle,
+    Ring,
+    Rect,
 }

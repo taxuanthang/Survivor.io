@@ -43,7 +43,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751425992191272842}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -109,6 +109,11 @@ MonoBehaviour:
   hitBoxType: 0
   radiusOuterOfHitBox: 2.41
   innerToOuterOfHitBox: 1.35
+  spriteRenderer: {fileID: 0}
+  canHitBoxRingHit: 1
+  onDespawn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-8705841696467168382
 MonoBehaviour:
   m_ObjectHideFlags: 0

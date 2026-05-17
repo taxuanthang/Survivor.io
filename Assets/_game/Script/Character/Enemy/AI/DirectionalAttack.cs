@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 [CreateAssetMenu(fileName = "DirectionalAttack", menuName = "Attack/Directional")]
 public class DirectionalAttack : Attack
@@ -12,19 +13,46 @@ public class DirectionalAttack : Attack
     public float hitboxCount = 20; // số lượng hitbox được tạo ra
     public float timeBetweenEachTimeCreateHitbox = 0.5f; // 
 
+    public float modified = 1f;
+
+    public GameObject directionPrefabs;
+
 
 
     public override async Task PerformAttack(Transform origin, Transform target)
     {
 
         Vector3 directionToTargetVector = (target.position - origin.position).normalized;
-        
-        for (int i = 0; i < hitboxCount; i++)
+
+        Quaternion rotateQua = Quaternion.FromToRotation(Vector3.right, target.position - origin.position);
+        GameObject direction = Instantiate(directionPrefabs, origin.transform.position, rotateQua);
+
+        await CreateSpriteAndSpreadIt(origin,target,direction);
+
+    }
+
+
+
+    public async Task CreateSpriteAndSpreadIt(Transform origin, Transform target, GameObject direction)
+    {
+        float dis = Vector3.Distance(origin.position, target.position);
+        DestroyTimer timer= direction.AddComponent<DestroyTimer>();
+        timer.returnToPooled = false;
+        BoxCollider2D collider=direction.AddComponent<BoxCollider2D>();
+        collider.isTrigger = true;
+        HitBoxDame hitBoxDame=direction.AddComponent<HitBoxDame>();
+        hitBoxDame.hitBoxType = HitBoxType.Rect;
+        float expandTime = timeBetweenEachTimeCreateHitbox * hitboxCount;
+        timer.timeToDestroy = expandTime;
+        float currentTime = 0f;
+        Vector3 baseScale = direction.transform.localScale;
+        while (currentTime < expandTime)
         {
-            HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
-            Vector3 createPos = origin.position + (Vector3)directionToTargetVector * i* hitboxDistanceBetweenEach;
-            hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, hitBoxDuration);
-            await Awaitable.WaitForSecondsAsync(timeBetweenEachTimeCreateHitbox);
+            Debug.Log(Vector3.Lerp(baseScale, new Vector3(baseScale.x, dis, 1), currentTime) + " " + direction.transform.localScale);
+            float deltaX=Vector3.Lerp(baseScale, new Vector3(baseScale.x, dis, 1), currentTime / expandTime).y;
+            direction.transform.localScale = new Vector3(deltaX, baseScale.y, baseScale.z);
+            currentTime += modified*Time.deltaTime;
+            await Awaitable.NextFrameAsync();
         }
 
     }
