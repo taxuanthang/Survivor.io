@@ -14,10 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangeAttackState
   rangeAttacks:
   - {fileID: 11400000, guid: 61f6a52b83a53724486e68a994fc1bb6, type: 2}
-  - {fileID: 11400000, guid: 4603d2f77329a5e4f855dedf8e74af8f, type: 2}
-  - {fileID: 11400000, guid: d506fc121b4cb604dad85a22173f0325, type: 2}
-  - {fileID: 11400000, guid: 92c4fb33852fe314b9df99e35e54abcd, type: 2}
-  - {fileID: 11400000, guid: 5ddb4a03f2297ca4284e9db013b77964, type: 2}
   currentRangeAttackCooldown: 0
   rangeAttackCooldown: 7
   canAttack: 1

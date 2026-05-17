@@ -104,27 +104,16 @@ public class EnemyRoom : Room
         door.Open();
     }
 
-    public void OnPlayerEnter(PlayerManager player)
-    {
-        EventManager.instance.OnEnterNewRoom?.Invoke(this);
-        EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
-        EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
-        switch (this.roomType)
-        {
-            case RoomType.EnemyRoom:
-                CloseAllDoor();
-                break;
-            case RoomType.StartingRoom:
-                break;
-        }
-    }
-
     public override void OnPlayerCrossDoor(PlayerManager player)
     {
         if (triggered == false)
         {
             triggered = true;
-            OnPlayerEnter(player);
+
+            EventManager.instance.OnEnterNewRoom?.Invoke(this);
+            EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
+            EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
+            CloseAllDoor();
         }
         else
         {

@@ -26,11 +26,17 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent OnPlayerDie;
 
-    public UnityEvent<EnemyRoom> OnEnterEnemyRoom;
     public UnityEvent<EnemyRoom> OnEnterNewRoom;
+
+    public UnityEvent<EnemyRoom> OnEnterEnemyRoom;
     public UnityEvent OnFinishEnemyRoom;
     public UnityEvent OnEnemyHit;
     public UnityEvent OnEnemyDie;
+
+    public UnityEvent<BossRoom> OnEnterBossRoom;
+    public UnityEvent OnFinishBossRoom;
+    public UnityEvent<float> OnBossHit;
+    public UnityEvent OnBossDie;
 
     public UnityEvent<EnemyType,int,EnemySpawnType> SpawnEnemies;
 

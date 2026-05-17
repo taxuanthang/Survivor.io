@@ -119,6 +119,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &68814421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 989424899033130615, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &83419927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8912897777120794360, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcca32222470b4745a9539fa9417fb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &377264726
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +193,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _startGameButton: {fileID: 1309751036}
+--- !u!114 &547404796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7180764301083687774, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &625976020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +256,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 490380786653904196, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962264632481223166, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: bossHealth_UI
+      value: 
+      objectReference: {fileID: 83419927}
     - target: {fileID: 4259856932175142907, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -235,6 +276,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8912897777120794360, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: _bossName
+      value: 
+      objectReference: {fileID: 68814421}
+    - target: {fileID: 8912897777120794360, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: _bossHealth
+      value: 
+      objectReference: {fileID: 547404796}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

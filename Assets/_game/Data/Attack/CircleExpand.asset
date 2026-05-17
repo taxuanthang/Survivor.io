@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: CircleExpand
   m_EditorClassIdentifier: Assembly-CSharp::CircleExpandAttack
   damage: 20
-  hitBoxDuration: 20
+  hitBoxDurationAfterFinishSkill: 1
   circleMaxScale: 20
   currentCircleMaxScale: 0
-  increaseScaleSpeed: 0.01
+  increaseScaleSpeed: 1
   innerToOuterOfHitBox: 1
+  CircleSprite: {fileID: -5684090933293478905, guid: 64ab4b5eb98229145a20a6955eb6d2ce, type: 3}

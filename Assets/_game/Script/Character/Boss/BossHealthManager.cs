@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class BossHealthManager : EnemyHealthManager
+public class BossHealthManager : CharacterHealthManager
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float DieDuration;
+    public override void Die()
     {
-        
+        base.Die();
+        // run enemy death animation, disable enemy AI, etc.
+        print("Call Enemy Die");
+        EventManager.instance.OnBossDie?.Invoke();
+        EventManager.instance.OnFinishBossRoom?.Invoke();
+        WaitDieAnim();
     }
 
-    // Update is called once per frame
-    void Update()
+    public async void WaitDieAnim()
     {
-        
+        await Awaitable.WaitForSecondsAsync(DieDuration);
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        float percentageHealth = (float)currentHealth / (float)maxHealth;
+        EventManager.instance.OnBossHit?.Invoke(percentageHealth);
     }
 }

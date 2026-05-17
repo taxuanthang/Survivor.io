@@ -8,4 +8,8 @@ public class StartingRoom : Room
     {
         return spawnPoints;
     }
+
+    public override void OnPlayerCrossDoor(PlayerManager player)
+    {
+    }
 }

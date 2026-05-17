@@ -25,6 +25,10 @@ public class BossRoom : Room
         {
             triggered = true;
             ActivateBoss(player);
+
+            EventManager.instance.OnEnterBossRoom?.Invoke(this);
+            //EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
+
         }
         else
         {

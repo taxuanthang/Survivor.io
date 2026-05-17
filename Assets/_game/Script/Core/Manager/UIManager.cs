@@ -3,19 +3,20 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameOver_UI _gameOver_UI;
-    public Slider _healthSlider;
-    public Slider _ammoSlider;
-    public UpgradeSelector_UI _upgradeSelector_UI;
+    public GameOver_UI gameOver_UI;
+    public Slider healthSlider;
+    public Slider ammoSlider;
+    public UpgradeSelector_UI upgradeSelector_UI;
+    public BossHealth_UI bossHealth_UI;
 
     public void UpdateHealth(float health)
     {
-        _healthSlider.value = health;
+        healthSlider.value = health;
     }
 
     public void UpdateAmmo(float ammo)
     {
-        _ammoSlider.value = ammo;
+        ammoSlider.value = ammo;
     }
 
     public void OnEnable()
@@ -27,6 +28,9 @@ public class UIManager : MonoBehaviour
 
         EventManager.instance.OnPlayerReachNewLevel.AddListener(OpenSelectCardUI);
         EventManager.instance.OnNoMoreUpgrade.AddListener(CloseSelectCardUI);
+
+        EventManager.instance.OnEnterBossRoom.AddListener(OpenBossHealthUI);
+        EventManager.instance.OnFinishBossRoom.AddListener(CloseBossHealthUI);
     }
 
     public void OnDisable()
@@ -39,11 +43,25 @@ public class UIManager : MonoBehaviour
 
     public void OpenSelectCardUI()
     {
-        _upgradeSelector_UI.gameObject.SetActive(true);
+        upgradeSelector_UI.gameObject.SetActive(true);
     }
 
     public void CloseSelectCardUI()
     {
-        _upgradeSelector_UI.gameObject.SetActive(false);
+        upgradeSelector_UI.gameObject.SetActive(false);
     }
+
+    public void OpenBossHealthUI(BossRoom bossRoom)
+    {
+        bossHealth_UI.gameObject.SetActive(true);
+        string bossName = bossRoom.thisRoomBosses[0].name;
+        bossHealth_UI.AssignBossName(bossName);
+    }
+
+    public void CloseBossHealthUI()
+    {
+        bossHealth_UI.gameObject.SetActive(false);
+    }
+
+
 }
