@@ -40,9 +40,10 @@ public class DelayedShadowSlam : Attack
 
         await Awaitable.WaitForSecondsAsync(timeBetweenSpriteAndHitBox);
 
-        shadowSlam.shadowSlamSprite.color = Color.red; // Đổi màu sprite thành đỏ để tạo hiệu ứng
+        shadowSlam.Explostion();
         HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
         hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, hitBoxDuration);
+        hitBox.transform.localScale = new Vector3(3.5f, 3.5f, 1);
     }
 }
 

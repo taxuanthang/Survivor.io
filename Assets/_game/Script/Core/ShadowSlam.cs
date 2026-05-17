@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShadowSlam : MonoBehaviour , IPoolable
 {
     public SpriteRenderer shadowSlamSprite;
+    public Animator animator;
     public DestroyTimer timer;
 
 
@@ -10,6 +11,7 @@ public class ShadowSlam : MonoBehaviour , IPoolable
     {
         if(shadowSlamSprite == null)  shadowSlamSprite = GetComponent<SpriteRenderer>();
         if(timer == null)           timer = GetComponent<DestroyTimer>();
+        if(animator == null) animator = GetComponent<Animator>();
     }
     public void SetUp(Vector3 createPos, Quaternion rotation, PoolType poolType, float hitBoxDuration)
     {
@@ -26,5 +28,10 @@ public class ShadowSlam : MonoBehaviour , IPoolable
     public void OnDespawn()
     {
         shadowSlamSprite.color = Color.white; // Reset màu sprite về mặc định khi despawn
+    }
+
+    public void Explostion()
+    {
+        animator.Play("BomSecond");
     }
 }

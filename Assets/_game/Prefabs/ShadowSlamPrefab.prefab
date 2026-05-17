@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8829526481764730206}
   - component: {fileID: 9161343813954445517}
   - component: {fileID: -8369219615663282046}
+  - component: {fileID: -1858673006750231530}
   m_Layer: 0
   m_Name: ShadowSlamPrefab
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 178.22542, y: -26.33585, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,3 +120,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fba99e13e37d9746878f1e0db7777b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  shadowSlamSprite: {fileID: 0}
+  animator: {fileID: 0}
+  timer: {fileID: 0}
+--- !u!95 &-1858673006750231530
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752028259930876648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a34834ca8dfcff74c93864465d68b838, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
