@@ -14,6 +14,8 @@ public class RotatingLaserCross : Attack
     public float rotationDuration = 5f; // thời gian để hoàn thành một vòng quay
     public float rotateSpeed = 360f; // tốc độ quay (độ trên giây)
 
+    public GameObject directionPrefabs;
+
 
     public override async Task PerformAttack(Transform origin, Transform target)
     {
@@ -23,14 +25,30 @@ public class RotatingLaserCross : Attack
         for (int j = 0; j < 4; j++)
         {
             Vector3 createDirection = Quaternion.Euler(0, 0, 90 * j) * Vector3.down;
-            for (int i = 0; i < hitboxCount; i++)
-            {
-                HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
-                hitboxes.Add(hitBox);
-                Vector3 createPos = origin.position + createDirection * i * hitboxDistanceBetweenEach;
-                hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, rotationDuration);
-            }
+
+                //HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
+                //hitboxes.Add(hitBox);
+                //Vector3 createPos = origin.position + createDirection * i * hitboxDistanceBetweenEach;
+                //hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, rotationDuration);
+
+                GameObject direction = Instantiate(directionPrefabs, origin.transform.position, Quaternion.Euler(0, 0, 90 * j));
+
+                DestroyTimer timer = direction.AddComponent<DestroyTimer>();
+                timer.timeToDestroy = rotationDuration;
+                timer.returnToPooled = false;
+                BoxCollider2D collider = direction.AddComponent<BoxCollider2D>();
+                collider.offset = new Vector2 (3.15f, 0);
+                collider.size = new Vector2(5.7f, 1);
+                collider.isTrigger = true;
+                HitBoxDame hitBoxDame = direction.AddComponent<HitBoxDame>();
+                hitBoxDame.hitBoxType = HitBoxType.Rect;
+
+                direction.transform.localScale = new Vector3 (20f,1f,1f);
+                hitboxes.Add(hitBoxDame);
+
         }
+
+
 
         float tempRotationDuration = rotationDuration;
         while (rotationDuration>0)

@@ -17,3 +17,4 @@ MonoBehaviour:
   hitboxCount: 20
   rotationDuration: 10
   rotateSpeed: 10
+  directionPrefabs: {fileID: 1454391715418710867, guid: 57e75bf614a4c7744b9e65b4e69b7a33, type: 3}

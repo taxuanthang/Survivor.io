@@ -20,11 +20,23 @@ public class RangeAttackState : State
 
     EnemyAIManager _enemyAIManager;
 
+    public bool initRanged = false;
+
     public override void Enter(EnemyAIManager enemy)
     {
         // run attack animation, etc.
         target = enemy.destinationSetter.target.gameObject.GetComponent<CharacterManager>();
         _enemyAIManager = enemy;
+
+        if(!initRanged)
+        {
+            initRanged = true;
+            for(int i =0; i <rangeAttacks.Count; i++)
+            {
+                rangeAttacks[i] = Instantiate(rangeAttacks[i]);
+            }    
+                
+        }    
     }
     public override void Execute(EnemyAIManager enemy)
     {
