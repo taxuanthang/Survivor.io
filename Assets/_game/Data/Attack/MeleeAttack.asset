@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae4a29fcedc0c74c9ee5b5fefee99c6, type: 3}
   m_Name: MeleeAttack
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttack
-  hitBoxDame: {fileID: 0}
   hitBoxDuration: 0.5
   attackCooldown: 2
+  attackVFX: {fileID: 8599325581434358348, guid: 356fb2549983ad44aadae23114137282, type: 3}

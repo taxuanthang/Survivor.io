@@ -5,16 +5,21 @@ using UnityEngine;
 public class MeleeAttack : Attack
 {
     // class này sẽ quản lý các hành động combat của enemy
-    public HitBoxDame hitBoxDame;
     public float hitBoxDuration = 0.5f; // thời gian tồn tại của hitbox
     public float attackCooldown = 2f; // thời gian tồn tại của hitbox
 
+    public GameObject attackVFX;
 
     public override async Task PerformAttack(Transform origin, Transform target)
     {
         // logic để thực hiện melee attack, có thể gọi animation, kiểm tra
         // giờ sẽ tạo ra một ô vuông gây dame và sẽ xóa nó đi sau 1 khoảng thời gian
         Vector3 createPos = (target.position - origin.position).normalized * 0.5f + origin.position; // tạo hitbox ở vị trí gần enemy
+        Quaternion rotateQua = Quaternion.FromToRotation(Vector3.right, target.position - origin.position);
+        GameObject VFX = Instantiate(attackVFX, createPos, rotateQua);
+        DestroyTimer timer=VFX.AddComponent<DestroyTimer>();
+        timer.timeToDestroy = hitBoxDuration;
+        timer.returnToPooled = false;
         HitBoxDame hitBox = PoolManager.instance.Get(PoolType.HitBox).GetComponent<HitBoxDame>();
         hitBox.SetUp(createPos, Quaternion.identity, PoolType.HitBox, hitBoxDuration);
 
