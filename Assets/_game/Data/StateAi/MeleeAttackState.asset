@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb6efc714e949d4daa0009bdd7efc6b, type: 3}
   m_Name: MeleeAttackState
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackState
+  meleeAttacks:
+  - {fileID: 11400000, guid: 0322dcc1f608b1947919af4ad3b8b776, type: 2}
   canAttack: 1
+  initRanged: 0

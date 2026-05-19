@@ -47,7 +47,12 @@ public class PlayerManager: CharacterManager
 
     public async void HandleDodgeInput()
     {
+        if(!_playerLocomotionManager.CanDodge())
+        {
+            return;
+        }
         _playerHealthManager.isHittable = false;
+        _playerAnimationManager.PLayDodge();
         await _playerLocomotionManager.HandleDodge();
         _playerHealthManager.isHittable = true;
         // Set để ko di chuyển được khi đang dodge

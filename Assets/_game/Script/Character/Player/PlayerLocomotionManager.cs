@@ -80,6 +80,8 @@ public class PlayerLocomotionManager: MonoBehaviour
         allowToDodge = true;
     }
 
+    public bool CanDodge() { return allowToDodge; }
+
 
 
 }

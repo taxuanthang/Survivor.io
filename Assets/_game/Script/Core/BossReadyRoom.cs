@@ -1,7 +1,7 @@
     using System.Collections.Generic;
 using UnityEngine;
 
-public class StartingRoom : Room
+public class BossReadyRoom : Room
 {
     public List<Transform> spawnPoints;
     public List<Transform> GetPlayerSpawnPoints()

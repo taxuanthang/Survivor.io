@@ -24,6 +24,14 @@ public class EnemyRoom : Room
 
     public void SpawnWave()
     {
+        if(!triggered)
+        {
+            return;
+        }
+        if(isThisRoomFinished)
+        {
+            return;
+        }
         if (currentEnemiesExisting != 0)
         {
             return;

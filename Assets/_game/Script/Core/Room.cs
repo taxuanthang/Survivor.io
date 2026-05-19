@@ -23,6 +23,11 @@ public class Room : MonoBehaviour
     public bool triggered;
     public bool isThisRoomFinished = false;
 
+    public virtual void Awake()
+    {
+        door.room = this;
+    }
+
     public virtual void Update()
     {
         if (!triggered)

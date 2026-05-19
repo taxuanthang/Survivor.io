@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
         if (currentAmmo > 0)
         {
             // Logic to shoot the gun
-            currentAmmo--;
+            //currentAmmo--;
             // spawn bullet and set its properties based on the gun's properties
             Bullet newBullet = PoolManager.instance.Get(PoolType.Bullet).GetComponent<Bullet>(); // Get a bullet from the pool
             newBullet.destroyTimer.poolType = PoolType.Bullet;

@@ -1197,6 +1197,7 @@ MonoBehaviour:
   healthSlider: {fileID: 5009575253013447933}
   ammoSlider: {fileID: 3366599792489644676}
   upgradeSelector_UI: {fileID: 6256728280012779687}
+  bossHealth_UI: {fileID: 8912897777120794360}
 --- !u!1 &2052166949365341626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,10 +2281,10 @@ MonoBehaviour:
   OnPlayerDie:
     m_PersistentCalls:
       m_Calls: []
-  OnEnterEnemyRoom:
+  OnEnterNewRoom:
     m_PersistentCalls:
       m_Calls: []
-  OnEnterNewRoom:
+  OnEnterEnemyRoom:
     m_PersistentCalls:
       m_Calls: []
   OnFinishEnemyRoom:
@@ -2293,6 +2294,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnterBossRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishBossRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBossHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBossDie:
     m_PersistentCalls:
       m_Calls: []
   SpawnEnemies:
@@ -2752,7 +2765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcca32222470b4745a9539fa9417fb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _bossName: {fileID: 0}
+  _bossName: {fileID: 989424899033130615}
+  _bossHealth: {fileID: 7180764301083687774}
 --- !u!1 &6608847438947417363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,7 +3815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4583f8e6dac1c3f45b88a339ede167ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenesManager
-  firstSceneIndex: 2
+  firstSceneIndex: 1
 --- !u!1 &8992261822733138269
 GameObject:
   m_ObjectHideFlags: 0

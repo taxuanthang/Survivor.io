@@ -7,6 +7,10 @@ public class BossHealth_UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _bossName;
     public Slider _bossHealth;
 
+    public void Awake()
+    {
+        this.gameObject.SetActive(false);
+    }
     public void OnEnable()
     {
         EventManager.instance.OnBossHit.AddListener(UpdateHealth);
