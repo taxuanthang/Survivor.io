@@ -51,6 +51,6 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent OnEnterNewLevel;
     public UnityEvent OnPlayerReachNewLevel;
-    public UnityEvent<Upgrade> OnPlayerCompleteSelectingCard;
+    public UnityEvent<Upgrade> OnPlayerCompleteSelectingOneCard;
     public UnityEvent OnNoMoreUpgrade;
 }

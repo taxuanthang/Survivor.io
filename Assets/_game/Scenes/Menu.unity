@@ -246,6 +246,50 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: oneTimeUpgrades.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 62eab8ebb2694e24883c991abb7e9629, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: adaef049a9f7fb249a156d325bb517eb, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04cb026c6ffba404bbd6fe95a8a85a1c, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 549d8ff54512db24d9b6123dd2d2cf3d, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 66ffb7128f748ec49b4d4e2abac82b95, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b0bfd3fe6e97d147835a4123365432d, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a13f67af1a30eb04bb90e46c27bed0c4, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 09ba906ecae2c0547a278264d9589523, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b90035bad22cc44b8d230ab14efddcd, type: 2}
+    - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: 'oneTimeUpgrades.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b63e942441776b441b559e18007d5094, type: 2}
     - target: {fileID: 4259856932175142907, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_Name
       value: GameManager

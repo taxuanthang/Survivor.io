@@ -29,13 +29,13 @@ public class PlayerLevelManager : MonoBehaviour
 
     public void OnEnable()
     {
-        EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(OnPlayerCompleteSelectCard);
+        EventManager.instance.OnPlayerCompleteSelectingOneCard.AddListener(OnPlayerCompleteSelectCard);
         EventManager.instance.OnFinishEnemyRoom.AddListener(CatchAllEXPOrb);
     }
 
     public void OnDisable()
     {
-        EventManager.instance.OnPlayerCompleteSelectingCard.RemoveListener(OnPlayerCompleteSelectCard);
+        EventManager.instance.OnPlayerCompleteSelectingOneCard.RemoveListener(OnPlayerCompleteSelectCard);
         EventManager.instance.OnFinishEnemyRoom.RemoveListener(CatchAllEXPOrb);
     }
 

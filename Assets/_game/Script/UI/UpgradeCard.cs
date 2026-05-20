@@ -43,7 +43,7 @@ public class UpgradeCard : MonoBehaviour
         // Handle the upgrade card click event here
         Debug.Log($"Upgrade card clicked: {upgradeData.nameUpgrade}");
         // You can add logic to apply the upgrade or trigger any other actions
-        EventManager.instance.OnPlayerCompleteSelectingCard.Invoke(upgradeData);
+        EventManager.instance.OnPlayerCompleteSelectingOneCard.Invoke(upgradeData);
     }
 
 

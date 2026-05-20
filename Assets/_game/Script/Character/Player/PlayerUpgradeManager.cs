@@ -22,12 +22,12 @@ public class PlayerUpgradeManager : MonoBehaviour
 
     public void OnEnable()
     {
-        EventManager.instance.OnPlayerCompleteSelectingCard.AddListener(AddUpgrade);
+        EventManager.instance.OnPlayerCompleteSelectingOneCard.AddListener(AddUpgrade);
     }
 
     public void OnDisable()
     {
-        EventManager.instance.OnPlayerCompleteSelectingCard.RemoveListener(AddUpgrade);
+        EventManager.instance.OnPlayerCompleteSelectingOneCard.RemoveListener(AddUpgrade);
     }
 
     [Button]
