@@ -23,6 +23,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent<float> OnPlayerHit;
     public UnityEvent<float> OnPlayerAmmoChanged;
 
+    public UnityEvent<float,int> OnGetEXP;
 
     public UnityEvent OnPlayerDie;
 

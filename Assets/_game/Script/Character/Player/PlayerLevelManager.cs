@@ -48,7 +48,7 @@ public class PlayerLevelManager : MonoBehaviour
     public void LevelUp()
     {
         currentLevel++;
-        currentExp = 0;
+        currentExp -= nextLevelExp;
         if (currentLevel >= playerLevels.Count - 1)
         {
             nextLevelExp = int.MaxValue;
@@ -62,7 +62,7 @@ public class PlayerLevelManager : MonoBehaviour
 
     public void IncreaseEXP(int exp)
     {
-        print(exp);
+        //print(exp);
         if (currentLevel >= playerLevels.Count - 1)
         {
             Debug.Log("Max level reached.");
@@ -73,6 +73,9 @@ public class PlayerLevelManager : MonoBehaviour
         {
             LevelUp();
         }
+
+        float amount = (float)currentExp/ (float)nextLevelExp;
+        EventManager.instance.OnGetEXP?.Invoke(amount,currentLevel);
     }
 
     public void CatchEXPPoint()

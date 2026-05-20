@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &200196913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9139469039398179485, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &377264726
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +234,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 460373000613659093, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: expBar
+      value: 
+      objectReference: {fileID: 200196913}
+    - target: {fileID: 460373000613659093, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 976508020}
     - target: {fileID: 490380786653904196, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -231,16 +250,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5686596320061027745, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5686596320061027745, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+    - target: {fileID: 7803617620734653984, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7200125810715681822, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -323,6 +334,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767877223}
   m_CullTransparentMesh: 1
+--- !u!114 &976508020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7533259801323983435, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1061065912
 GameObject:
   m_ObjectHideFlags: 0
