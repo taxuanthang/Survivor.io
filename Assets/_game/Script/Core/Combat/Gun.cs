@@ -21,8 +21,8 @@ public class Gun : MonoBehaviour
             // Logic to shoot the gun
             //currentAmmo--;
             // spawn bullet and set its properties based on the gun's properties
-            Bullet newBullet = PoolManager.instance.Get(PoolType.Bullet).GetComponent<Bullet>(); // Get a bullet from the pool
-            newBullet.destroyTimer.poolType = PoolType.Bullet;
+            Bullet newBullet = PoolManager.instance.Get(PoolType.PlayerBullet).GetComponent<Bullet>(); // Get a bullet from the pool
+            newBullet.destroyTimer.poolType = PoolType.PlayerBullet;
             newBullet.destroyTimer.timeToDestroy = newBullet.existTime;
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = Quaternion.identity;
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
         {
             // Logic to handle out of ammo
         }
-
+        if(bulletType== BulletType.PlayerBullet)
         EventManager.instance.OnPlayerAmmoChanged?.Invoke((float)currentAmmo/ (float)ammoCapacity); // Notify listeners about ammo change
     }
 

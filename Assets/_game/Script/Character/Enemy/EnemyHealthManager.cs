@@ -16,7 +16,7 @@ public class EnemyHealthManager : CharacterHealthManager
     public async void WaitDieAnim()
     {
         await Awaitable.WaitForSecondsAsync(DieDuration);
-        PoolManager.instance.Return(PoolType.Enemy, this.gameObject);
+        PoolManager.instance.Return(PoolType.EnemyMelee, this.gameObject);
     }
 
     public override void TakeDamage(int damage)

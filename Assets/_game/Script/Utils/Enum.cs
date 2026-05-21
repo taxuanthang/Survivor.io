@@ -24,8 +24,10 @@ public enum EnemySpawnType
 }
 public enum PoolType
 {
-    Enemy,
-    Bullet,
+    EnemyMelee,
+    EnemeRange,
+    PlayerBullet,
+    EnemyBullet,
     HitBox,
     BloodVFX,
     EXPOrb,

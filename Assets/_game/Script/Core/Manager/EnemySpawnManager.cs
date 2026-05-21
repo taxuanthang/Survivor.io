@@ -35,13 +35,10 @@ public class EnemySpawnManager : MonoBehaviour
             switch (selectType)
             {
                 case EnemyType.Normal:
-                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+                    enemy = PoolManager.instance.Get(PoolType.EnemyMelee).GetComponent<EnemyManager>();
                     break;
                 case EnemyType.Range:
-                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
-                    break;
-                case EnemyType.Boss1:
-                    enemy = PoolManager.instance.Get(PoolType.Enemy).GetComponent<EnemyManager>();
+                    enemy = PoolManager.instance.Get(PoolType.EnemeRange).GetComponent<EnemyManager>();
                     break;
             }
             enemy.SetUp(player, spawnPos);

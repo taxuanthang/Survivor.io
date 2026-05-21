@@ -6,8 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RangeAttackState", menuName = "ScriptableObjects/EnemyAI/RangeAttackState")]
 public class RangeAttackState : State
 {
-    // có thẻ có nhiều loại attack nên ở đây sẽ có 2 cách, 1 là tạo từng class riêng cho từng loại attack, 2 là tạo 1 class AttackState rộng hơn và truyền tham số để xác định loại attack
-    // sẽ đi theo cách 1
 
     public List<Attack> rangeAttacks;
 
@@ -86,6 +84,7 @@ public class RangeAttackState : State
 
     public bool CanAttackRange()
     {
+
         if(currentRangeAttackCooldown <= 0)
         {
             StartCooldown();
@@ -96,4 +95,5 @@ public class RangeAttackState : State
             return false;
         }
     }
+
 }

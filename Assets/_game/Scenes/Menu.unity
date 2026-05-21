@@ -182,6 +182,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _startGameButton: {fileID: 1309751036}
+--- !u!1 &540433865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540433866}
+  - component: {fileID: 540433867}
+  m_Layer: 0
+  m_Name: EnemyBullet_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540433866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540433865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 625976021}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &540433867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540433865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 974389431943077195, guid: 4d233060399965d4a84edf7fa6894989, type: 3}
+  poolType: 3
+  poolSize: 20
 --- !u!1001 &625976020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +293,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 687228519229760475, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: poolType
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: oneTimeUpgrades.Array.size
       value: 10
@@ -290,9 +341,33 @@ PrefabInstance:
       propertyPath: 'oneTimeUpgrades.Array.data[9]'
       value: 
       objectReference: {fileID: 11400000, guid: b63e942441776b441b559e18007d5094, type: 2}
+    - target: {fileID: 1501392970399945985, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: firstSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2041348477438859158, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: poolType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047019166710789407, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: m_Name
+      value: EnemyMelee_Pool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712310054013310438, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: poolType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794698810480383705, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: poolType
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4259856932175142907, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979602218164419068, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: poolType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7803617620734653984, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -300,9 +375,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5003086487633910262, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 770705338}
+    - targetCorrespondingSourceObject: {fileID: 5003086487633910262, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 540433866}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+--- !u!4 &625976021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5003086487633910262, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &767877223
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +464,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767877223}
   m_CullTransparentMesh: 1
+--- !u!1 &770705337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770705338}
+  - component: {fileID: 770705339}
+  m_Layer: 0
+  m_Name: EnemyRange_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770705338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770705337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 625976021}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &770705339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770705337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 2081406601031641391, guid: 9461a1b08e4542f43a0b49d5346a9783, type: 3}
+  poolType: 1
+  poolSize: 10
 --- !u!114 &976508020 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7533259801323983435, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}

@@ -19,9 +19,12 @@ public class ChaseState : State
             enemy.ChangeState(enemy._meleeAttackState);
         }
         //else if ()
-        //{
 
-        //}
+        // nếu trong tầm thì roll trong pool
+        if (enemy.CanAttackRange())
+        {
+            enemy.ChangeState(enemy._rangeAttackState);
+        }
 
     }
     public override void Exit(EnemyAIManager enemy)
