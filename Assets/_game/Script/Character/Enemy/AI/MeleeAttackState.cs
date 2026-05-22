@@ -64,7 +64,7 @@ public class MeleeAttackState : State
 
     public async void Attack(EnemyAIManager origin,CharacterManager target)
     {
-
+        origin.enemyManager.onAttackMelee?.Invoke();
         // thêm cooldown cho attack
         await meleeAttacks[0].PerformAttack(origin.transform, target.transform);
         canAttack = true;

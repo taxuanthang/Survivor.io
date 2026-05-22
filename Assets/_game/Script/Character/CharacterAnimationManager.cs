@@ -7,23 +7,23 @@ public class CharacterAnimationManager : MonoBehaviour
     [SerializeField] protected Animator _animator;
     CharacterManager character;
 
-    public void Awake()
+    public virtual void Awake()
     {
         character = GetComponent<CharacterManager>();
     }
 
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         character.OnDie.AddListener(DieAnim);
     }
 
-    public void OnDisable()
+    public virtual void OnDisable()
     {
         character.OnDie.RemoveListener(DieAnim);
     }
 
 
-    public void UpdateMovingParameter(float x, float y)
+    public virtual void UpdateMovingParameter(float x, float y)
     {
         _animator.SetFloat("InputX", x);
         _animator.SetFloat("InputY", y);
@@ -32,7 +32,7 @@ public class CharacterAnimationManager : MonoBehaviour
 
     public void DieAnim()
     {
-        _animator.Play("Dead");
+        _animator.SetBool("Dead", true);
     }
 }
 

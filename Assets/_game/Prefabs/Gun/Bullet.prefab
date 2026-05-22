@@ -114,6 +114,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 0}
   bulletTransform: {fileID: 2933088561460077058}
   destroyTimer: {fileID: 3085922638301197695}
+  bulletType: 0
 --- !u!58 &3211794166405403162
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,6 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   timeToDestroy: 0.5
+  poolType: 2
+  returnToPooled: 1
 --- !u!50 &-6801531906901053485
 Rigidbody2D:
   serializedVersion: 5

@@ -23,6 +23,7 @@ public class EnemyAIManager : MonoBehaviour
     public Seeker seeker;
     public AIDestinationSetter destinationSetter;
 
+    public EnemyManager enemyManager;
     public virtual void Awake()
     {
         // khi script sẽ tạo ra 1 bản sao của từng state
@@ -34,9 +35,10 @@ public class EnemyAIManager : MonoBehaviour
         // set current state ban đầu là idle
         ChangeState(_idleState);
 
-        if (aiPath != null)  aiPath = GetComponent<AIPath>();
-        if (seeker != null) seeker = GetComponent<Seeker>();
-        if (destinationSetter != null) destinationSetter = GetComponent<AIDestinationSetter>();
+        if (aiPath == null)  aiPath = GetComponent<AIPath>();
+        if (seeker == null) seeker = GetComponent<Seeker>();
+        if (destinationSetter == null) destinationSetter = GetComponent<AIDestinationSetter>();
+        if (enemyManager == null) enemyManager = GetComponent<EnemyManager>();
     }
 
 

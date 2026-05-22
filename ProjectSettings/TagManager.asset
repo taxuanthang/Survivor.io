@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - Enemy
-  - PLayer
+  - Player
   - Environment
   - Obstacle
   - EXPOrb

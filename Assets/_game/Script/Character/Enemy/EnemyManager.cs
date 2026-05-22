@@ -1,6 +1,7 @@
 using Pathfinding;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyManager : CharacterManager , IPoolable
 {
@@ -12,6 +13,9 @@ public class EnemyManager : CharacterManager , IPoolable
 
     [SerializeField] EnemyType type;
     [SerializeField] Transform model;
+
+    [HideInInspector] public UnityEvent onAttackMelee;
+    [HideInInspector] public UnityEvent onAttackRange;
 
     [Header("EXP")]
     public int expDropOfThisEnemy = 10;

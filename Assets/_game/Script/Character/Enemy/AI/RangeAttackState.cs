@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 [CreateAssetMenu(fileName = "RangeAttackState", menuName = "ScriptableObjects/EnemyAI/RangeAttackState")]
 public class RangeAttackState : State
@@ -63,6 +64,7 @@ public class RangeAttackState : State
         
         // thêm cooldown cho attack
         int index = UnityEngine.Random.Range(0, rangeAttacks.Count);
+        enemy.enemyManager.onAttackMelee?.Invoke();
         Debug.Log("Enemy perform range attack: " + rangeAttacks[index].name);
         await rangeAttacks[index].PerformAttack(enemy.transform,target.transform);
 
