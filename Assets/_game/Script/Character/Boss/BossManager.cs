@@ -22,6 +22,7 @@ public class BossManager : EnemyManager, IPoolable
         _bossAnimationManager = GetComponent<BossAnimationManager>();
 
         OnDie.AddListener(DropEXPOrb);
+        OnDie.AddListener(_bossAnimationManager.PlayDieAnim);
     }
 
     public void Update()

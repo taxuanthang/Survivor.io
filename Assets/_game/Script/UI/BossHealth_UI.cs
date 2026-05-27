@@ -10,6 +10,7 @@ public class BossHealth_UI : MonoBehaviour
     public void Awake()
     {
         this.gameObject.SetActive(false);
+        _bossHealth.value = 1;
     }
     public void OnEnable()
     {

@@ -13,14 +13,14 @@ public class BossAnimationManager : CharacterAnimationManager
     public override void OnEnable()
     {
         base.OnEnable();
-        boss.onAttackMelee.AddListener(AttackMelee);
-        boss.onAttackRange.AddListener(AttackRange);
+        boss.onAttackMelee.AddListener(PlayAttackMeleeAnim);
+        boss.onAttackRange.AddListener(PlayAttackRangeAnim);
     }
     public override void OnDisable()
     {
         base.OnDisable();
-        boss.onAttackMelee.RemoveListener(AttackMelee);
-        boss.onAttackRange.AddListener(AttackRange);
+        boss.onAttackMelee.RemoveListener(PlayAttackMeleeAnim);
+        boss.onAttackRange.AddListener(PlayAttackRangeAnim);
     }
     public override void UpdateMovingParameter(float x, float y)
     {
@@ -56,17 +56,17 @@ public class BossAnimationManager : CharacterAnimationManager
     }
 
 
-    public void AttackMelee()
+    public void PlayAttackMeleeAnim()
     {
 
         _animator.Play("AttackMelee");
     }
 
-    public void Die()
+    public void PlayDieAnim()
     {
         _animator.Play("Die");
     }
-    public void AttackRange()
+    public void PlayAttackRangeAnim()
     {
         _animator.Play("AttackRange");
     }

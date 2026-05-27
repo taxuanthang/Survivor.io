@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bcbdeb0ceada34d8f59d2370cb90d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 1000
+  maxHealth: 5000
   currentHealth: 0
   isDead: 0
   DieDuration: 0
@@ -373,7 +373,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 372331166, guid: 7f934d77aa79cd74d895ce321417682d, type: 3}
+  m_Sprite: {fileID: -472408495, guid: 1e58a658cc405ec41a30012e16043eb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

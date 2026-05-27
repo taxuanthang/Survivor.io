@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b63e942441776b441b559e18007d5094, type: 2}
     - target: {fileID: 1501392970399945985, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: firstSceneIndex
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2041348477438859158, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: poolType

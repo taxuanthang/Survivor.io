@@ -123,7 +123,6 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  characterHealthManager: {fileID: 0}
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -187,6 +186,7 @@ MonoBehaviour:
   isDead: 0
   damageReduction: 0
   healthRegen: 0
+  isHittable: 1
 --- !u!114 &454820681122854396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,11 +460,11 @@ PrefabInstance:
       objectReference: {fileID: -3038409573160069703, guid: f5c83f4572eb3754eaabf2207a846a53, type: 3}
     - target: {fileID: 5069760900375603697, guid: 840e51661f6818c4799cbca33d87e3b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5069760900375603697, guid: 840e51661f6818c4799cbca33d87e3b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: -0.276
       objectReference: {fileID: 0}
     - target: {fileID: 5069760900375603697, guid: 840e51661f6818c4799cbca33d87e3b5, type: 3}
       propertyPath: m_LocalPosition.z

@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossHealthManager : CharacterHealthManager
 {
     public float DieDuration;
+
     public override void Die()
     {
         base.Die();
@@ -11,6 +12,8 @@ public class BossHealthManager : CharacterHealthManager
         EventManager.instance.OnBossDie?.Invoke();
         EventManager.instance.OnFinishBossRoom?.Invoke();
         WaitDieAnim();
+        gameObject.SetActive(false);
+        
     }
 
     public async void WaitDieAnim()
