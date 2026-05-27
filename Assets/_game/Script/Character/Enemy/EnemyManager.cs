@@ -7,12 +7,12 @@ public class EnemyManager : CharacterManager , IPoolable
 {
     [Header("Enemy")]
 
-    [SerializeField] EnemyHealthManager _enemyHealthManager;
-    [SerializeField] EnemyAIManager _enemyAIManager;
-    [SerializeField] EnemyAnimationManager _enemyAnimationManager;
+    [SerializeField]  EnemyHealthManager _enemyHealthManager;
+    [SerializeField]  EnemyAIManager _enemyAIManager;
+    [SerializeField]  EnemyAnimationManager _enemyAnimationManager;
 
-    [SerializeField] EnemyType type;
-    [SerializeField] Transform model;
+    [SerializeField] protected EnemyType type;
+    [SerializeField] protected Transform model;
 
     [HideInInspector] public UnityEvent onAttackMelee;
     [HideInInspector] public UnityEvent onAttackRange;
@@ -64,14 +64,14 @@ public class EnemyManager : CharacterManager , IPoolable
         }
     }
 
-    public void SetUp(PlayerManager player, Vector3 spawnPos)
+    public virtual void SetUp(PlayerManager player, Vector3 spawnPos)
     {
         base.SetUp();
         this.transform.position = spawnPos;
         _enemyAIManager.SetUp(player);
     }
 
-    public void DropEXPOrb()
+    public virtual void DropEXPOrb()
     {
         print("drop exp orb");
         ExpPoint expOrb = PoolManager.instance.Get(PoolType.EXPOrb).GetComponent<ExpPoint>();
@@ -81,12 +81,12 @@ public class EnemyManager : CharacterManager , IPoolable
     }
 
 
-    public void OnSpawn()
+    public virtual void OnSpawn()
     {
         _enemyHealthManager.isDead = false;
     }
 
-    public void OnDespawn()
+    public virtual void OnDespawn()
     {
         model.localScale = new Vector3(5.85f, 5.85f, 5.85f);
     }

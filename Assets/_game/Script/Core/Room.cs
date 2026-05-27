@@ -25,7 +25,8 @@ public class Room : MonoBehaviour
 
     public virtual void Awake()
     {
-        door.room = this;
+        
+        if(door.room ==null)door.room = this;
     }
 
     public virtual void Update()

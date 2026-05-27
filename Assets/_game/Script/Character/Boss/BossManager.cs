@@ -2,7 +2,7 @@ using Pathfinding;
 using System;
 using UnityEngine;
 
-public class BossManager : CharacterManager, IPoolable
+public class BossManager : EnemyManager, IPoolable
 {
     [Header("Enemy")]
 
@@ -10,13 +10,8 @@ public class BossManager : CharacterManager, IPoolable
     [SerializeField] BossAIManager _bossAIManager;
     [SerializeField] BossAnimationManager _bossAnimationManager;
 
-    [SerializeField] EnemyType type;
-    [SerializeField] Transform model;
 
     [SerializeField] bool triggered;
-
-    [Header("EXP")]
-    public int expDropOfThisEnemy = 10;
 
     Vector3 movingInput;
     public override void Awake()
@@ -66,14 +61,14 @@ public class BossManager : CharacterManager, IPoolable
         }
     }
 
-    public void SetUp(PlayerManager player, Vector3 spawnPos)
+    public override void SetUp(PlayerManager player, Vector3 spawnPos)
     {
         base.SetUp();
         this.transform.position = spawnPos;
         _bossAIManager.SetUp(player);
     }
 
-    public void DropEXPOrb()
+    public override void DropEXPOrb()
     {
         print("drop exp orb");
         ExpPoint expOrb = PoolManager.instance.Get(PoolType.EXPOrb).GetComponent<ExpPoint>();
@@ -83,12 +78,12 @@ public class BossManager : CharacterManager, IPoolable
     }
 
 
-    public void OnSpawn()
+    public override void OnSpawn()
     {
         _bossHealthManager.isDead = false;
     }
 
-    public void OnDespawn()
+    public override void OnDespawn()
     {
         model.localScale = new Vector3(5.85f, 5.85f, 5.85f);
     }

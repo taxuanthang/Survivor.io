@@ -4337,7 +4337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558986718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0b14110015ee284fb72dbf6538dd388, type: 3}
   m_Name: 
@@ -80103,7 +80103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _levelName: 1
-  _startingRoom: {fileID: 558986721}
+  _startingRoom: {fileID: 2009578575}
   _bossReadyRoom: {fileID: 2009578574}
   _bossRoom: {fileID: 2009578574}
   _enemyRoomList: []
@@ -80801,6 +80801,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2009578573}
+  - component: {fileID: 2009578575}
   - component: {fileID: 2009578574}
   m_Layer: 0
   m_Name: BossRoom
@@ -80858,6 +80859,34 @@ MonoBehaviour:
   isThisRoomFinished: 0
   thisRoomBosses:
   - {fileID: 911557844}
+--- !u!114 &2009578575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009578571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b14110015ee284fb72dbf6538dd388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartingRoom
+  groundTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  noSpawnTilemap: {fileID: 0}
+  cellBounds:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 0, y: 0, z: 0}
+  worldBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  roomType: 0
+  door: {fileID: 1770611289}
+  triggered: 1
+  isThisRoomFinished: 1
+  spawnPoints:
+  - {fileID: 90035731}
+  - {fileID: 487723482}
 --- !u!1 &2020874650
 GameObject:
   m_ObjectHideFlags: 0

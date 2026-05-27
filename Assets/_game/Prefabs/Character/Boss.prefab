@@ -210,13 +210,22 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHealthManager: {fileID: 0}
+  _enemyAIManager: {fileID: 0}
+  _enemyAnimationManager: {fileID: 0}
+  type: 2
+  model: {fileID: 6550531166428653085}
+  onAttackMelee:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackRange:
+    m_PersistentCalls:
+      m_Calls: []
+  expDropOfThisEnemy: 10
   _bossHealthManager: {fileID: 0}
   _bossAIManager: {fileID: 0}
   _bossAnimationManager: {fileID: 0}
-  type: 2
-  model: {fileID: 6550531166428653085}
   triggered: 0
-  expDropOfThisEnemy: 10
 --- !u!114 &-8380242612283910748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +262,7 @@ MonoBehaviour:
   aiPath: {fileID: 2636303150045494652}
   seeker: {fileID: 5239487314941557834}
   destinationSetter: {fileID: 3555046706016704936}
+  enemyManager: {fileID: 0}
 --- !u!114 &-4425792576561479010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +288,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAnimationManager
   _animator: {fileID: 3372206488376334885}
-  enemy: {fileID: 0}
+  boss: {fileID: 0}
+  flipWhileMove: 1
+  walkRight: 0
 --- !u!1 &3806434671621370369
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +393,7 @@ Animator:
   m_GameObject: {fileID: 3806434671621370369}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b31627dc92c3dae4e89c2d4558f82994, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd973c553894d2e488147125f99d986a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

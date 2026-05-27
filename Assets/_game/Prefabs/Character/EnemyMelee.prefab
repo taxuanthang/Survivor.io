@@ -131,6 +131,12 @@ MonoBehaviour:
   _enemyAnimationManager: {fileID: 0}
   type: 0
   model: {fileID: 6550531166428653085}
+  onAttackMelee:
+    m_PersistentCalls:
+      m_Calls: []
+  onAttackRange:
+    m_PersistentCalls:
+      m_Calls: []
   expDropOfThisEnemy: 50
 --- !u!114 &6763727434122164847
 MonoBehaviour:
@@ -168,6 +174,7 @@ MonoBehaviour:
   aiPath: {fileID: 2636303150045494652}
   seeker: {fileID: 5239487314941557834}
   destinationSetter: {fileID: 3555046706016704936}
+  enemyManager: {fileID: 0}
 --- !u!114 &5239487314941557834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d295fa99f08b775489c98ad6981dc7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _animator: {fileID: 3372206488376334885}
+  _animator: {fileID: 8525408932350289718}
+  enemy: {fileID: 0}
+  flipWhileMove: 1
 --- !u!114 &-1027653131078186096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6550531166428653085}
   - component: {fileID: 7783680755111358227}
-  - component: {fileID: 3372206488376334885}
+  - component: {fileID: 8525408932350289718}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -360,7 +369,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 372331166, guid: 7f934d77aa79cd74d895ce321417682d, type: 3}
+  m_Sprite: {fileID: 876229294740169370, guid: 9afb3b0be9b142e4c81e1518b394934d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -370,7 +379,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &3372206488376334885
+--- !u!95 &8525408932350289718
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -380,7 +389,7 @@ Animator:
   m_GameObject: {fileID: 3806434671621370369}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b31627dc92c3dae4e89c2d4558f82994, type: 2}
+  m_Controller: {fileID: 9100000, guid: a3c1f42773e3b3445996c033c02caa4d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
