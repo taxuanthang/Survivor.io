@@ -27,7 +27,7 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent OnPlayerDie;
 
-    public UnityEvent<EnemyRoom> OnEnterNewRoom;
+    public UnityEvent<EnemyRoom> OnEnterNewEnemyRoom;
 
     public UnityEvent<EnemyRoom> OnEnterEnemyRoom;
     public UnityEvent OnFinishEnemyRoom;

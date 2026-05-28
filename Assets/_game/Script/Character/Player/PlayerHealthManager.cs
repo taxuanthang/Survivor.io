@@ -33,7 +33,7 @@ public class PlayerHealthManager : CharacterHealthManager
     {
         if (!isHittable) { return; } 
             
-        currentHealth -= (int)(damage * (1- damageReduction));
+        currentHealth -= (int)(damage * (1- damageReduction/100f));
         if (currentHealth <= 0)
         {
             Die();

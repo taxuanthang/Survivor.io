@@ -49,7 +49,7 @@ public class HitBoxDame : MonoBehaviour , IPoolable
     public void Update()
     {
         // logic khi khởi tạo poolable
-        if (hitBoxType == HitBoxType.Circle)
+        if (hitBoxType == HitBoxType.Ring||hitBoxType == HitBoxType.Circle)
         {
             radiusOuterOfHitBox = GetComponent<CircleCollider2D>().radius * transform.localScale.x;
         }

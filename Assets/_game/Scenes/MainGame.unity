@@ -3133,14 +3133,20 @@ MonoBehaviour:
   waves:
   - waveNumber: 1
     enemies:
-    - numberOfEnemies: 2
+    - numberOfEnemies: 1
       typeOfEnemies: 0
+      spawnType: 0
+    - numberOfEnemies: 1
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   - waveNumber: 2
     enemies:
-    - numberOfEnemies: 3
+    - numberOfEnemies: 2
       typeOfEnemies: 0
+      spawnType: 0
+    - numberOfEnemies: 1
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   waveCount: 0
@@ -3215,13 +3221,16 @@ MonoBehaviour:
   - waveNumber: 1
     enemies:
     - numberOfEnemies: 2
-      typeOfEnemies: 0
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   - waveNumber: 2
     enemies:
-    - numberOfEnemies: 3
+    - numberOfEnemies: 1
       typeOfEnemies: 0
+      spawnType: 0
+    - numberOfEnemies: 2
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   waveCount: 0
@@ -89138,14 +89147,20 @@ MonoBehaviour:
   waves:
   - waveNumber: 1
     enemies:
-    - numberOfEnemies: 2
+    - numberOfEnemies: 1
       typeOfEnemies: 0
+      spawnType: 0
+    - numberOfEnemies: 1
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   - waveNumber: 2
     enemies:
-    - numberOfEnemies: 3
+    - numberOfEnemies: 2
       typeOfEnemies: 0
+      spawnType: 0
+    - numberOfEnemies: 1
+      typeOfEnemies: 1
       spawnType: 0
     created: 0
   waveCount: 0

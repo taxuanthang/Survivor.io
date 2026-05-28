@@ -95,7 +95,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         EventManager.instance.SpawnEnemies.AddListener(SpawnEnemies);
         print("dagan");
-        EventManager.instance.OnEnterNewRoom.AddListener(OnEnterNewRoom);
+        EventManager.instance.OnEnterNewEnemyRoom.AddListener(OnEnterNewRoom);
     }
 
     public void OnEnterNewRoom(EnemyRoom room)

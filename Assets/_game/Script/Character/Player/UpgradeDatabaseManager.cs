@@ -58,7 +58,7 @@ public class UpgradeDatabaseManager : MonoBehaviour
 
     public Upgrade GetRandomUpgrade()
     {
-        int randomIndex = Random.Range(0, allUpgrades.Count);
+        int randomIndex = Random.Range(0, availablesUpgrades.Count);
         return availablesUpgrades[randomIndex];
     }
 

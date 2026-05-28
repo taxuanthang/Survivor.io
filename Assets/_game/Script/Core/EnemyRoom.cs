@@ -101,11 +101,6 @@ public class EnemyRoom : Room
         return spawnsPoints;
     }
 
-    internal void CloseAllDoor()
-    {
-        door.Close();
-
-    }
 
     internal void OpenAllDoor()
     {
@@ -118,7 +113,7 @@ public class EnemyRoom : Room
         {
             triggered = true;
 
-            EventManager.instance.OnEnterNewRoom?.Invoke(this);
+            EventManager.instance.OnEnterNewEnemyRoom?.Invoke(this);
             EventManager.instance.OnEnterEnemyRoom?.Invoke(this);
             EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
             CloseAllDoor();

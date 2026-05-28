@@ -52,4 +52,10 @@ public class Room : MonoBehaviour
 
         }
     }
+
+    internal void CloseAllDoor()
+    {
+        door.Close();
+
+    }
 }

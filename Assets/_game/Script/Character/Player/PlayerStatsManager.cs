@@ -86,7 +86,7 @@ public class PlayerStatsManager : MonoBehaviour
                 break;
             case UpgradeType.Health:
                 health += value;
-                float ratioHealth = playerHealthManager.currentHealth / playerHealthManager.maxHealth; // Calculate current health ratio
+                float ratioHealth = (float)playerHealthManager.currentHealth / (float)playerHealthManager.maxHealth; // Calculate current health ratio
                 playerHealthManager.maxHealth = (int)health; // Update max health in PlayerHealthManager
                 playerHealthManager.currentHealth = (int)(ratioHealth * health); // Ensure current health doesn't exceed new max health
                 break;

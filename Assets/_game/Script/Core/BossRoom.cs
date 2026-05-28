@@ -28,6 +28,7 @@ public class BossRoom : Room
 
             EventManager.instance.OnEnterBossRoom?.Invoke(this);
             //EventManager.instance.OnEnemyDie.AddListener(OnEnemyDie);
+            CloseAllDoor();
 
         }
         else
