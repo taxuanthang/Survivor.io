@@ -15,6 +15,47 @@ Người chơi phải sống sót trước hàng đàn quái vật trong các h�
 * Né tránh quái và đạn
 * Số lượng quái tăng dần theo thời gian
 
+## 📸 Screenshots
+
+<table>
+<tr>
+<td width="50%">
+<img src="images/Upgrade.png">
+</td>
+<td width="50%">
+<img src="images/Upgrade.png">
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+<img src="images/Upgrade.png">
+</td>
+
+<td width="50%">
+
+<details>
+<summary>📂 +12 More Screenshots</summary>
+
+<br>
+
+<img src="images/Upgrade.png" width="100%">
+
+<img src="images/Upgrade.png" width="100%">
+
+<img src="images/Upgrade.png" width="100%">
+
+<img src="images/Upgrade.png" width="100%">
+
+<img src="images/Upgrade.png" width="100%">
+
+</details>
+
+</td>
+</tr>
+</table>
+
+
 ---
 
 ## 📈 Upgrade & Leveling System
