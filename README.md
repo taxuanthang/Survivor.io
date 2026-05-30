@@ -151,11 +151,10 @@ Boss không chỉ mạnh hơn về chỉ số mà còn có cơ chế chiến đ�
 
 # 📸 Gameplay Preview
 
-```md
 <a href="https://drive.google.com/file/d/1XA6ZEfU5rTHso9TZth7a_6aBJS8px0kq/view?usp=sharing">
     <img src="videos/AutoAttack.gif">
 </a>
-```
+
 
 ---
 
