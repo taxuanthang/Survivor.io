@@ -10,42 +10,27 @@ Người chơi phải sống sót trước hàng đàn quái vật trong các h�
 
 ## ⚔️ Real-time Combat System
 
-* Gameplay sinh tồn nhịp độ nhanh
 * Tấn công tự động
 * Né tránh quái và đạn
-* Số lượng quái tăng dần theo thời gian
-
-## 📸 Screenshots
-
-## 📸 Screenshots
+* Số lượng quái ngẫu nhiên theo từng phòng
 
 <table>
-<tr>
-<td width="50%">
-<img src="images/Upgrade.png" alt="Home">
-</td>
-<td width="50%">
-<img src="images/Upgrade.png" alt="Player">
-</td>
-</tr>
 
 <tr>
 <td width="50%">
-<img src="images/Upgrade.png" alt="Room">
+<img src="videos/AutoAttack.gif" alt="Home">
 </td>
 
-<td width="50%" align="center">
-
-<a href="./screenshots.md">
-
-<img src="images/Upgrade.png" alt="More">
-
-### ➕ View All Screenshots
-
-</a>
-
+<td width="50%">
+<img src="images/Shooting.png" alt="Player">
 </td>
 </tr>
+
+<td width="50%">
+<img src="videos/DodgeVid.gif" alt="Room">
+</td>
+</tr>
+
 </table>
 
 
@@ -58,8 +43,21 @@ Người chơi có thể:
 
 * Thu thập EXP từ quái
 * Lên cấp trong trận đấu
-* Chọn nâng cấp ngẫu nhiên
+* Chọn nâng cấp ngẫu nhiên  
 * Tạo build kỹ năng riêng
+
+<table>
+
+<tr>
+<td width="50%">
+<img src="images/Upgrade.png" alt="Home">
+</td>
+<td width="50%">
+<img src="videos/EXPCatching.gif" alt="Player">
+</td>
+</tr>
+
+</table>
 
 ### 🔹 Example Upgrades
 
@@ -82,6 +80,25 @@ Mỗi Boss đều có bộ kỹ năng riêng:
 * Rage Phase
 
 Boss không chỉ mạnh hơn về chỉ số mà còn có cơ chế chiến đấu khác nhau.
+
+<table>
+
+<tr>
+<td width="50%">
+<img src="images/CircleExpand.png" alt="Home">
+</td>
+<td width="50%">
+<img src="images/CrossLaser.png" alt="Player">
+</td>
+</tr>
+
+<tr>
+<td width="50%">
+<img src="images/Shadowlam.png" alt="Home">
+</td>
+</tr>
+
+</table>
 
 ---
 
@@ -125,7 +142,6 @@ Boss không chỉ mạnh hơn về chỉ số mà còn có cơ chế chiến đ�
 
 * More Characters
 * Passive Skill System
-* Multiplayer Co-op
 * Inventory & Equipment
 * Procedural Dungeon
 * More Boss Phases
@@ -136,7 +152,9 @@ Boss không chỉ mạnh hơn về chỉ số mà còn có cơ chế chiến đ�
 # 📸 Gameplay Preview
 
 ```md
-![Gameplay](images/gameplay.gif)
+<a href="videos/gameplay.mp4">
+    <img src="videos/AutoAttack.gif">
+</a>
 ```
 
 ---
