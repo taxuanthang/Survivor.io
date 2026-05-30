@@ -17,43 +17,37 @@ Người chơi phải sống sót trước hàng đàn quái vật trong các h�
 
 ## 📸 Screenshots
 
+## 📸 Screenshots
+
 <table>
 <tr>
 <td width="50%">
-<img src="images/Upgrade.png">
+<img src="images/Upgrade.png" alt="Home">
 </td>
 <td width="50%">
-<img src="images/Upgrade.png">
+<img src="images/Upgrade.png" alt="Player">
 </td>
 </tr>
 
 <tr>
 <td width="50%">
-<img src="images/Upgrade.png">
+<img src="images/Upgrade.png" alt="Room">
 </td>
 
-<td width="50%">
+<td width="50%" align="center">
 
-<details>
-<summary>📂 +12 More Screenshots</summary>
+<a href="./screenshots.md">
 
-<br>
+<img src="images/Upgrade.png" alt="More">
 
-<img src="images/Upgrade.png" width="100%">
+### ➕ View All Screenshots
 
-<img src="images/Upgrade.png" width="100%">
-
-<img src="images/Upgrade.png" width="100%">
-
-<img src="images/Upgrade.png" width="100%">
-
-<img src="images/Upgrade.png" width="100%">
-
-</details>
+</a>
 
 </td>
 </tr>
 </table>
+
 
 
 ---
