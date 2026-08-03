@@ -6,7 +6,8 @@ public enum RoomType
 {
     StartingRoom,
     EnemyRoom,
-    BossRoom,
+    BossReadyRoom,
+    TreasureRoom,
 }
 
 public enum EnemyType

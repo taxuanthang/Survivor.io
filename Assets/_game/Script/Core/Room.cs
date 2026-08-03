@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
@@ -22,6 +23,7 @@ public class Room : MonoBehaviour
 
     public bool triggered;
     public bool isThisRoomFinished = false;
+    public RoomData data;
 
     public virtual void Awake()
     {
