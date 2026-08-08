@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Unity.Cinemachine.CinemachineSplineRoll;
 
 public class MapGenerationManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MapGenerationManager : MonoBehaviour
     // Lưu tất cả phòng đã sinh (key = vị trí grid)
     private Dictionary<Vector2Int, RoomData> _roomdataMap = new();
     private Dictionary<Room,Vector3> _roomMap = new();
+
+    private List<GameObject> hallsList = new List<GameObject>(); 
 
     // RNG có seed (để tái tạo lại cùng 1 map)
     public  System.Random _rng;
@@ -28,7 +31,7 @@ public class MapGenerationManager : MonoBehaviour
     }
 
 
-    private void DeleteAllCurrentRoom()
+    private void DeleteCurrentMap()
     {
         foreach(Room room in _roomMap.Keys)
         {
@@ -38,6 +41,11 @@ public class MapGenerationManager : MonoBehaviour
         _roomMap.Clear();
         _roomdataMap.Clear();
         rooms.Clear();
+        foreach(GameObject hall in hallsList)
+        {
+            Destroy(hall.gameObject);
+        }
+        hallsList.Clear();
     }
 
     [Button]
@@ -46,7 +54,7 @@ public class MapGenerationManager : MonoBehaviour
     /// </summary>
     public List<RoomData> Generate()
     {
-        DeleteAllCurrentRoom();
+        DeleteCurrentMap();
 
         // --- BƯỚC 0: Khởi tạo ---
         int seed = config.seed == 0 ? Random.Range(int.MinValue, int.MaxValue) : config.seed;
@@ -133,6 +141,31 @@ public class MapGenerationManager : MonoBehaviour
 
             currentPos = nextPos;
         }
+
+        // --- BƯỚC HẬU KỲ: QUÉT VÀ KẾT NỐI CÁC PHÒNG KỀ NHAU ---
+        Vector2Int[] checkDirs = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
+
+        foreach (var kvp in _roomdataMap)
+        {
+            RoomData currentRoom = kvp.Value;
+
+            // Kiểm tra 4 ô xung quanh phòng hiện tại
+            foreach (var dir in checkDirs)
+            {
+                Vector2Int neighborPos = currentRoom.GridPosition + dir;
+
+                // Nếu ô bên cạnh có tồn tại một phòng khác trong map
+                if (_roomdataMap.TryGetValue(neighborPos, out RoomData neighborRoom))
+                {
+                    // Ép chúng kết nối với nhau 
+                    // (Lưu ý: Hàm Connect() trong RoomData của bạn phải có check chống trùng lặp 
+                    // như mình đã hướng dẫn ở câu trước để không bị add lặp vào List)
+                    currentRoom.Connect(neighborRoom);
+                }
+            }
+        }
+        // --------------------------------------------------------
+
         PrintMapToConsole();
         return _roomdataMap.Values.ToList();
     }
@@ -143,7 +176,8 @@ public class MapGenerationManager : MonoBehaviour
     private void InstantiateRooms(List<RoomData> rooms)
     {
         // Lấy kích thước chuẩn 1 lần để tối ưu hiệu năng
-        float cellSize = config.GetActualRoomSize().x;
+        float roomSize = config.GetActualRoomSize().x;
+        float halSize = config.GetActualHallize().x;
 
         foreach (var roomData in rooms)
         {
@@ -166,55 +200,66 @@ public class MapGenerationManager : MonoBehaviour
             print(roomData.GridPosition.x +" "+ roomData.GridPosition.y);
             // Tính vị trí world từ grid position
             Vector3 worldPos = new Vector3(
-                roomData.GridPosition.x * cellSize,
-                roomData.GridPosition.y * cellSize,
+                roomData.GridPosition.x * (roomSize + halSize - 2f),
+                roomData.GridPosition.y * (roomSize + halSize - 2f),
                 0
             );
 
-            // Spawn
+            // Spawn các phòng
             Room room = Instantiate(prefab, worldPos, Quaternion.identity,mapTransform).GetComponent<Room>();
             _roomMap[room] = worldPos;
             room.gameObject.name = $"Room_{roomData.Type}_{roomData.GridPosition.x}_{roomData.GridPosition.y}";
             roomData.Instance = room.gameObject;
             room.data = roomData;
 
+            // đóng cửa phòng
+            room.CloseAllDoor();
 
-            //// Spawn cửa giữa các phòng
-            //foreach (var connected in roomData.ConnectedRooms)
-            //{
-            //    // Chỉ spawn 1 lần (tránh trùng)
-            //    if (connected.GridPosition.x > roomData.GridPosition.x ||
-            //        connected.GridPosition.y > roomData.GridPosition.y)
-            //    {
-            //        SpawnDoor(roomData, connected);
-            //    }
-            //}
+            foreach (var connected in room.data.ConnectedRooms)
+            {
+                Vector2Int dir = room.data.GetDirectionTo(connected);
+
+                room.OpenDoor(dir);
+            }
+
+            // Spawn hành lang giữa các phòng
+            foreach (var connected in roomData.ConnectedRooms)
+            {
+                // So sánh HashCode để đảm bảo chỉ 1 trong 2 phòng được spawn Hall
+                // Không quan tâm phòng đó nằm ở hướng nào, tọa độ âm hay dương
+                if (roomData.GridPosition.GetHashCode() < connected.GridPosition.GetHashCode())
+                {
+                    SpawnHall(roomData, connected);
+                }
+            }
         }
     }
 
-    private void SpawnDoor(RoomData roomA, RoomData roomB)
+    private void SpawnHall(RoomData roomA, RoomData roomB)
     {
-        if (config.prefabDoor == null) return;
+        if (config.prefabHall == null) return;
 
-        float cellSize = config.GetActualRoomSize().x;
+        float roomSize = config.GetActualRoomSize().x;
+        float halSize = config.GetActualHallize().x;
 
         // Cửa đặt ở giữa 2 phòng
         Vector3 posA = new Vector3(
-            roomA.GridPosition.x * cellSize, 0,
-            roomA.GridPosition.y * cellSize
+            roomA.GridPosition.x * (roomSize + halSize-2f),
+            roomA.GridPosition.y * (roomSize + halSize - 2f), 0
         );
         Vector3 posB = new Vector3(
-            roomB.GridPosition.x * cellSize, 0,
-            roomB.GridPosition.y * cellSize
+            roomB.GridPosition.x * (roomSize + halSize - 2f),
+            roomB.GridPosition.y * (roomSize + halSize - 2f), 0
         );
-        Vector3 doorPos = (posA + posB) / 2f;
+        Vector3 hallPos = (posA + posB) / 2f;
 
         // Xoay cửa theo hướng
         Vector2Int dir = roomA.GetDirectionTo(roomB);
         float angle = 0f;
         if (dir == Vector2Int.up || dir == Vector2Int.down) angle = 90f;
 
-        Instantiate(config.prefabDoor, doorPos, Quaternion.Euler(0, angle, 0),mapTransform);
+        GameObject hall = Instantiate(config.prefabHall, hallPos, Quaternion.Euler(0, 0, angle),mapTransform);
+        hallsList.Add(hall);
     }
 
     // ================================================================

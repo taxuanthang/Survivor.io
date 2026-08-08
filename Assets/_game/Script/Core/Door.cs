@@ -8,9 +8,9 @@ public class Door : MonoBehaviour
     [SerializeField] TilemapRenderer _renderer;
 
     public Room room;
+    public bool isClosed = false;
 
-
-    public void Start()
+    public void Awake()
     {
         Open();
         EventManager.instance.OnFinishEnemyRoom.AddListener(Open);
@@ -27,11 +27,13 @@ public class Door : MonoBehaviour
     public void Open()
     {
         // Implement door opening logic here
+        isClosed = false;
         _collider2D.isTrigger = true;
         _renderer.enabled = false;
     }
     public void Close()
     {
+        isClosed = true;
         _collider2D.isTrigger = false;
         _renderer.enabled = true;
     }

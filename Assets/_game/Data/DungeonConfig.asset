@@ -16,7 +16,8 @@ MonoBehaviour:
   gridHeight: 10
   roomCount: 12
   straightChance: 40
-  sizeReferenceObject: {fileID: 3279762838201376451, guid: 3205e9d95be1ce543aec550d5a37eee2, type: 3}
+  sizeReferenceRoom: {fileID: 8916104339812164130, guid: 3205e9d95be1ce543aec550d5a37eee2, type: 3}
+  sizeReferenceHall: {fileID: 6631149649399859923, guid: 24091bdf23f4c8341b922eb5efa78ff0, type: 3}
   roomWorldSize: 20
   totalRoomSize: {x: 10, y: 10}
   prefabEnemyRooms:
@@ -30,5 +31,5 @@ MonoBehaviour:
   - {fileID: 7735724478949544995, guid: 0a27f5c35799c4449883d7b542c8c1c7, type: 3}
   prefabRoomTreasure:
   - {fileID: 7735724478949544995, guid: 3dab68ba6f20d654c8b8cecd13720b3c, type: 3}
-  prefabDoor: {fileID: 3840055861730658743, guid: a05dd5af0bb56184a8b65ab135494aa9, type: 3}
+  prefabHall: {fileID: 4777211134887532656, guid: 78560fa72ccb77545a27b712a08a75fc, type: 3}
   seed: 0

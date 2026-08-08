@@ -1,4 +1,5 @@
 ﻿using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,7 +20,7 @@ public class Room : MonoBehaviour
     [Header("Other")]
     public RoomType roomType;
 
-    public Door door;
+    public List<Door> doorList;
 
     public bool triggered;
     public bool isThisRoomFinished = false;
@@ -27,8 +28,10 @@ public class Room : MonoBehaviour
 
     public virtual void Awake()
     {
-        
-        if(door.room ==null)door.room = this;
+        foreach (var door in doorList)
+        {
+            if (door.room == null) door.room = this;
+        }
     }
 
     public virtual void Update()
@@ -55,9 +58,64 @@ public class Room : MonoBehaviour
         }
     }
 
+    [Button]
     internal void CloseAllDoor()
     {
-        door.Close();
-
+        print("đóng cửa phòng" + this.name);
+        foreach (var door in doorList)
+        {
+            door.Close();
+        }
     }
+
+    public void CloseDoor(Vector2 doorCoordinate)
+    {
+        if (doorList.Count == 0) return;
+        if(doorCoordinate == new Vector2(0f,1f))
+        {
+            print("đóng cửa 0 phòng" + this.name);
+            doorList[0].Close();
+        }
+        else if (doorCoordinate == new Vector2(-1f, 0f))
+        {
+            print("đóng cửa 1 phòng" + this.name);
+            doorList[1].Close();
+        }
+        else if (doorCoordinate == new Vector2(0f, -1f))
+        {
+
+            print("đóng cửa 2 phòng" + this.name);
+            doorList[2].Close();
+        }
+        else if (doorCoordinate == new Vector2(1f, 0f))
+        {
+
+            print("đóng cửa 3 phòng" + this.name);
+            doorList[3].Close();
+        }
+    }
+
+    public void OpenDoor(Vector2 doorCoordinate)
+    {
+        if (doorList.Count == 0) return;
+        if (doorCoordinate == new Vector2(0f, 1f))
+        {
+            doorList[0].Open();
+        }
+        else if (doorCoordinate == new Vector2(-1f, 0f))
+        {
+            doorList[1].Open();
+        }
+        else if (doorCoordinate == new Vector2(0f, -1f))
+        {
+            doorList[2].Open();
+        }
+        else if (doorCoordinate == new Vector2(1f, 0f))
+        {
+            doorList[3].Open();
+        }
+    }
+
+
+
 }

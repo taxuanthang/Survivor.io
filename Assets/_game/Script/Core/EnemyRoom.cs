@@ -91,9 +91,6 @@ public class EnemyRoom : Room
 
         worldBounds = new Bounds();
         worldBounds.SetMinMax(min, max);
-
-
-        door.room = this;
     }
 
     public List<Transform> GetSpawnPoints()
@@ -104,7 +101,12 @@ public class EnemyRoom : Room
 
     internal void OpenAllDoor()
     {
-        door.Open();
+        print("dang mo cua");
+        foreach (Door door in doorList)
+        {
+            door.Open();
+        }
+
     }
 
     public override void OnPlayerCrossDoor(PlayerManager player)

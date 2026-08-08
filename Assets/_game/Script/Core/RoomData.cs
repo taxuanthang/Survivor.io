@@ -27,11 +27,13 @@ public class RoomData
 
     public void Connect(RoomData other)
     {
+        // Thêm vào list của chính mình
         if (!ConnectedRooms.Contains(other))
-        {
             ConnectedRooms.Add(other);
+
+        // Thêm ngược lại vào list của phòng kia (Tạo kết nối 2 chiều)
+        if (!other.ConnectedRooms.Contains(this))
             other.ConnectedRooms.Add(this);
-        }
     }
 
     /// <summary>
