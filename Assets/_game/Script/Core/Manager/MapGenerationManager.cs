@@ -61,13 +61,13 @@ public class MapGenerationManager : MonoBehaviour
         _rng = new System.Random(seed);
         _roomdataMap.Clear();
 
-        dataLogger?.LogEvent("DUNGEON_START", $"Seed={seed}, TargetRooms={config.roomCount}");
+        dataLogger?.LogEvent("DUNGEON_START", $"Seed={seed}, TargetRooms={config.roomOnPreferedPathCount}");
 
         // --- BƯỚC 1: Random Walk để tạo layout ---
-        rooms = GenerateLayout();
+        rooms = GeneratePreferedLayout();
 
         // --- BƯỚC 2: Gán loại phòng (Start, Boss, Treasure) ---
-        RoomTypeAssigner.AssignTypes(rooms, _rng);
+        RoomTypeAssigner.AssignTypes(rooms, config, _rng, this);
 
         // --- BƯỚC 3: Instantiate prefab vào scene ---
         InstantiateRooms(rooms);
@@ -80,7 +80,7 @@ public class MapGenerationManager : MonoBehaviour
 
     // ================================================================
     // BƯỚC 1: RANDOM WALK TRÊN GRID
-    private List<RoomData> GenerateLayout()
+    private List<RoomData> GeneratePreferedLayout()
     {
         //// Chọn điểm bắt đầu ở giữa grid
         //Vector2Int startPos = new Vector2Int(config.gridWidth / 2, config.gridHeight / 2);
@@ -104,7 +104,7 @@ public class MapGenerationManager : MonoBehaviour
         Vector2Int currentDir = directions[ran];
 
         // Đi bộ cho đến khi đủ số phòng
-        while (_roomdataMap.Count < config.roomCount)
+        while (_roomdataMap.Count < config.roomOnPreferedPathCount)
         {
             // Quyết định: đi thẳng hay rẽ
             if (_rng.Next(100) > config.straightChance)
@@ -189,15 +189,13 @@ public class MapGenerationManager : MonoBehaviour
                 case RoomType.BossReadyRoom: prefabList = config.prefabRoomBoss; break;
                 case RoomType.TreasureRoom: prefabList = config.prefabRoomTreasure; break;
                 case RoomType.EnemyRoom: prefabList = config.prefabEnemyRooms; break;
+                case RoomType.EliteRoom: prefabList = config.prefabEliteRooms; break;
+                case RoomType.ShopRoom: prefabList = config.prefabShopRooms; break;
+                case RoomType.GamblingRoom: prefabList = config.prefabGamblingRooms; break;
             }
 
             int randomNum = _rng.Next(0, prefabList.Count);
-            Debug.Log(roomData.Type);
-            Debug.Log(randomNum);
-            Debug.Log(prefabList.Count - 1);
             GameObject prefab = prefabList[randomNum];
-
-            print(roomData.GridPosition.x +" "+ roomData.GridPosition.y);
             // Tính vị trí world từ grid position
             Vector3 worldPos = new Vector3(
                 roomData.GridPosition.x * (roomSize + halSize - 2f),
@@ -265,6 +263,44 @@ public class MapGenerationManager : MonoBehaviour
     // ================================================================
     // HELPER FUNCTIONS
     // ================================================================
+
+    // Hàm này trả về phòng mới được tạo (hoặc null nếu không có chỗ trống)
+    public RoomData TryInjectRoom(
+        RoomData fromRoom,
+        RoomType type,
+        System.Random rng)
+    {
+        Vector2Int[] dirs = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
+
+        // Xáo trộn hướng để chọn ngẫu nhiên vị trí trống
+        var shuffledDirs = dirs.OrderBy(x => rng.Next()).ToList();
+
+        foreach (var dir in shuffledDirs)
+        {
+            Vector2Int newPos = fromRoom.GridPosition + dir;
+
+            // 1. Kiểm tra vị trí mới chưa có phòng nào VÀ không bị lố giới hạn map
+            if (!_roomdataMap.ContainsKey(newPos) && IsInBounds(newPos))
+            {
+                // 2. Tạo phòng mới
+                var newRoom = new RoomData(newPos);
+                newRoom.Type = type;
+
+                // 3. Nối cửa 2 chiều
+                fromRoom.Connect(newRoom);
+                newRoom.Connect(fromRoom);
+
+                // 4. Thêm vào từ điển
+                rooms.Add(newRoom);
+
+                return newRoom; // Trả về phòng vừa cấy thành công
+            }
+        }
+
+        return null; // Không còn chỗ trống quanh phòng này
+    }
+
+
     private bool IsInBounds(Vector2Int pos)
     {
         // Chia đôi để lấy bán kính (ví dụ grid 20x20 thì cho phép đi từ -10 đến 10)

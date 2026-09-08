@@ -61,7 +61,6 @@ public class Room : MonoBehaviour
     [Button]
     internal void CloseAllDoor()
     {
-        print("đóng cửa phòng" + this.name);
         foreach (var door in doorList)
         {
             door.Close();
@@ -73,24 +72,20 @@ public class Room : MonoBehaviour
         if (doorList.Count == 0) return;
         if(doorCoordinate == new Vector2(0f,1f))
         {
-            print("đóng cửa 0 phòng" + this.name);
             doorList[0].Close();
         }
         else if (doorCoordinate == new Vector2(-1f, 0f))
         {
-            print("đóng cửa 1 phòng" + this.name);
             doorList[1].Close();
         }
         else if (doorCoordinate == new Vector2(0f, -1f))
         {
 
-            print("đóng cửa 2 phòng" + this.name);
             doorList[2].Close();
         }
         else if (doorCoordinate == new Vector2(1f, 0f))
         {
 
-            print("đóng cửa 3 phòng" + this.name);
             doorList[3].Close();
         }
     }

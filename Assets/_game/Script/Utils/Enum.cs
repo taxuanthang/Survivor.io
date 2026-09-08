@@ -8,6 +8,9 @@ public enum RoomType
     EnemyRoom,
     BossReadyRoom,
     TreasureRoom,
+    EliteRoom,
+    ShopRoom,
+    GamblingRoom,
 }
 
 public enum EnemyType

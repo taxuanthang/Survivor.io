@@ -7165,6 +7165,7 @@ MonoBehaviour:
   _collider2D: {fileID: 1359650919462809183}
   _renderer: {fileID: 7940838121240858335}
   room: {fileID: 0}
+  isClosed: 0
 --- !u!1 &6269370074405298966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7645,6 +7646,7 @@ MonoBehaviour:
   _collider2D: {fileID: 6081232874081544044}
   _renderer: {fileID: 4347232069784491804}
   room: {fileID: 0}
+  isClosed: 0
 --- !u!1 &7457734341286122050
 GameObject:
   m_ObjectHideFlags: 0
@@ -8107,7 +8109,7 @@ MonoBehaviour:
   worldBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  roomType: 0
+  roomType: 3
   doorList:
   - {fileID: 4545516540675187190}
   - {fileID: 879129143349043711}
@@ -13055,6 +13057,7 @@ MonoBehaviour:
   _collider2D: {fileID: 3932299369474868723}
   _renderer: {fileID: 3304858600061411648}
   room: {fileID: 0}
+  isClosed: 0
 --- !u!1 &8855746444162420093
 GameObject:
   m_ObjectHideFlags: 0
@@ -13535,3 +13538,4 @@ MonoBehaviour:
   _collider2D: {fileID: 3753178128096656208}
   _renderer: {fileID: 6033930069733777521}
   room: {fileID: 0}
+  isClosed: 0

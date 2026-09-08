@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,10 +11,6 @@ public class DungeonConfig : ScriptableObject
     [Tooltip("Bản đồ tối đa bao nhiêu phòng ngang/dọc")]
     public int gridWidth = 10;
     public int gridHeight = 10;
-
-    [Header("Sinh phòng")]
-    [Range(5, 50)]
-    public int roomCount = 12;
 
     [Range(0, 100)]
     [Tooltip("% khả năng đi thẳng thay vì rẽ")]
@@ -34,10 +32,34 @@ public class DungeonConfig : ScriptableObject
     public List<GameObject> prefabRoomStart;
     public List<GameObject> prefabRoomBoss;
     public List<GameObject> prefabRoomTreasure;
+    public List<GameObject> prefabEliteRooms;
+    public List<GameObject> prefabShopRooms;
+    public List<GameObject> prefabGamblingRooms;
     public GameObject prefabHall;
+
+    [Header("NumberEachTypeRoom")]
+    [Range(0, 50)]
+    public int numberOfEnemyRooms = 6;
+    [Range(0, 50)]
+    public int numberOfTreasureRooms = 2;
+    [Range(0, 50)]
+    public int numberOfEliteRooms = 2;
+    [Range(0, 50)]
+    public int numberOfShopRooms = 2;
+    [Range(0, 50)]
+    public int numberOfGamblingRooms = 2;
+
+    private int numberOfBossRooms = 1;
+    private int numberOfStartRooms = 1;
+
+    [Header("Sinh phòng")]
+    [ReadOnly(true)]        
+    public int roomOnPreferedPathCount;       
+
 
     [Header("Seed (0 = ngẫu nhiên)")]
     public int seed = 0;
+
 
     /// <summary>
     /// Hàm lấy kích thước thực tế của 1 ô grid (Cell Size).
@@ -173,4 +195,16 @@ public class DungeonConfig : ScriptableObject
         return new Vector2(0f, 0f);
     }
 
+    public int GetRoomCount()
+    {
+        roomOnPreferedPathCount = numberOfEnemyRooms + numberOfTreasureRooms + numberOfBossRooms + numberOfStartRooms;
+        return roomOnPreferedPathCount;
+    }
+
+    // Tự động gọi mỗi khi bạn thay đổi giá trị trong Inspector
+    private void OnValidate()
+    {
+
+        GetRoomCount();
+    }
 }

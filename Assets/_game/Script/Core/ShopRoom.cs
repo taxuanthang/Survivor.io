@@ -1,7 +1,7 @@
     using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureRoom : Room
+public class ShopRoom : Room
 {
     public List<Transform> spawnPoints;
     public List<Transform> GetPlayerSpawnPoints()

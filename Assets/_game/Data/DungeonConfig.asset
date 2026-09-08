@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DungeonConfig
   gridWidth: 10
   gridHeight: 10
-  roomCount: 12
   straightChance: 40
   sizeReferenceRoom: {fileID: 8916104339812164130, guid: 3205e9d95be1ce543aec550d5a37eee2, type: 3}
   sizeReferenceHall: {fileID: 6631149649399859923, guid: 24091bdf23f4c8341b922eb5efa78ff0, type: 3}
@@ -31,5 +30,17 @@ MonoBehaviour:
   - {fileID: 7735724478949544995, guid: 0a27f5c35799c4449883d7b542c8c1c7, type: 3}
   prefabRoomTreasure:
   - {fileID: 7735724478949544995, guid: 3dab68ba6f20d654c8b8cecd13720b3c, type: 3}
+  prefabEliteRooms:
+  - {fileID: 7735724478949544995, guid: 8dec016a2b4632047b132e30caff1410, type: 3}
+  prefabShopRooms:
+  - {fileID: 7735724478949544995, guid: af99ee0c6dd675c4e821cdab7a254011, type: 3}
+  prefabGamblingRooms:
+  - {fileID: 7735724478949544995, guid: e93774a2f73bd714681714a2be96a8a1, type: 3}
   prefabHall: {fileID: 4777211134887532656, guid: 78560fa72ccb77545a27b712a08a75fc, type: 3}
+  numberOfEnemyRooms: 7
+  numberOfTreasureRooms: 3
+  numberOfEliteRooms: 1
+  numberOfShopRooms: 1
+  numberOfGamblingRooms: 1
+  roomOnPreferedPathCount: 12
   seed: 0
