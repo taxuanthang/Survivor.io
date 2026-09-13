@@ -34,6 +34,8 @@ public class EventManager : MonoBehaviour
 
     public UnityEvent<EnemyRoom> OnEnterEnemyRoom;
     public UnityEvent OnFinishEnemyRoom;
+
+    public UnityEvent<float,int> DropCoinForPlayer;
     public UnityEvent OnEnemyHit;
     public UnityEvent OnEnemyDie;
 

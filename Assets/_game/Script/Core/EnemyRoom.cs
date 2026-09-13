@@ -13,6 +13,11 @@ public class EnemyRoom : Room
 
     public List<Transform> spawnsPoints;
 
+    [Header("Coin")]
+    public float coinAmountGiveWhenFinishRoom = 10f;
+
+    public int numberOfCoinGiveWhenFinishRoom = 5;
+
     public override void Update()
     {
         base.Update();
@@ -132,6 +137,7 @@ public class EnemyRoom : Room
         OpenAllDoor();
         EventManager.instance.OnEnemyDie.RemoveListener(OnEnemyDie);
         EventManager.instance.OnFinishEnemyRoom?.Invoke();
+        EventManager.instance.DropCoinForPlayer?.Invoke(coinAmountGiveWhenFinishRoom, numberOfCoinGiveWhenFinishRoom);
     }
 
     public void OnEnemyDie()

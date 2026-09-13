@@ -58,12 +58,13 @@ public class Bullet : MonoBehaviour, IPoolable
         // như đã thấy n sẽ hit phải layer Player trước cta có thể thử 2 cách 1 là chỉnh sửa vị trí spawn đạn ra xa khỏi player hơn nhưng điều này có thể gặp vấn đề là nếu mà đạn nẩy bắn ngc lại cta thì cta vẫn ăn dame
         // cách 2 cta sẽ thử là set cho biết đạn là từ ai bắn rồi set layer Player hoặc Enemy
         CharacterManager character;
+        print("hit");
         switch (bulletType)
         {
             case BulletType.PlayerBullet:
-                if (collision.gameObject.layer == UtilitiesManager.instance.enemyLayer)
+                if ((UtilitiesManager.instance.enemyLayer.value & (1 << collision.gameObject.layer)) != 0)
                 {
-
+                    print("hitEnemy");
                     if (collision.TryGetComponent(out character))
                     {
                         OnHit(character);
@@ -71,7 +72,7 @@ public class Bullet : MonoBehaviour, IPoolable
                 }
                 break;
             case BulletType.EnemyBullet:
-                if (collision.gameObject.layer == UtilitiesManager.instance.playerLayer)
+                if ((UtilitiesManager.instance.playerLayer.value & (1 << collision.gameObject.layer)) != 0)
                 {
                     if (collision.TryGetComponent(out character))
                     {
@@ -81,7 +82,8 @@ public class Bullet : MonoBehaviour, IPoolable
                 break;
         }
 
-        if (collision.gameObject.layer == UtilitiesManager.instance.wallLayer || collision.gameObject.layer == UtilitiesManager.instance.obstacleLayer)
+        if ((UtilitiesManager.instance.wallLayer.value & (1 << collision.gameObject.layer)) != 0 || 
+            (UtilitiesManager.instance.obstacleLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
 
             destroyTimer.timeToDestroy = 0;

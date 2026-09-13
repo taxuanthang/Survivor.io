@@ -36,6 +36,7 @@ public enum PoolType
     BloodVFX,
     EXPOrb,
     ShadowSlam,
+    Coin,
 }
 
 public enum UpgradeType

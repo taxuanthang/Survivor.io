@@ -58,7 +58,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    [Button]
     internal void CloseAllDoor()
     {
         foreach (var door in doorList)

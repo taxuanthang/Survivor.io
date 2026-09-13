@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefab: {fileID: 5752028259930876648, guid: b47868c54bf25e74e96c6fecc22da081, type: 3}
-  poolType: 5
+  poolType: 7
   poolSize: 20
 --- !u!1 &505641207197495434
 GameObject:
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefab: {fileID: 974389431943077195, guid: fc807e33690f0204f948bccb47d6c81b, type: 3}
-  poolType: 1
+  poolType: 2
   poolSize: 20
 --- !u!1 &1089627477618112323
 GameObject:
@@ -1965,6 +1965,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0}
   dodgeInput: 0
   shootInput: 0
+  interactInput: 0
 --- !u!1 &3986878224354042233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,13 +2149,13 @@ Transform:
   - {fileID: 4840650011780864150}
   - {fileID: 4949039646384481246}
   - {fileID: 2746412858391402953}
-  - {fileID: 494920659038305637}
-  - {fileID: 5003086487633910262}
+  - {fileID: 4155270602487495245}
   - {fileID: 9031561501753759297}
   - {fileID: 5385866026629820874}
   - {fileID: 170076218287038505}
   - {fileID: 4425383122188605600}
   - {fileID: 4375739747207711991}
+  - {fileID: 5003086487633910262}
   - {fileID: 1721272458360168413}
   - {fileID: 7262814594004402899}
   m_Father: {fileID: 0}
@@ -2179,6 +2180,7 @@ MonoBehaviour:
   _levelManager: {fileID: 4804927925414558160}
   _cameraManager: {fileID: 8538691657890933863}
   _soundManager: {fileID: 3221217741172358552}
+  _coinSpawnManager: {fileID: 6596762723587356581}
   enemySpawnType: 2
   gameState: 0
 --- !u!1 &4317903006717762215
@@ -2355,6 +2357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   allUpgrades: []
+  oneTimeUpgrades: []
+  availablesUpgrades: []
 --- !u!1 &4495894803568334180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,6 +2571,53 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4567680124909842845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5995044997209234396}
+  - component: {fileID: 5558818218806584215}
+  m_Layer: 0
+  m_Name: Coin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5995044997209234396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567680124909842845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5003086487633910262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5558818218806584215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567680124909842845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 7623828647418369486, guid: ac3beec121068b54da02353e4cb51917, type: 3}
+  poolType: 8
+  poolSize: 20
 --- !u!1 &4613187343005434540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,6 +2710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fde05744c859e44c98ec77727a19b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventManager
+  onPlayerPickCoinUp:
+    m_PersistentCalls:
+      m_Calls: []
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2674,13 +2728,16 @@ MonoBehaviour:
   OnPlayerDie:
     m_PersistentCalls:
       m_Calls: []
-  OnEnterNewRoom:
+  OnEnterNewEnemyRoom:
     m_PersistentCalls:
       m_Calls: []
   OnEnterEnemyRoom:
     m_PersistentCalls:
       m_Calls: []
   OnFinishEnemyRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  DropCoinForPlayer:
     m_PersistentCalls:
       m_Calls: []
   OnEnemyHit:
@@ -2722,7 +2779,7 @@ MonoBehaviour:
   OnPlayerReachNewLevel:
     m_PersistentCalls:
       m_Calls: []
-  OnPlayerCompleteSelectingCard:
+  OnPlayerCompleteSelectingOneCard:
     m_PersistentCalls:
       m_Calls: []
   OnNoMoreUpgrade:
@@ -2848,7 +2905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefab: {fileID: 1611414747150673046, guid: 68cec0c7a3d7c724b8e91c6ce7c71a20, type: 3}
-  poolType: 3
+  poolType: 5
   poolSize: 10
 --- !u!1 &5136765013272617265
 GameObject:
@@ -2895,7 +2952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefab: {fileID: 1817872861384055157, guid: 7d4a40432c1ed32459290f60003759ab, type: 3}
-  poolType: 4
+  poolType: 6
   poolSize: 10
 --- !u!1 &5232642565995654715
 GameObject:
@@ -2922,12 +2979,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5232642565995654715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 312033970722312316}
+  m_Father: {fileID: 4155270602487495245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2448059882226536652
 MonoBehaviour:
@@ -3471,7 +3528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   prefab: {fileID: 3751425992191272842, guid: 39eeaf01f5df8e346a68dadc56d98501, type: 3}
-  poolType: 2
+  poolType: 4
   poolSize: 100
 --- !u!1 &6781930609089909818
 GameObject:
@@ -3579,11 +3636,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5336351121149978480}
+  - {fileID: 7001294974348466166}
   - {fileID: 5532805041928726612}
+  - {fileID: 4378047869746034210}
   - {fileID: 7205144242774656319}
   - {fileID: 4243922537461762503}
   - {fileID: 4954371550576418683}
   - {fileID: 5777528085305146679}
+  - {fileID: 5995044997209234396}
   m_Father: {fileID: 312033970722312316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &847197918251427748
@@ -3682,6 +3742,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7222256764468561727}
   m_CullTransparentMesh: 1
+--- !u!1 &7659903851392126258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4155270602487495245}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4155270602487495245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659903851392126258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 494920659038305637}
+  - {fileID: 7302809670418851281}
+  m_Father: {fileID: 312033970722312316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7744890534573994588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7001294974348466166}
+  - component: {fileID: 8721434010564250857}
+  m_Layer: 0
+  m_Name: EnemyRange_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7001294974348466166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744890534573994588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5003086487633910262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8721434010564250857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744890534573994588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 2081406601031641391, guid: 9461a1b08e4542f43a0b49d5346a9783, type: 3}
+  poolType: 1
+  poolSize: 10
 --- !u!1 &7784213077340528175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3943,53 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &7957940599811086799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4378047869746034210}
+  - component: {fileID: 1802784011070675983}
+  m_Layer: 0
+  m_Name: Enemy_Bullet_Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4378047869746034210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957940599811086799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5003086487633910262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1802784011070675983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957940599811086799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f816c5c530aa24181919968e36de8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
+  prefab: {fileID: 974389431943077195, guid: 4d233060399965d4a84edf7fa6894989, type: 3}
+  poolType: 3
+  poolSize: 20
 --- !u!1 &7965059341112134126
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4500,12 @@ MonoBehaviour:
   expPointLayer:
     serializedVersion: 2
     m_Bits: 8192
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &8617374631685029648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,6 +4669,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.0000038146973}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8920890365721697000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7302809670418851281}
+  - component: {fileID: 6596762723587356581}
+  m_Layer: 0
+  m_Name: CoinSpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7302809670418851281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920890365721697000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4155270602487495245}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6596762723587356581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920890365721697000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa887a924aeb7c488f43313a3b2e40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  coinPrefab: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &8958585865800288480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4583f8e6dac1c3f45b88a339ede167ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenesManager
-  firstSceneIndex: 1
+  firstSceneIndex: 2
 --- !u!1 &8969889417508709131
 GameObject:
   m_ObjectHideFlags: 0

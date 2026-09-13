@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] LevelManager _levelManager;
     [SerializeField] CameraManager _cameraManager;
     [SerializeField] SoundManager _soundManager;
+    [SerializeField] CoinSpawnManager _coinSpawnManager;
 
 
     [SerializeField] EnemySpawnType enemySpawnType;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         _enemySpawnManager.player = _player;
         _levelManager.player = _player;
         _cameraManager.player = _player;
+        _coinSpawnManager.player = _player;
 
         EventManager.instance.StartGame.AddListener(StartGame);
     }
