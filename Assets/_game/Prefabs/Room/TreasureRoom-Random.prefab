@@ -8061,7 +8061,7 @@ GameObject:
   - component: {fileID: 3220824128909129212}
   - component: {fileID: 8919043503219568093}
   m_Layer: 0
-  m_Name: TreasureRoom
+  m_Name: TreasureRoom-Random
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ public class PlayerInputManager : MonoBehaviour
     public Vector2 mousePos;
     public bool dodgeInput =false;
     public bool shootInput = false;
+    public bool interactInput = false;
 
 
     private void Awake()
@@ -29,6 +30,8 @@ public class PlayerInputManager : MonoBehaviour
 
         //inputSystem.Player.Look.performed += ctx => mousePos = ctx.ReadValue<Vector2>();
         //inputSystem.Player.Shoot.performed += ctx => shootInput = true;
+
+        inputSystem.Player.Interact.performed += ctx => interactInput = true;
     }
 
     private void OnEnable()
@@ -49,6 +52,17 @@ public class PlayerInputManager : MonoBehaviour
         HandleDodgeInput();
         HandleShootInput();
         //HandleMouse();
+        HandleInteractInput();
+    }
+
+    private void HandleInteractInput()
+    {
+        if (!interactInput)
+        {
+            return;
+        }
+        interactInput = false;
+        player.HandleInteractInput();
     }
 
     public void Enable()

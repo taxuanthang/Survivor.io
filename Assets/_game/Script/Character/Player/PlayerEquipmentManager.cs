@@ -70,6 +70,7 @@ public class PlayerEquipmentManager : MonoBehaviour
         Quaternion lookAngleInQuater = Quaternion.AngleAxis(lookAngle, Vector3.forward);
         currentGun.transform.rotation = lookAngleInQuater;
     }
+
 }
 
 

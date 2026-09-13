@@ -8,6 +8,10 @@ public class UtilitiesManager : MonoBehaviour
     public LayerMask playerLayer;
     public LayerMask expPointLayer;
 
+    public LayerMask obstacleLayer;
+
+    public LayerMask wallLayer;
+
 
     public void Awake()
     {

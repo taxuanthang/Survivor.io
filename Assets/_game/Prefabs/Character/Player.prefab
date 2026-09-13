@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: -3511906635569298586}
   - component: {fileID: -7458591366558573291}
   - component: {fileID: -1779424743933402103}
+  - component: {fileID: -2556650145489464863}
+  - component: {fileID: 6191710539632802358}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -133,6 +135,7 @@ MonoBehaviour:
   _playerEquipmentManager: {fileID: 0}
   _playerHealthManager: {fileID: 0}
   _playerAnimationManager: {fileID: 0}
+  _playerInteractionManager: {fileID: 0}
 --- !u!114 &171797411338971921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16158df3065421e4895d7a10266751f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLocomotionManager
+  player: {fileID: 0}
   playerTransform: {fileID: 0}
+  interactionManager: {fileID: 0}
   verticalInput: 0
   horizontalInput: 0
   moveAmount: 0
@@ -324,6 +329,34 @@ MonoBehaviour:
   OnNewLevelReach:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2556650145489464863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684245777524939206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65a82ff0d13b0742a600a9492e3bce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  isInteracting: 0
+  interactCircleRadius: 1
+  distanceFromDectectPointToPlayerCentre: 1
+  playerFacingDirection: {x: 0, y: 0}
+--- !u!114 &6191710539632802358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684245777524939206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a6b0bffe5e0a8458ee678bc3a92d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0

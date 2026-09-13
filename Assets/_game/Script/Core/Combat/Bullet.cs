@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class Bullet : MonoBehaviour , IPoolable
+public class Bullet : MonoBehaviour, IPoolable
 {
     public int damage;
     public float speed;
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour , IPoolable
 
     public void Awake()
     {
-        if(transform == null) bulletTransform = GetComponent<Transform>();
+        if (transform == null) bulletTransform = GetComponent<Transform>();
         if (destroyTimer == null) destroyTimer = GetComponent<DestroyTimer>();
 
     }
@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour , IPoolable
         switch (bulletType)
         {
             case BulletType.PlayerBullet:
-                if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                if (collision.gameObject.layer == UtilitiesManager.instance.enemyLayer)
                 {
 
                     if (collision.TryGetComponent(out character))
@@ -71,7 +71,7 @@ public class Bullet : MonoBehaviour , IPoolable
                 }
                 break;
             case BulletType.EnemyBullet:
-                if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+                if (collision.gameObject.layer == UtilitiesManager.instance.playerLayer)
                 {
                     if (collision.TryGetComponent(out character))
                     {
@@ -81,7 +81,7 @@ public class Bullet : MonoBehaviour , IPoolable
                 break;
         }
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        if (collision.gameObject.layer == UtilitiesManager.instance.wallLayer || collision.gameObject.layer == UtilitiesManager.instance.obstacleLayer)
         {
 
             destroyTimer.timeToDestroy = 0;

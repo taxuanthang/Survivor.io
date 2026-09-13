@@ -297,6 +297,14 @@ PrefabInstance:
       propertyPath: poolType
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 696906843851957144, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 696906843851957144, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     - target: {fileID: 965235432110218594, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: oneTimeUpgrades.Array.size
       value: 10
@@ -343,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b63e942441776b441b559e18007d5094, type: 2}
     - target: {fileID: 1501392970399945985, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: firstSceneIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2041348477438859158, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: poolType
@@ -364,6 +372,14 @@ PrefabInstance:
     - target: {fileID: 4259856932175142907, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375739747207711991, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375739747207711991, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6979602218164419068, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: poolType
@@ -905,7 +921,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 245.2
+  m_fontSize: 101.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

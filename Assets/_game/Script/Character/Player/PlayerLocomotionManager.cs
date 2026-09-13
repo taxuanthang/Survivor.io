@@ -4,11 +4,14 @@ using System.Threading.Tasks;
 using UnityEngine;
 public class PlayerLocomotionManager: MonoBehaviour
 {
+    [SerializeField] PlayerManager player;
     [SerializeField] Transform playerTransform;
+    [SerializeField] PlayerInteractionManager interactionManager;
 
     public void Awake()
     {
         if(playerTransform == null) playerTransform = GetComponent<Transform>();
+        if(player == null) player = GetComponent<PlayerManager>();
     }
 
     public void FixedUpdate()
@@ -83,5 +86,12 @@ public class PlayerLocomotionManager: MonoBehaviour
     public bool CanDodge() { return allowToDodge; }
 
 
-
+    internal void HandleInteract()
+    {
+        if(interactionManager.currentInteractable == null)
+        {
+            return;
+        }
+        interactionManager.currentInteractable.OnPlayerInteract(player);
+    }
 }

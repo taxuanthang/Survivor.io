@@ -19,6 +19,9 @@ public class EventManager : MonoBehaviour
     }
 
 
+    public UnityEvent<float> onPlayerPickCoinUp;
+
+
     public UnityEvent<float> OnHealthChanged;
     public UnityEvent<float> OnPlayerHit;
     public UnityEvent<float> OnPlayerAmmoChanged;

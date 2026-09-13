@@ -17,9 +17,9 @@ TagManager:
   - Enemy
   - Player
   - Environment
-  - Obstacle
+  - Wall
   - EXPOrb
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Environment
     uniqueID: 2950005069
+    locked: 0
+  - name: Object
+    uniqueID: 3079217215
     locked: 0
   - name: Item
     uniqueID: 103629529
