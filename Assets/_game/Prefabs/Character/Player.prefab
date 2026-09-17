@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aebc2d522aa14243bc33642ab5ef30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 100
+  maxHealth: 10
   currentHealth: 0
   isDead: 0
   damageReduction: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a6b0bffe5e0a8458ee678bc3a92d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  totalCoinsHave: 0
 --- !u!1 &6789348224774962508
 GameObject:
   m_ObjectHideFlags: 0

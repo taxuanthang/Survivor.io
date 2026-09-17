@@ -4041,8 +4041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9190e7596ee87a34188b48d1c43d0bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  expBar: {fileID: 0}
-  levelText: {fileID: 0}
+  expBar: {fileID: 9139469039398179485}
+  levelText: {fileID: 7533259801323983435}
 --- !u!1 &7968146638585306395
 GameObject:
   m_ObjectHideFlags: 0

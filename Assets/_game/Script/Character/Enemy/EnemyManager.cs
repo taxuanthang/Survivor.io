@@ -28,7 +28,7 @@ public class EnemyManager : CharacterManager , IPoolable
         _enemyAIManager = GetComponent<EnemyAIManager>();
         _enemyAnimationManager = GetComponent<EnemyAnimationManager>();
 
-        OnDie.AddListener(DropEXPOrb);
+        //OnDie.AddListener(DropEXPOrb);
     }
 
     public void Update()

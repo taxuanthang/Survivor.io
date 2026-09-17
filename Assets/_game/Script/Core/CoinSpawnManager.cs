@@ -26,7 +26,7 @@ public class CoinSpawnManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Coin newCoin = PoolManager.instance.Get(PoolType.Coin).GetComponent<Coin>();
-            newCoin.transform.position = player.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+            newCoin.transform.position = player.transform.position + new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
             newCoin.value = value;
         }
     }

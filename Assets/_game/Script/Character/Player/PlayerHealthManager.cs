@@ -31,9 +31,10 @@ public class PlayerHealthManager : CharacterHealthManager
 
     public override void TakeDamage(int damage)
     {
-        if (!isHittable) { return; } 
-            
-        currentHealth -= (int)(damage * (1- damageReduction/100f));
+        if (!isHittable) { return; }
+
+        //currentHealth -= (int)(damage * (1- damageReduction/100f));
+        currentHealth -= 1;
         if (currentHealth <= 0)
         {
             Die();
