@@ -136,6 +136,24 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActiveSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9d60dda-cfc6-4728-9b5c-6500b8b83ac3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateUltimate"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0e14b03-44f6-45aa-a7d6-679ebf26e76f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -345,6 +363,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0036030a-3d08-42e6-8372-144f802a9bc3"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActiveSkill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd827dc0-2509-410d-aee2-bc81d6b3ffe8"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActivateUltimate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -937,6 +977,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_ActiveSkill = m_Player.FindAction("ActiveSkill", throwIfNotFound: true);
+        m_Player_ActivateUltimate = m_Player.FindAction("ActivateUltimate", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1035,6 +1077,8 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_ActiveSkill;
+    private readonly InputAction m_Player_ActivateUltimate;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1066,6 +1110,14 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ActiveSkill".
+        /// </summary>
+        public InputAction @ActiveSkill => m_Wrapper.m_Player_ActiveSkill;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ActivateUltimate".
+        /// </summary>
+        public InputAction @ActivateUltimate => m_Wrapper.m_Player_ActivateUltimate;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1107,6 +1159,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @ActiveSkill.started += instance.OnActiveSkill;
+            @ActiveSkill.performed += instance.OnActiveSkill;
+            @ActiveSkill.canceled += instance.OnActiveSkill;
+            @ActivateUltimate.started += instance.OnActivateUltimate;
+            @ActivateUltimate.performed += instance.OnActivateUltimate;
+            @ActivateUltimate.canceled += instance.OnActivateUltimate;
         }
 
         /// <summary>
@@ -1133,6 +1191,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @ActiveSkill.started -= instance.OnActiveSkill;
+            @ActiveSkill.performed -= instance.OnActiveSkill;
+            @ActiveSkill.canceled -= instance.OnActiveSkill;
+            @ActivateUltimate.started -= instance.OnActivateUltimate;
+            @ActivateUltimate.performed -= instance.OnActivateUltimate;
+            @ActivateUltimate.canceled -= instance.OnActivateUltimate;
         }
 
         /// <summary>
@@ -1468,6 +1532,20 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ActiveSkill" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnActiveSkill(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ActivateUltimate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnActivateUltimate(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

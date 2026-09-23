@@ -5,12 +5,14 @@ public class PlayerManager: CharacterManager
 {
     // Chia nhỏ các thành phần
     [Header("Player")]
-    [SerializeField] PlayerLocomotionManager _playerLocomotionManager;
-    [SerializeField] PlayerEquipmentManager _playerEquipmentManager;
-    [SerializeField] PlayerHealthManager _playerHealthManager;
-    [SerializeField] PlayerAnimationManager _playerAnimationManager;
+    [SerializeField] public PlayerLocomotionManager _playerLocomotionManager;
+    [SerializeField] public PlayerEquipmentManager _playerEquipmentManager;
+    [SerializeField] public PlayerHealthManager _playerHealthManager;
+    [SerializeField] public PlayerAnimationManager _playerAnimationManager;
+    [SerializeField] public PlayerInteractionManager _playerInteractionManager;
+    [SerializeField] public PlayerRageManager _playerRageManager;
 
-    [SerializeField] PlayerInteractionManager _playerInteractionManager;
+    [SerializeField] PlayerSkillManager _playerSkillManager;
 
 
 
@@ -22,6 +24,8 @@ public class PlayerManager: CharacterManager
         if(_playerHealthManager == null) _playerHealthManager = GetComponent<PlayerHealthManager>();
         if (_playerAnimationManager == null) _playerAnimationManager = GetComponent<PlayerAnimationManager>();
         if(_playerInteractionManager == null) _playerInteractionManager = GetComponent<PlayerInteractionManager>();
+        if(_playerRageManager == null) _playerRageManager = GetComponent<PlayerRageManager>();
+        if(_playerSkillManager == null) _playerSkillManager = GetComponent<PlayerSkillManager>();
 
         DontDestroyOnLoad(this);
     }
@@ -48,19 +52,6 @@ public class PlayerManager: CharacterManager
 
         //
         _playerInteractionManager.playerFacingDirection = new Vector2(x, y).normalized;
-    }
-
-    public async void HandleDodgeInput()
-    {
-        if(!_playerLocomotionManager.CanDodge())
-        {
-            return;
-        }
-        _playerHealthManager.isHittable = false;
-        _playerAnimationManager.PLayDodge();
-        await _playerLocomotionManager.HandleDodge();
-        _playerHealthManager.isHittable = true;
-        // Set để ko di chuyển được khi đang dodge
     }
 
     internal void HandleShootInput(Vector3 currentTargetPos)
@@ -92,6 +83,15 @@ public class PlayerManager: CharacterManager
         return _playerHealthManager.isHittable;
     }
 
+    internal void HandleSkillInput()
+    {
+        _playerSkillManager.ActivateSkill();
+    }
+
+    internal void HandleUltimateInput()
+    {
+        _playerSkillManager.ActivateUltimateSkill();
+    }
 }
 
 

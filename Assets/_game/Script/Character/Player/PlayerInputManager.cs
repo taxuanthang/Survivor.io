@@ -14,6 +14,9 @@ public class PlayerInputManager : MonoBehaviour
     public bool interactInput = false;
 
 
+    public bool skillInput = false;
+    public bool ultimateInput = false;
+
     private void Awake()
     {
         inputSystem = new InputSystem();
@@ -32,6 +35,8 @@ public class PlayerInputManager : MonoBehaviour
         //inputSystem.Player.Shoot.performed += ctx => shootInput = true;
 
         inputSystem.Player.Interact.performed += ctx => interactInput = true;
+        inputSystem.Player.ActiveSkill.performed += ctx => skillInput = true;
+        inputSystem.Player.ActivateUltimate.performed += ctx => ultimateInput = true;
     }
 
     private void OnEnable()
@@ -49,10 +54,11 @@ public class PlayerInputManager : MonoBehaviour
     public void Update()
     {
         HandleMoveInput();
-        HandleDodgeInput();
         HandleShootInput();
         //HandleMouse();
         HandleInteractInput();
+        HandleSkillInput();
+        HandleUltimateInput();
     }
 
     private void HandleInteractInput()
@@ -95,15 +101,6 @@ public class PlayerInputManager : MonoBehaviour
 
     }
 
-    private void HandleDodgeInput()
-    {
-        if(!dodgeInput)
-        {
-            return;
-        }
-        dodgeInput = false;
-        player.HandleDodgeInput();
-    }
 
     private void HandleShootInput()
     {
@@ -118,6 +115,25 @@ public class PlayerInputManager : MonoBehaviour
         player.HandleShootInput(lookDir);
     }
 
+    private void HandleSkillInput() 
+    {
+        if (!skillInput)
+        {
+            return;
+        }
+        skillInput = false;
+        player.HandleSkillInput();
+    }
+
+    private void HandleUltimateInput()
+    {
+        if (!ultimateInput)
+        {
+            return;
+        }
+        ultimateInput = false;
+        player.HandleUltimateInput();
+    }
     int width = Screen.width;
     int height = Screen.height;
 
