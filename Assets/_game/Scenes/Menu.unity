@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 460373000613659093, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: rageBar
+      value: 
+      objectReference: {fileID: 1977863483}
     - target: {fileID: 490380786653904196, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -235,8 +239,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7965059341112134126, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+      propertyPath: m_Name
+      value: RageBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4162508208601579424, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+    - {fileID: 4557252149728863574, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+    - {fileID: 5908064846739461571, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+    - {fileID: 7222256764468561727, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
@@ -888,6 +900,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907944122}
   m_CullTransparentMesh: 1
+--- !u!114 &1977863483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9139469039398179485, guid: 15bcdc53da42dab4ca5eb5f3520be0f1, type: 3}
+  m_PrefabInstance: {fileID: 625976020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

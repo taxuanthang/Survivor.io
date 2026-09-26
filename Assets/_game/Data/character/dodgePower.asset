@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: dodgePower
   m_EditorClassIdentifier: Assembly-CSharp::DodgePower
   allowToDodge: 1
-  dodgeSpeed: 8
-  dodgeDuration: 1
-  dodgeCooldown: 0.5
+  dodgeSpeed: 25
+  dodgeDuration: 0.3
+  dodgeCooldown: 1

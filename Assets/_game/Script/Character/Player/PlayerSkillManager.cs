@@ -9,6 +9,10 @@ public class PlayerSkillManager : MonoBehaviour
     PlayerRageManager playerRageManager;
     PlayerManager player;
 
+    public bool allowToUseSkill = true;
+
+    public bool allowToUseUltimate = true;
+
     public void Awake()
     {
         if(playerRageManager == null) playerRageManager = GetComponent<PlayerRageManager>();
@@ -21,9 +25,17 @@ public class PlayerSkillManager : MonoBehaviour
             Debug.LogWarning("No skill assigned to the player.");
             return;
         }
-        if (playerRageManager.IsRageEnough(playerSkill.rageRequired))
-        { 
-            playerSkill.UseSkill(transform,player);
+        if (!playerRageManager.IsRageEnough(playerSkill.rageRequired))
+        {
+            return;
+
+        }
+        if (allowToUseSkill)
+        {
+            allowToUseSkill = false;
+            playerRageManager.DecreaseRage(playerSkill.rageRequired);
+            playerSkill.UseSkill(transform, player);
+            StartCooldown(playerSkill.cooldownTime);
         }
     }
 
@@ -34,13 +46,33 @@ public class PlayerSkillManager : MonoBehaviour
             Debug.LogWarning("No skill assigned to the player.");
             return;
         }
-        if (playerRageManager.IsRageEnough(playerUltimate.rageRequired))
+        if (!playerRageManager.IsRageEnough(playerUltimate.rageRequired))
         {
-            playerUltimate.UseSkill();
+            return;
+        }
+        if (allowToUseSkill)
+        {
+            allowToUseSkill = false;
+            playerRageManager.DecreaseRage(playerUltimate.rageRequired);
+            playerUltimate.UseSkill(transform, player);
+            StartCooldown(playerUltimate.ultimateCooldown);
         }
 
     }
 
+    async void StartCooldown(float amount)
+    {
+        // thêm cool down để tránh spam dodge
+        while (amount > 0)
+        {
+            amount -= Time.fixedDeltaTime;
+            await Awaitable.FixedUpdateAsync();
+        }
+        allowToUseSkill = true;
+    }
+
+    public bool CanUseSkill() { return allowToUseSkill; }
+    public bool CanUseUltimate() { return allowToUseUltimate; }
 
 }
 

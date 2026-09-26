@@ -18,8 +18,7 @@ public class Skill : ScriptableObject
     }
     public void UseSkill(Transform transform, PlayerManager player)
     {
-        DodgePower dPower = power as DodgePower; // Create a new instance of the Power class
-        dPower.UseAbility(transform, player);
+        power.UseAbility(transform, player);
     }
 }
 

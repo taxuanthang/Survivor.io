@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UltimateSkill
   ultimateName: 
   ultimateLevel: 0
-  ultimateCooldown: 0
-  rageRequired: 0
+  ultimateCooldown: 10
+  rageRequired: 50
+  power: {fileID: 11400000, guid: 0490df3301a253241928d105ad455d27, type: 2}

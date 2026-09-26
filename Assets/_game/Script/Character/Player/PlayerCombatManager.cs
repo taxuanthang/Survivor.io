@@ -11,6 +11,8 @@ public class PlayerCombatManager : MonoBehaviour
     public float shootCooldown;
     float currentShootCooldown = 0f;
 
+    public bool canShoot = true;
+
     public void Awake()
     {
         if (player == null) player = GetComponent<PlayerManager>();
@@ -19,9 +21,12 @@ public class PlayerCombatManager : MonoBehaviour
     public void Update()
     {
         // spawn physic để check overlap
-
+        if(canShoot == false)
+        {
+            return;
+        }
         // check khi mà mục tiêu hiện tại chết thì sẽ tìm target mới
-        if(currentEnemy == null)
+        if (currentEnemy == null)
         {
             currentEnemy = GetNearestOverlapEnemy();
         }
@@ -49,17 +54,6 @@ public class PlayerCombatManager : MonoBehaviour
                 player.HandleShootInput(currentEnemy.transform.position);
             }
         }
-
-
-
-
-        
-
-
-    }
-
-    public void ShootCurent()
-    {
 
     }
 

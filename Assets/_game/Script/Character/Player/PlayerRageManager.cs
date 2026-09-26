@@ -20,6 +20,7 @@ public class PlayerRageManager : MonoBehaviour
         {
             currentRage = maxRage;
         }
+        EventManager.instance.OnUpdateRage.Invoke(currentRage / maxRage); // Assuming level is determined by every 10 points of rage
     }
 
     public void DecreaseRage(float amount)
@@ -29,6 +30,7 @@ public class PlayerRageManager : MonoBehaviour
         {
             currentRage = 0f;
         }
+        EventManager.instance.OnUpdateRage.Invoke(currentRage / maxRage); // Assuming level is determined by every 10 points of rage
     }
 
     public bool IsRageEnough(float amount)

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbc209354356cd43831b6a2fa6af3ef, type: 3}
+  m_Name: judgementCutPower
+  m_EditorClassIdentifier: Assembly-CSharp::JudgementCutPower
+  judgementInitiateTime: 1
+  judgementDamage: 1000
+  timeBetweenJudgementAttacks: 0.5
+  judgementAreaPrefab: {fileID: 1639578837223750825, guid: 3497866060ca78748bcd3e94350ecae3, type: 3}

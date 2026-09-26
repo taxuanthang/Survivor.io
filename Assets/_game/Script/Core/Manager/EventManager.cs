@@ -27,6 +27,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent<float> OnPlayerAmmoChanged;
 
     public UnityEvent<float,int> OnGetEXP;
+    public UnityEvent<float> OnUpdateRage;
 
     public UnityEvent OnPlayerDie;
 

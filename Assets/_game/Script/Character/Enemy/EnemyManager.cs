@@ -90,5 +90,15 @@ public class EnemyManager : CharacterManager , IPoolable
     {
         model.localScale = new Vector3(5.85f, 5.85f, 5.85f);
     }
+
+    public void StopMovement()
+    {
+        _enemyAIManager.ChangeState(_enemyAIManager._idleState);
+    }
+
+    public void StartMovement()
+    {
+        _enemyAIManager.ChangeState(_enemyAIManager._chaseState);
+    }
 }
 

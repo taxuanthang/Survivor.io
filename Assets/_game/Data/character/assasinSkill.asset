@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   skillName: 
   skillLevel: 0
-  cooldownTime: 0
-  rageRequired: 0
+  cooldownTime: 1
+  rageRequired: 10
   power: {fileID: 11400000, guid: 74ca8d87fded8224c9b011218364060c, type: 2}

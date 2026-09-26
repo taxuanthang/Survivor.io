@@ -33,7 +33,7 @@ public class EnemyAIManager : MonoBehaviour
         if (_rangeAttackState != null) _rangeAttackState = Instantiate(_rangeAttackState);
 
         // set current state ban đầu là idle
-        ChangeState(_idleState);
+        ChangeState(_chaseState);
 
         if (aiPath == null)  aiPath = GetComponent<AIPath>();
         if (seeker == null) seeker = GetComponent<Seeker>();

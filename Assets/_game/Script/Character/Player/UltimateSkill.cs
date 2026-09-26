@@ -16,9 +16,10 @@ public class UltimateSkill : ScriptableObject
         ultimateLevel = level;
         ultimateCooldown = cooldown;
     }
-    public void UseSkill()
+    public void UseSkill(Transform transform, PlayerManager player)
     {
-        power.UseAbility();
+        power.UseAbility(transform, player);
+        Debug.Log("Ultimate skill used: " + power.name);
     }
 }
 

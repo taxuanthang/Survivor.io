@@ -12,6 +12,8 @@ public class PlayerManager: CharacterManager
     [SerializeField] public PlayerInteractionManager _playerInteractionManager;
     [SerializeField] public PlayerRageManager _playerRageManager;
 
+    [SerializeField] public PlayerCombatManager _playeerCombatManager;
+
     [SerializeField] PlayerSkillManager _playerSkillManager;
 
 
@@ -26,6 +28,7 @@ public class PlayerManager: CharacterManager
         if(_playerInteractionManager == null) _playerInteractionManager = GetComponent<PlayerInteractionManager>();
         if(_playerRageManager == null) _playerRageManager = GetComponent<PlayerRageManager>();
         if(_playerSkillManager == null) _playerSkillManager = GetComponent<PlayerSkillManager>();
+        if(_playeerCombatManager == null) _playeerCombatManager = GetComponent<PlayerCombatManager>();
 
         DontDestroyOnLoad(this);
     }
@@ -81,6 +84,12 @@ public class PlayerManager: CharacterManager
     public bool CanBeHitted()
     {
         return _playerHealthManager.isHittable;
+    }
+
+    public bool SetShootable(bool value)
+    {
+        _playeerCombatManager.canShoot = value;
+        return _playeerCombatManager.canShoot;
     }
 
     internal void HandleSkillInput()
