@@ -3,7 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+    [Tooltip("1: Main scene; 2: Test scene")]
     [SerializeField] int firstSceneIndex = 1;
+
+
+    
 
     public void Awake()
     {
