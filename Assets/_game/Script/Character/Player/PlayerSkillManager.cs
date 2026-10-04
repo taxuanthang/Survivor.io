@@ -18,7 +18,7 @@ public class PlayerSkillManager : MonoBehaviour
         if(playerRageManager == null) playerRageManager = GetComponent<PlayerRageManager>();
         if(player == null) player = GetComponent<PlayerManager>();
     }
-    public void ActivateSkill()
+    public async void ActivateSkill()
     {
         if (playerSkill == null)
         {
@@ -35,11 +35,11 @@ public class PlayerSkillManager : MonoBehaviour
             allowToUseSkill = false;
             playerRageManager.DecreaseRage(playerSkill.rageRequired);
             playerSkill.UseSkill(transform, player);
-            StartCooldown(playerSkill.cooldownTime);
+            allowToUseSkill = await StartCooldown(playerSkill.cooldownTime);
         }
     }
 
-    public void ActivateUltimateSkill()
+    public async void ActivateUltimateSkill()
     {
         if (playerUltimate == null)
         {
@@ -50,17 +50,17 @@ public class PlayerSkillManager : MonoBehaviour
         {
             return;
         }
-        if (allowToUseSkill)
+        if (allowToUseUltimate)
         {
-            allowToUseSkill = false;
+            allowToUseUltimate = false;
             playerRageManager.DecreaseRage(playerUltimate.rageRequired);
             playerUltimate.UseSkill(transform, player);
-            StartCooldown(playerUltimate.ultimateCooldown);
+            allowToUseUltimate = await StartCooldown(playerUltimate.ultimateCooldown);
         }
 
     }
 
-    async void StartCooldown(float amount)
+    async Awaitable<bool> StartCooldown(float amount )
     {
         // thêm cool down để tránh spam dodge
         while (amount > 0)
@@ -68,7 +68,7 @@ public class PlayerSkillManager : MonoBehaviour
             amount -= Time.fixedDeltaTime;
             await Awaitable.FixedUpdateAsync();
         }
-        allowToUseSkill = true;
+        return true;
     }
 
     public bool CanUseSkill() { return allowToUseSkill; }
