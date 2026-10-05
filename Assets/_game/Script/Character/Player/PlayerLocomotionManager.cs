@@ -12,6 +12,7 @@ public class PlayerLocomotionManager: MonoBehaviour
     {
         if(playerTransform == null) playerTransform = GetComponent<Transform>();
         if(player == null) player = GetComponent<PlayerManager>();
+        if (interactionManager == null) interactionManager = GetComponent<PlayerInteractionManager>();
     }
 
     public void FixedUpdate()

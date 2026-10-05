@@ -66,6 +66,15 @@ public class Room : MonoBehaviour
         }
     }
 
+    internal void CloseAllDoorForever()
+    {
+        foreach (var door in doorList)
+        {
+            door.Close();
+            door.isClosedForever = true;
+        }
+    }
+
     public void CloseDoor(Vector2 doorCoordinate)
     {
         if (doorList.Count == 0) return;
@@ -106,6 +115,31 @@ public class Room : MonoBehaviour
         }
         else if (doorCoordinate == new Vector2(1f, 0f))
         {
+            doorList[3].Open();
+        }
+    }
+
+    public void OpenDoorPassForever(Vector2 doorCoordinate)
+    {
+        if (doorList.Count == 0) return;
+        if (doorCoordinate == new Vector2(0f, 1f))
+        {
+            doorList[0].isClosedForever = false;
+            doorList[0].Open();
+        }
+        else if (doorCoordinate == new Vector2(-1f, 0f))
+        {
+            doorList[1].isClosedForever = false;
+            doorList[1].Open();
+        }
+        else if (doorCoordinate == new Vector2(0f, -1f))
+        {
+            doorList[2].isClosedForever = false;
+            doorList[2].Open();
+        }
+        else if (doorCoordinate == new Vector2(1f, 0f))
+        {
+            doorList[3].isClosedForever = false;
             doorList[3].Open();
         }
     }

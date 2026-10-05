@@ -211,13 +211,13 @@ public class MapGenerationManager : MonoBehaviour
             room.data = roomData;
 
             // đóng cửa phòng
-            room.CloseAllDoor();
+            room.CloseAllDoorForever();
 
             foreach (var connected in room.data.ConnectedRooms)
             {
                 Vector2Int dir = room.data.GetDirectionTo(connected);
 
-                room.OpenDoor(dir);
+                room.OpenDoorPassForever(dir);
             }
 
             // Spawn hành lang giữa các phòng

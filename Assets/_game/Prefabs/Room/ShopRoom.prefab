@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 7455929278523666565}
   - component: {fileID: 5205949452440874160}
   - component: {fileID: 7549174369194529867}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1455,7 +1455,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9076161, g: 0.9622642, b: 0.5310609, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7030,6 +7030,7 @@ MonoBehaviour:
   _renderer: {fileID: 7940838121240858335}
   room: {fileID: 0}
   isClosed: 0
+  isClosedForever: 0
 --- !u!1 &6269370074405298966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7511,6 +7512,7 @@ MonoBehaviour:
   _renderer: {fileID: 4347232069784491804}
   room: {fileID: 0}
   isClosed: 0
+  isClosedForever: 0
 --- !u!1 &7457734341286122050
 GameObject:
   m_ObjectHideFlags: 0
@@ -12923,6 +12925,7 @@ MonoBehaviour:
   _renderer: {fileID: 3304858600061411648}
   room: {fileID: 0}
   isClosed: 0
+  isClosedForever: 0
 --- !u!1 &8855746444162420093
 GameObject:
   m_ObjectHideFlags: 0
@@ -13404,3 +13407,4 @@ MonoBehaviour:
   _renderer: {fileID: 6033930069733777521}
   room: {fileID: 0}
   isClosed: 0
+  isClosedForever: 0

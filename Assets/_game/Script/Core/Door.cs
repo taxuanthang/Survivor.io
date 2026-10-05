@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
     public Room room;
     public bool isClosed = false;
 
+    public bool isClosedForever = false;
+
     public void Awake()
     {
         Open();
@@ -27,6 +29,10 @@ public class Door : MonoBehaviour
     public void Open()
     {
         // Implement door opening logic here
+        if(isClosedForever)
+        {
+            return;
+        }    
         isClosed = false;
         _collider2D.isTrigger = true;
         _renderer.enabled = false;
