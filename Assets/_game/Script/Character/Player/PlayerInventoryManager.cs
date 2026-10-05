@@ -7,6 +7,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public void Awake()
     {
         EventManager.instance.onPlayerPickCoinUp.AddListener(AddCoins);
+        EventManager.instance.onPlayerSpendCoin.AddListener(SpendCoins);
     }
 
 
@@ -16,17 +17,15 @@ public class PlayerInventoryManager : MonoBehaviour
         totalCoinsHave += amount;
     }
 
-    public float SpendCoins(float amount)
+    public void SpendCoins(float amount)
     {
         if (totalCoinsHave >= amount)
         {
             totalCoinsHave -= amount;
-            return totalCoinsHave;
         }
         else
         {
             Debug.LogWarning("Not enough coins to spend!");
-            return totalCoinsHave;
         }
     }
 }
